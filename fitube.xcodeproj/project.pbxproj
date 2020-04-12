@@ -3,29 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95A09BBE36B3F1EADEE58B07 /* Pods_fitube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375662A76D6CD3B561F15486 /* Pods_fitube.framework */; };
 		B619487C2442B737005D7675 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619487B2442B737005D7675 /* AppDelegate.swift */; };
 		B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619487D2442B737005D7675 /* SceneDelegate.swift */; };
-		B61948802442B737005D7675 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619487F2442B737005D7675 /* ViewController.swift */; };
+		B61948802442B737005D7675 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619487F2442B737005D7675 /* WelcomeViewController.swift */; };
 		B61948832442B737005D7675 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948812442B737005D7675 /* Main.storyboard */; };
 		B61948862442B737005D7675 /* fitube.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B61948842442B737005D7675 /* fitube.xcdatamodeld */; };
 		B61948882442B738005D7675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61948872442B738005D7675 /* Assets.xcassets */; };
 		B619488B2442B738005D7675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948892442B738005D7675 /* LaunchScreen.storyboard */; };
+		B6C1111424432FFC00783090 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111324432FFC00783090 /* LogInViewController.swift */; };
+		B6C111162443302F00783090 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C111152443302F00783090 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F8DFEB34F460EC53A0355A2 /* Pods-fitube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.debug.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.debug.xcconfig"; sourceTree = "<group>"; };
+		375662A76D6CD3B561F15486 /* Pods_fitube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61948782442B737005D7675 /* fitube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B619487B2442B737005D7675 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B619487D2442B737005D7675 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B619487F2442B737005D7675 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B619487F2442B737005D7675 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B61948822442B737005D7675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B61948852442B737005D7675 /* fitube.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = fitube.xcdatamodel; sourceTree = "<group>"; };
 		B61948872442B738005D7675 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B619488A2442B738005D7675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B619488C2442B738005D7675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6C1111324432FFC00783090 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		B6C111152443302F00783090 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.release.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95A09BBE36B3F1EADEE58B07 /* Pods_fitube.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CF3699499F6CF5EE203D65D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				375662A76D6CD3B561F15486 /* Pods_fitube.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E62AC0C41A8596789B1EDAF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F8DFEB34F460EC53A0355A2 /* Pods-fitube.debug.xcconfig */,
+				F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B619486F2442B736005D7675 = {
 			isa = PBXGroup;
 			children = (
 				B619487A2442B737005D7675 /* fitube */,
 				B61948792442B737005D7675 /* Products */,
+				2E62AC0C41A8596789B1EDAF /* Pods */,
+				1CF3699499F6CF5EE203D65D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,14 +88,32 @@
 			children = (
 				B619487B2442B737005D7675 /* AppDelegate.swift */,
 				B619487D2442B737005D7675 /* SceneDelegate.swift */,
-				B619487F2442B737005D7675 /* ViewController.swift */,
-				B61948812442B737005D7675 /* Main.storyboard */,
+				B6DEB35F244312C600803F0A /* Controllers */,
+				B6DEB35E244312B400803F0A /* View */,
 				B61948872442B738005D7675 /* Assets.xcassets */,
 				B61948892442B738005D7675 /* LaunchScreen.storyboard */,
 				B619488C2442B738005D7675 /* Info.plist */,
 				B61948842442B737005D7675 /* fitube.xcdatamodeld */,
 			);
 			path = fitube;
+			sourceTree = "<group>";
+		};
+		B6DEB35E244312B400803F0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B61948812442B737005D7675 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B6DEB35F244312C600803F0A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B619487F2442B737005D7675 /* WelcomeViewController.swift */,
+				B6C1111324432FFC00783090 /* LogInViewController.swift */,
+				B6C111152443302F00783090 /* RegisterViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B619488F2442B738005D7675 /* Build configuration list for PBXNativeTarget "fitube" */;
 			buildPhases = (
+				4A732BE416EBE50428B0DADA /* [CP] Check Pods Manifest.lock */,
 				B61948742442B737005D7675 /* Sources */,
 				B61948752442B737005D7675 /* Frameworks */,
 				B61948762442B737005D7675 /* Resources */,
+				07DF32BE16FBBB62CB2F6257 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,14 +184,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07DF32BE16FBBB62CB2F6257 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fitube/Pods-fitube-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fitube/Pods-fitube-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fitube/Pods-fitube-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A732BE416EBE50428B0DADA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fitube-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B61948742442B737005D7675 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B61948802442B737005D7675 /* ViewController.swift in Sources */,
+				B61948802442B737005D7675 /* WelcomeViewController.swift in Sources */,
 				B619487C2442B737005D7675 /* AppDelegate.swift in Sources */,
 				B61948862442B737005D7675 /* fitube.xcdatamodeld in Sources */,
+				B6C111162443302F00783090 /* RegisterViewController.swift in Sources */,
+				B6C1111424432FFC00783090 /* LogInViewController.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +378,7 @@
 		};
 		B61948902442B738005D7675 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F8DFEB34F460EC53A0355A2 /* Pods-fitube.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +397,7 @@
 		};
 		B61948912442B738005D7675 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
