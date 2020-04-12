@@ -7,24 +7,26 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func registerButtonPressed(_ sender: UIButton) {
+//        if let newEmail = emailTextField.text, let newPass = passwordTextField.text{
+//            Auth.auth().createUser(withEmail: newEmail, password: newPass) { (authResult, error) in
+//                if let e = error{
+//                    print("Register's error: \(e)")
+//                }else{
+                    performSegue(withIdentifier: "registerDetail", sender: self)
+//                }
+//            }
+//        }
     }
-    */
-
 }

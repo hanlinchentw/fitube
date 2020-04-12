@@ -17,6 +17,8 @@
 		B619488B2442B738005D7675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948892442B738005D7675 /* LaunchScreen.storyboard */; };
 		B6C1111424432FFC00783090 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111324432FFC00783090 /* LogInViewController.swift */; };
 		B6C111162443302F00783090 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C111152443302F00783090 /* RegisterViewController.swift */; };
+		B6C1111824434F1600783090 /* UserDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111724434F1600783090 /* UserDataController.swift */; };
+		B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6C111192443520900783090 /* UserData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		B619488C2442B738005D7675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6C1111324432FFC00783090 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		B6C111152443302F00783090 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B6C1111724434F1600783090 /* UserDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataController.swift; sourceTree = "<group>"; };
+		B6C1111A2443520900783090 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.release.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +92,7 @@
 			children = (
 				B619487B2442B737005D7675 /* AppDelegate.swift */,
 				B619487D2442B737005D7675 /* SceneDelegate.swift */,
+				B6C111192443520900783090 /* UserData.xcdatamodeld */,
 				B6DEB35F244312C600803F0A /* Controllers */,
 				B6DEB35E244312B400803F0A /* View */,
 				B61948872442B738005D7675 /* Assets.xcassets */,
@@ -112,6 +117,7 @@
 				B619487F2442B737005D7675 /* WelcomeViewController.swift */,
 				B6C1111324432FFC00783090 /* LogInViewController.swift */,
 				B6C111152443302F00783090 /* RegisterViewController.swift */,
+				B6C1111724434F1600783090 /* UserDataController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -237,6 +243,8 @@
 				B6C111162443302F00783090 /* RegisterViewController.swift in Sources */,
 				B6C1111424432FFC00783090 /* LogInViewController.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
+				B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */,
+				B6C1111824434F1600783090 /* UserDataController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +453,16 @@
 			);
 			currentVersion = B61948852442B737005D7675 /* fitube.xcdatamodel */;
 			path = fitube.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		B6C111192443520900783090 /* UserData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B6C1111A2443520900783090 /* UserData.xcdatamodel */,
+			);
+			currentVersion = B6C1111A2443520900783090 /* UserData.xcdatamodel */;
+			path = UserData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
