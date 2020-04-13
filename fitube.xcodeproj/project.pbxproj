@@ -90,7 +90,7 @@
 			children = (
 				B619487B2442B737005D7675 /* AppDelegate.swift */,
 				B619487D2442B737005D7675 /* SceneDelegate.swift */,
-				B6C111192443520900783090 /* UserData.xcdatamodeld */,
+				B6C111242444AEB100783090 /* Models */,
 				B6DEB35F244312C600803F0A /* Controllers */,
 				B6DEB35E244312B400803F0A /* View */,
 				B61948872442B738005D7675 /* Assets.xcassets */,
@@ -99,6 +99,14 @@
 				B61948842442B737005D7675 /* fitube.xcdatamodeld */,
 			);
 			path = fitube;
+			sourceTree = "<group>";
+		};
+		B6C111242444AEB100783090 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6C111192443520900783090 /* UserData.xcdatamodeld */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B6DEB35E244312B400803F0A /* View */ = {
