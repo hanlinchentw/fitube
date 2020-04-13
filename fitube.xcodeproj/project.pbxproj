@@ -15,10 +15,9 @@
 		B61948862442B737005D7675 /* fitube.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B61948842442B737005D7675 /* fitube.xcdatamodeld */; };
 		B61948882442B738005D7675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61948872442B738005D7675 /* Assets.xcassets */; };
 		B619488B2442B738005D7675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948892442B738005D7675 /* LaunchScreen.storyboard */; };
-		B6C1111424432FFC00783090 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111324432FFC00783090 /* LogInViewController.swift */; };
-		B6C111162443302F00783090 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C111152443302F00783090 /* RegisterViewController.swift */; };
-		B6C1111824434F1600783090 /* UserDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111724434F1600783090 /* UserDataController.swift */; };
+		B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111724434F1600783090 /* RegisterViewController.swift */; };
 		B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6C111192443520900783090 /* UserData.xcdatamodeld */; };
+		B6C111232444ABFB00783090 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C111222444ABFB00783090 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +32,9 @@
 		B61948872442B738005D7675 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B619488A2442B738005D7675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B619488C2442B738005D7675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6C1111324432FFC00783090 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		B6C111152443302F00783090 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		B6C1111724434F1600783090 /* UserDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataController.swift; sourceTree = "<group>"; };
+		B6C1111724434F1600783090 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B6C1111A2443520900783090 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
+		B6C111222444ABFB00783090 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.release.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,9 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				B619487F2442B737005D7675 /* WelcomeViewController.swift */,
-				B6C1111324432FFC00783090 /* LogInViewController.swift */,
-				B6C111152443302F00783090 /* RegisterViewController.swift */,
-				B6C1111724434F1600783090 /* UserDataController.swift */,
+				B6C1111724434F1600783090 /* RegisterViewController.swift */,
+				B6C111222444ABFB00783090 /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -240,11 +237,10 @@
 				B61948802442B737005D7675 /* WelcomeViewController.swift in Sources */,
 				B619487C2442B737005D7675 /* AppDelegate.swift in Sources */,
 				B61948862442B737005D7675 /* fitube.xcdatamodeld in Sources */,
-				B6C111162443302F00783090 /* RegisterViewController.swift in Sources */,
-				B6C1111424432FFC00783090 /* LogInViewController.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
 				B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */,
-				B6C1111824434F1600783090 /* UserDataController.swift in Sources */,
+				B6C111232444ABFB00783090 /* HomeViewController.swift in Sources */,
+				B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
