@@ -189,21 +189,6 @@
         <scene sceneID="aOS-Vg-SNn">
             <objects>
                 <viewController id="o7Y-Km-QyM" customClass="ProgramViewController" customModule="fitube" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4xB-rA-CHV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FNW-me-XxI">
-                                <rect key="frame" x="0.0" y="88" width="414" height="31"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="ed4-qC-Rl2" kind="embed" id="fa3-Qm-2HQ"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="hfe-Bd-wIc"/>
-                    </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Program" leftItemsSupplementBackButton="YES" id="9v3-TY-A6u"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -241,13 +226,13 @@
                         <inset key="landscapeImageInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0q3-cz-GLP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="0q3-cz-GLP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.28504621479999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.0058808634060000002" green="0.00035292175020000001" blue="0.27845048900000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <offsetWrapper key="textShadowOffset" horizontal="-300" vertical="0.0"/>
+                            <offsetWrapper key="textShadowOffset" horizontal="-280" vertical="0.0"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
@@ -285,31 +270,32 @@
             <point key="canvasLocation" x="3056.521739130435" y="137.94642857142856"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="Ft1-15-0sA">
+        <scene sceneID="Wdu-H0-cez">
             <objects>
-                <viewController id="ed4-qC-Rl2" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="u4h-KC-bqA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
+                <viewController storyboardIdentifier="Motivation" id="4Y6-eU-VHr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vMs-4I-yHq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i5C-We-oVB">
-                                <rect key="frame" x="0.0" y="0.0" width="187" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.28504621479999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <segments>
-                                    <segment title="Challenge"/>
-                                    <segment title="Second"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </segmentedControl>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.28504621479999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oe6-k8-Q8P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="77c-yf-Msm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3956.521739130435" y="-977.34375"/>
+            <point key="canvasLocation" x="5401" y="-1262"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="lnd-pu-q5z">
+            <objects>
+                <viewController storyboardIdentifier="Other" id="Noa-4E-Y7Q" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S6r-uq-h0u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V78-it-ndN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6204" y="-1262"/>
         </scene>
     </scenes>
     <resources>

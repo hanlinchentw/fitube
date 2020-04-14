@@ -17,6 +17,9 @@
 		B61948832442B737005D7675 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948812442B737005D7675 /* Main.storyboard */; };
 		B61948882442B738005D7675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61948872442B738005D7675 /* Assets.xcassets */; };
 		B619488B2442B738005D7675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948892442B738005D7675 /* LaunchScreen.storyboard */; };
+		B651C3322445A42300123412 /* CustomSegementedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651C3312445A42300123412 /* CustomSegementedControl.swift */; };
+		B651C3342445C90200123412 /* EmbedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651C3332445C90200123412 /* EmbedViewController.swift */; };
+		B651C3362445CB9E00123412 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651C3352445CB9E00123412 /* MenuBar.swift */; };
 		B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111724434F1600783090 /* RegisterViewController.swift */; };
 		B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6C111192443520900783090 /* UserData.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -35,6 +38,9 @@
 		B61948872442B738005D7675 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B619488A2442B738005D7675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B619488C2442B738005D7675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B651C3312445A42300123412 /* CustomSegementedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegementedControl.swift; sourceTree = "<group>"; };
+		B651C3332445C90200123412 /* EmbedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedViewController.swift; sourceTree = "<group>"; };
+		B651C3352445CB9E00123412 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		B6C1111724434F1600783090 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B6C1111A2443520900783090 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.release.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,10 +102,21 @@
 				B6DEB35F244312C600803F0A /* Controllers */,
 				B6DEB35E244312B400803F0A /* View */,
 				B61948872442B738005D7675 /* Assets.xcassets */,
+				B651C3372445CBA400123412 /* Programmaticlly */,
 				B61948892442B738005D7675 /* LaunchScreen.storyboard */,
 				B619488C2442B738005D7675 /* Info.plist */,
 			);
 			path = fitube;
+			sourceTree = "<group>";
+		};
+		B651C3372445CBA400123412 /* Programmaticlly */ = {
+			isa = PBXGroup;
+			children = (
+				B651C3332445C90200123412 /* EmbedViewController.swift */,
+				B651C3312445A42300123412 /* CustomSegementedControl.swift */,
+				B651C3352445CB9E00123412 /* MenuBar.swift */,
+			);
+			path = Programmaticlly;
 			sourceTree = "<group>";
 		};
 		B6C111242444AEB100783090 /* Models */ = {
@@ -249,9 +266,12 @@
 				B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */,
 				B619487C2442B737005D7675 /* AppDelegate.swift in Sources */,
 				B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */,
+				B651C3342445C90200123412 /* EmbedViewController.swift in Sources */,
+				B651C3322445A42300123412 /* CustomSegementedControl.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
 				B611336A2445866E0000B1B0 /* HomeTabViewController.swift in Sources */,
 				B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */,
+				B651C3362445CB9E00123412 /* MenuBar.swift in Sources */,
 				B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
