@@ -8,60 +8,54 @@
 
 import UIKit
 
-class ProgramViewController: UIViewController {
-    
-    var segmentedController: UISegmentedControl!
-    private var embedController: EmbedController?
-    
+protocol indexDelegate {
+    func fetchindex(index:Int)
+}
+
+class ProgramViewController: UIViewController ,indexDelegate{
+
+    func fetchindex(index:Int)  {
+//        selectedindex = index
+    }
+
+    @IBOutlet weak var RcontainerView: UIView!
+    @IBOutlet weak var GcontainerView: UIView!
+    @IBOutlet weak var BcontainerView: UIView!
+//
+//    var selectedindex : Int = 0 {
+//        didSet{
+//            switch selectedindex {
+//            case 0:
+//                RcontainerView.isHidden = false
+//                GcontainerView.isHidden = true
+//                BcontainerView.isHidden = true
+//            case 1:
+//                RcontainerView.isHidden = true
+//                GcontainerView.isHidden = false
+//                BcontainerView.isHidden = true
+//            case 2:
+//                RcontainerView.isHidden = true
+//                GcontainerView.isHidden = true
+//                BcontainerView.isHidden = false
+//            default:
+//                return
+//            }
+//        }
+//    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupMenuBar()
+        RcontainerView.isHidden = false
+        GcontainerView.isHidden = true
+        BcontainerView.isHidden = true
         
-        
-//        let codeSegement = CustomSegementedControl(frame: CGRect(x: 0, y: 0,
-//        width: self.view.frame.width, height: 50), buttonTitle: ["Challenge","Motivation","others"])
-//        codeSegement.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0.2850462148, alpha: 1)
-//        view.addSubview(codeSegement)
-//        navigationController?.navigationBar.shadowImage = UIImage()
-//        let selectedindex = codeSegement.bbuttonindex
-        
-        let containerView = UIView()
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(containerView)
-        NSLayoutConstraint.activate([
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 55),
-            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-        ])
-        // add child view controller view to container
-        let controller = storyboard!.instantiateViewController(withIdentifier: "Other")
-        addChild(controller)
-        controller.view.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(controller.view)
-        
-        NSLayoutConstraint.activate([
-            controller.view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            controller.view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            controller.view.topAnchor.constraint(equalTo: containerView.topAnchor),
-            controller.view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
-        ])
-        controller.didMove(toParent: self)
+        let codeSegement = CustomSegementedControl(frame: CGRect(x: 0, y: 0,
+        width: self.view.frame.width, height: 50), buttonTitle: ["Challenge","Motivation","others"])
+        codeSegement.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0.2850462148, alpha: 1)
+        view.addSubview(codeSegement)
+        navigationController?.navigationBar.shadowImage = UIImage()
+  
+        view.backgroundColor = .white
     }
-    
-    let menuBar : MenuBar = {
-        let mb = MenuBar()
-        return mb
-    }()
-    
-    private func setupMenuBar(){
-        view.addSubViews(menuBar)
-    }
-    
-        
-        
-    
-    
-
 
 }

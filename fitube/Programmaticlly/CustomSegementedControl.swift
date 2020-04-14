@@ -9,10 +9,13 @@
 import UIKit
 
 class CustomSegementedControl: UIView {
+    
+
+    
+    var program = ProgramViewController()
     private var buttonTitles : [String]!
     private var buttons : [UIButton]!
     private var selectorView : UIView!
-    
     
     func configstackView(){
         let stack = UIStackView(arrangedSubviews: buttons)
@@ -50,19 +53,20 @@ class CustomSegementedControl: UIView {
         buttons[0].setTitleColor(.white, for: .normal)
     }
     var bbuttonindex  = 0
-    @objc func buttonAction(sender:UIButton){
+    @objc func buttonAction(sender: UIButton){
         for (buttonindex, btn) in buttons.enumerated(){
             btn.setTitleColor(.white, for: .normal)
             if btn == sender{
-                bbuttonindex = buttonindex
+                program.fetchindex(index:buttonindex)
                 let selectorPosition = (frame.width) / CGFloat(self.buttonTitles.count) * CGFloat(buttonindex)
-                UIView.animate(withDuration: 0.3) {
+                UIView.animate(withDuration: 0.2) {
                     self.selectorView.frame.origin.x = selectorPosition
                 }
                 btn.setTitleColor(.white, for: .normal)
             }
         }
     }
+    
     func updateView(){
         createButton()
         configstackView()

@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         lazy var persistentContainer: NSPersistentContainer = {
            
-            let container = NSPersistentContainer(name: "fitube")
+            let container = NSPersistentContainer(name: "UserData")
             container.loadPersistentStores(completionHandler: { (storeDescription, error) in
                 if let error = error as NSError? {
                 
