@@ -25,6 +25,7 @@ class WelcomeViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        view.backgroundColor =  UIColor.white
         navigationController?.isNavigationBarHidden = false
     }
     

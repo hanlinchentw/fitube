@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		95A09BBE36B3F1EADEE58B07 /* Pods_fitube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375662A76D6CD3B561F15486 /* Pods_fitube.framework */; };
 		B611336A2445866E0000B1B0 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61133692445866E0000B1B0 /* HomeTabViewController.swift */; };
+		B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B611336B24458E990000B1B0 /* ProgramViewController.swift */; };
+		B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B611336D24458EBE0000B1B0 /* SettingViewController.swift */; };
 		B619487C2442B737005D7675 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619487B2442B737005D7675 /* AppDelegate.swift */; };
 		B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619487D2442B737005D7675 /* SceneDelegate.swift */; };
 		B61948802442B737005D7675 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619487F2442B737005D7675 /* WelcomeViewController.swift */; };
@@ -23,6 +25,8 @@
 		1F8DFEB34F460EC53A0355A2 /* Pods-fitube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.debug.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.debug.xcconfig"; sourceTree = "<group>"; };
 		375662A76D6CD3B561F15486 /* Pods_fitube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61133692445866E0000B1B0 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		B611336B24458E990000B1B0 /* ProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
+		B611336D24458EBE0000B1B0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B61948782442B737005D7675 /* fitube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B619487B2442B737005D7675 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B619487D2442B737005D7675 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				B619487F2442B737005D7675 /* WelcomeViewController.swift */,
 				B6C1111724434F1600783090 /* RegisterViewController.swift */,
 				B61133692445866E0000B1B0 /* HomeTabViewController.swift */,
+				B611336B24458E990000B1B0 /* ProgramViewController.swift */,
+				B611336D24458EBE0000B1B0 /* SettingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -240,7 +246,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61948802442B737005D7675 /* WelcomeViewController.swift in Sources */,
+				B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */,
 				B619487C2442B737005D7675 /* AppDelegate.swift in Sources */,
+				B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
 				B611336A2445866E0000B1B0 /* HomeTabViewController.swift in Sources */,
 				B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */,

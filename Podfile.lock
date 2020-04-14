@@ -167,6 +167,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - DLRadioButton (1.4.12)
   - Firebase/Auth (6.21.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.5.1)
@@ -253,6 +254,7 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/wowansm/Chameleon.git`, branch `swift5`)
+  - DLRadioButton (~> 1.4)
   - Firebase/Auth
   - Firebase/Firestore
   - IQKeyboardManagerSwift
@@ -262,6 +264,7 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - DLRadioButton
     - Firebase
     - FirebaseAuth
     - FirebaseAuthInterop
@@ -294,6 +297,7 @@ SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
   Firebase: f378c80340dd41c0ad0914af740c021eb282a04b
   FirebaseAuth: a6da11d78dfd956b7f7af3222a0f0b1c93ef8fc9
   FirebaseAuthInterop: a0f37ae05833af156e72028f648d313f7e7592e9
@@ -312,6 +316,6 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: cdce99ccd55ec690106042d95e55565abb66dbaf
+PODFILE CHECKSUM: d097b3d1ce7d85d6f946648e7918bb5a6c7d565b
 
 COCOAPODS: 1.9.1

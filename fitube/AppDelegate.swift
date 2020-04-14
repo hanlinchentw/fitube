@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    self.window?.rootViewController = registerViewController
                    self.window?.makeKeyAndVisible()
                }
-        Thread.sleep(forTimeInterval: 5.0)
+//        Thread.sleep(forTimeInterval: 5.0)
         return true
     }
 
