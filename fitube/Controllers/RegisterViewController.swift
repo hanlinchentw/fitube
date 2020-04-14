@@ -15,7 +15,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
-    let frequencyArray = ["0/week","1~3/week","3~5/week","5~7/week"]
+    let frequencyArray = ["0 /week","1~3 /week","3~5 /week","5~7 /week"]
     var picker = UIPickerView()
     
     let contexts = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -42,7 +42,10 @@ class RegisterViewController: UIViewController {
         newUser.weight = weightTextField.text
         newUser.frequency = trainFrequency.text
         
+        performSegue(withIdentifier: "doneRegister", sender: self)
+        
         save()
+        
         UserDefaults.standard.set(true, forKey: "ALLREADY_REGISTER")
     }
     
