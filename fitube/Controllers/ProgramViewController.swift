@@ -13,9 +13,21 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var levelLabel: UIImageView!
+    @IBOutlet weak var warmButton: UIButton!
+    @IBOutlet weak var photoLabel: UIButton!
+    @IBOutlet weak var trainButton: UIButton!
     var photoArray :[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSLayoutConstraint(item: photoLabel , attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.11, constant: 0).isActive = true
+        
+        photoLabel.titleLabel?.font = UIFont(name: "", size: photoLabel.frame.height/3)
+        trainButton.titleLabel?.font = UIFont(name: "", size: photoLabel.frame.height/3)
+        warmButton.titleLabel?.font = UIFont(name: "", size: photoLabel.frame.height/3)
+        
+        photoLabel.layer.cornerRadius = 10
+        trainButton.layer.cornerRadius = 10
+        warmButton.layer.cornerRadius = 10
         
     }
     @IBAction func warmUpButtonPressed(_ sender: UIButton) {
