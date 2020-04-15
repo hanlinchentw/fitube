@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AVKit
 import AVFoundation
-
+import SwiftVideoCreator
+import Photos
 class ReportViewController: UIViewController, UINavigationControllerDelegate{
 
-    var photoArray :[String] = []
+    private var photoArray :[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +23,11 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
     
     @IBAction func videoGenerated(_ sender: UIButton) {
             loadFile()
+            trimVideo()
+            playVideo()
     }
     
-    func loadFile(){
+    private func loadFile(){
         let manager = FileManager()
         let docUrl = manager.urls(for: .documentDirectory, in: .userDomainMask).first
         let url = docUrl?.appendingPathComponent("photoArray.txt")
@@ -31,10 +35,11 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
            photoArray = array as! [String]
         }
     }
-    func trimVideo(){
+    private func trimVideo(){
+        let size = CGSize(width: 1920, height: 1280)
         let manager = FileManager()
         let docUrl = manager.urls(for: .documentDirectory, in: .userDomainMask).first
-        var imageArray = [UIImage]()
+        var imageArray : [UIImage] = []
         for n in 0...photoArray.count{
             if let url = docUrl?.appendingPathComponent(photoArray[n]){
                 if let image = UIImage(contentsOfFile: url.path){
@@ -42,47 +47,63 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
                 }
             }
         }
+        writeImagesAsMovie(allImages: imageArray, videoPath: docUrl!.absoluteString+"/FitubeResult.mp4", videoSize: size, videoFPS: 30)
+        
     }
+     private func playVideo() {
+           guard let path = Bundle.main.path(forResource: "FitubeResult", ofType:"mp4") else {
+               debugPrint("video.m4v not found")
+               return
+           }
+           let player = AVPlayer(url: URL(fileURLWithPath: path))
+           let playerController = AVPlayerViewController()
+           playerController.player = player
+           present(playerController, animated: true) {
+               player.play()
+           }
+       }
+    
+  //MARK: - Clip Video Method
     func writeImagesAsMovie(allImages: [UIImage], videoPath: String, videoSize: CGSize, videoFPS: Int32) {
         // Create AVAssetWriter to write video
-        guard let assetWriter = createAssetWriter(videoPath, size: videoSize) else {
+        guard let assetWriter = createAssetWriter(path: videoPath, size: videoSize) else {
             print("Error converting images to video: AVAssetWriter not created")
             return
         }
 
         // If here, AVAssetWriter exists so create AVAssetWriterInputPixelBufferAdaptor
-        let writerInput = assetWriter.inputs.filter{ $0.mediaType == AVMediaTypeVideo }.first!
-        let sourceBufferAttributes : [String : AnyObject] = [
+        let writerInput = assetWriter.inputs.filter{ $0.mediaType == AVMediaType.video }.first!
+        let sourceBufferAttributes : [String : Any] = [
             kCVPixelBufferPixelFormatTypeKey as String : Int(kCVPixelFormatType_32ARGB),
             kCVPixelBufferWidthKey as String : videoSize.width,
-            kCVPixelBufferHeightKey as String : videoSize.height,
+            kCVPixelBufferHeightKey as String : videoSize.height
             ]
         let pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: writerInput, sourcePixelBufferAttributes: sourceBufferAttributes)
 
         // Start writing session
         assetWriter.startWriting()
-        assetWriter.startSessionAtSourceTime(kCMTimeZero)
+        assetWriter.startSession(atSourceTime: CMTime.zero)
         if (pixelBufferAdaptor.pixelBufferPool == nil) {
             print("Error converting images to video: pixelBufferPool nil after starting session")
             return
         }
 
         // -- Create queue for <requestMediaDataWhenReadyOnQueue>
-        let mediaQueue = dispatch_queue_create("mediaInputQueue", nil)
+        let mediaQueue = DispatchQueue(__label: "mediaInputQueue", attr: nil)
 
         // -- Set video parameters
-        let frameDuration = CMTimeMake(1, videoFPS)
+        let frameDuration = CMTimeMake(value: 1, timescale: videoFPS)
         var frameCount = 0
 
         // -- Add images to video
         let numImages = allImages.count
-        writerInput.requestMediaDataWhenReadyOnQueue(mediaQueue, usingBlock: { () -> Void in
+        writerInput.requestMediaDataWhenReady(on: mediaQueue, using: { () -> Void in
             // Append unadded images to video but only while input ready
-            while (writerInput.readyForMoreMediaData && frameCount < numImages) {
-                let lastFrameTime = CMTimeMake(Int64(frameCount), videoFPS)
+            while (writerInput.isReadyForMoreMediaData && frameCount < numImages) {
+                let lastFrameTime = CMTimeMake(value: Int64(frameCount), timescale: videoFPS)
                 let presentationTime = frameCount == 0 ? lastFrameTime : CMTimeAdd(lastFrameTime, frameDuration)
 
-                if !self.appendPixelBufferForImageAtURL(allImages[frameCount], pixelBufferAdaptor: pixelBufferAdaptor, presentationTime: presentationTime) {
+                if !self.appendPixelBufferForImageAtURL(image: allImages[frameCount], pixelBufferAdaptor: pixelBufferAdaptor, presentationTime: presentationTime) {
                     print("Error converting images to video: AVAssetWriterInputPixelBufferAdapter failed to append pixel buffer")
                     return
                 }
@@ -93,11 +114,11 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
             // No more images to add? End video.
             if (frameCount >= numImages) {
                 writerInput.markAsFinished()
-                assetWriter.finishWritingWithCompletionHandler {
+                assetWriter.finishWriting {
                     if (assetWriter.error != nil) {
-                        print("Error converting images to video: \(assetWriter.error)")
+                        print("Error converting images to video: \(assetWriter.error!)")
                     } else {
-                        self.saveVideoToLibrary(NSURL(fileURLWithPath: videoPath))
+                        self.saveVideoToLibrary(videoURL: NSURL(fileURLWithPath: videoPath))
                         print("Converted images to movie @ \(videoPath)")
                     }
                 }
@@ -113,18 +134,18 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
         // Return new asset writer or nil
         do {
             // Create asset writer
-            let newWriter = try AVAssetWriter(URL: pathURL, fileType: AVFileTypeMPEG4)
+            let newWriter = try AVAssetWriter(outputURL: pathURL as URL, fileType: AVFileType.mp4)
 
             // Define settings for video input
-            let videoSettings: [String : AnyObject] = [
-                AVVideoCodecKey  : AVVideoCodecH264,
+            let videoSettings: [String : Any] = [
+                AVVideoCodecKey  : AVVideoCodecType.h264,
                 AVVideoWidthKey  : size.width,
                 AVVideoHeightKey : size.height,
                 ]
 
             // Add video input to writer
-            let assetWriterVideoInput = AVAssetWriterInput(mediaType: AVMediaTypeVideo, outputSettings: videoSettings)
-            newWriter.addInput(assetWriterVideoInput)
+            let assetWriterVideoInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: videoSettings)
+            newWriter.add(assetWriterVideoInput)
 
             // Return writer
             print("Created asset writer for \(size.width)x\(size.height) video")
@@ -141,22 +162,22 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
 
         autoreleasepool {
             if  let pixelBufferPool = pixelBufferAdaptor.pixelBufferPool {
-                let pixelBufferPointer = UnsafeMutablePointer<CVPixelBuffer?>.alloc(1)
+                let pixelBufferPointer = UnsafeMutablePointer<CVPixelBuffer?>.allocate(capacity: 1)
                 let status: CVReturn = CVPixelBufferPoolCreatePixelBuffer(
                     kCFAllocatorDefault,
                     pixelBufferPool,
                     pixelBufferPointer
                 )
 
-                if let pixelBuffer = pixelBufferPointer.memory where status == 0 {
-                    fillPixelBufferFromImage(image, pixelBuffer: pixelBuffer)
-                    appendSucceeded = pixelBufferAdaptor.appendPixelBuffer(pixelBuffer, withPresentationTime: presentationTime)
-                    pixelBufferPointer.destroy()
+                if let pixelBuffer = pixelBufferPointer.pointee, status == 0 {
+                    fillPixelBufferFromImage(image: image, pixelBuffer: pixelBuffer)
+                    appendSucceeded = pixelBufferAdaptor.append(pixelBuffer, withPresentationTime: presentationTime)
+                    pixelBufferPointer.deinitialize(count: 1)
                 } else {
                     NSLog("Error: Failed to allocate pixel buffer from pool")
                 }
 
-                pixelBufferPointer.dealloc(1)
+                pixelBufferPointer.deallocate()
             }
         }
 
@@ -164,44 +185,45 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
     }
 
 
-    func fillPixelBufferFromImage(image: UIImage, pixelBuffer: CVPixelBufferRef) {
-        CVPixelBufferLockBaseAddress(pixelBuffer, 0)
+    func fillPixelBufferFromImage(image: UIImage, pixelBuffer: CVPixelBuffer) {
+        CVPixelBufferLockBaseAddress(pixelBuffer, [])
 
         let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer)
         let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
 
         // Create CGBitmapContext
-        let context = CGBitmapContextCreate(
-            pixelData,
-            Int(image.size.width),
-            Int(image.size.height),
-            8,
-            CVPixelBufferGetBytesPerRow(pixelBuffer),
-            rgbColorSpace,
-            CGImageAlphaInfo.PremultipliedFirst.rawValue
+        let context = CGContext(
+            data: pixelData,
+            width: Int(image.size.width),
+            height: Int(image.size.height),
+            bitsPerComponent: 8,
+            bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer),
+            space: rgbColorSpace,
+            bitmapInfo: CGImageAlphaInfo.premultipliedFirst.rawValue
         )
 
         // Draw image into context
-        CGContextDrawImage(context, CGRectMake(0, 0, image.size.width, image.size.height), image.CGImage)
-
-        CVPixelBufferUnlockBaseAddress(pixelBuffer, 0)
+        if let safeimage = image.cgImage, let safecontext = context{
+            safecontext.draw(safeimage, in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+        }
+        CVPixelBufferUnlockBaseAddress(pixelBuffer, [])
     }
 
 
     func saveVideoToLibrary(videoURL: NSURL) {
         PHPhotoLibrary.requestAuthorization { status in
             // Return if unauthorized
-            guard status == .Authorized else {
+            guard status == .authorized else {
                 print("Error saving video: unauthorized access")
                 return
             }
 
             // If here, save video to library
-            PHPhotoLibrary.sharedPhotoLibrary().performChanges({
-                PHAssetChangeRequest.creationRequestForAssetFromVideoAtFileURL(videoURL)
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: videoURL as URL)
             }) { success, error in
-                if !success {
-                    print("Error saving video: \(error)")
+                if let e = error {
+                    print("Error saving video: \(e)")
                 }
             }
         }
