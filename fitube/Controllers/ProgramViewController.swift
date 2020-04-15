@@ -8,54 +8,63 @@
 
 import UIKit
 
-protocol indexDelegate {
-    func fetchindex(index:Int)
-}
 
-class ProgramViewController: UIViewController ,indexDelegate{
+class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
-    func fetchindex(index:Int)  {
-//        selectedindex = index
-    }
-
-    @IBOutlet weak var RcontainerView: UIView!
-    @IBOutlet weak var GcontainerView: UIView!
-    @IBOutlet weak var BcontainerView: UIView!
-//
-//    var selectedindex : Int = 0 {
-//        didSet{
-//            switch selectedindex {
-//            case 0:
-//                RcontainerView.isHidden = false
-//                GcontainerView.isHidden = true
-//                BcontainerView.isHidden = true
-//            case 1:
-//                RcontainerView.isHidden = true
-//                GcontainerView.isHidden = false
-//                BcontainerView.isHidden = true
-//            case 2:
-//                RcontainerView.isHidden = true
-//                GcontainerView.isHidden = true
-//                BcontainerView.isHidden = false
-//            default:
-//                return
-//            }
-//        }
-//    }
-        
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var levelLabel: UIImageView!
+    var photoArray :[String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        RcontainerView.isHidden = false
-        GcontainerView.isHidden = true
-        BcontainerView.isHidden = true
         
-        let codeSegement = CustomSegementedControl(frame: CGRect(x: 0, y: 0,
-        width: self.view.frame.width, height: 50), buttonTitle: ["Challenge","Motivation","others"])
-        codeSegement.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0.2850462148, alpha: 1)
-        view.addSubview(codeSegement)
-        navigationController?.navigationBar.shadowImage = UIImage()
-  
-        view.backgroundColor = .white
+    }
+    @IBAction func warmUpButtonPressed(_ sender: UIButton) {
+    }
+    @IBAction func trainingSection(_ sender: UIButton) {
+    }
+    
+    @IBAction func takePhoto(_ sender: UIButton) {
+        let imagepicker = UIImagePickerController()
+        imagepicker.sourceType = .camera
+        imagepicker.delegate = self
+        present(imagepicker, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let newImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            UIImageWriteToSavedPhotosAlbum(newImage, nil, nil, nil)
+            let fileManager = FileManager.default
+            let imageUrls = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+            let interval = Date.timeIntervalSinceReferenceDate
+            let name = "\(interval).jpg"
+            let url = imageUrls?.appendingPathComponent(name)
+            
+            let data = newImage.jpegData(compressionQuality: 0.9)
+            if let safeurl = url{
+               try! data?.write(to: safeurl)
+            }
+            photoArray.append(name)
+            saveImage()
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    func saveImage() {
+        let fileManager = FileManager.default
+        let imageUrls = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
+        let url = imageUrls?.appendingPathComponent("photoArray.txt")
+        let array = photoArray
+        (array as NSArray).write(to: url!, atomically: true)
+    }
+    func showAlbum(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func completedButtonPressed(_ sender: UIButton) {
     }
 
 }

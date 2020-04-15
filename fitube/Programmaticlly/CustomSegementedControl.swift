@@ -57,7 +57,7 @@ class CustomSegementedControl: UIView {
         for (buttonindex, btn) in buttons.enumerated(){
             btn.setTitleColor(.white, for: .normal)
             if btn == sender{
-                program.fetchindex(index:buttonindex)
+//                program.fetchindex(index:buttonindex)
                 let selectorPosition = (frame.width) / CGFloat(self.buttonTitles.count) * CGFloat(buttonindex)
                 UIView.animate(withDuration: 0.2) {
                     self.selectorView.frame.origin.x = selectorPosition
