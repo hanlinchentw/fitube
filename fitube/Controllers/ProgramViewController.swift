@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 
 class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
@@ -18,10 +18,12 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var trainButton: UIButton!
     @IBOutlet weak var completedButton: UIButton!
     var photoArray :[String] = []
-    
+    var userData = [Users]()
+    let contexts = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NSLayoutConstraint(item: photoLabel , attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.13, constant: 0).isActive = true
         NSLayoutConstraint(item: photoLabel, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.9, constant: 0).isActive = true
 //        photoLabel.titleLabel?.font = UIFont(name: "", size: photoLabel.frame.height/3)
@@ -34,6 +36,19 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         trainButton.layer.cornerRadius = 10
         warmButton.layer.cornerRadius = 10
         completedButton.layer.cornerRadius = 5
+        
+        let request :NSFetchRequest<Users> = Users.fetchRequest()
+        do {
+           userData =  try contexts.fetch(request)
+        }catch{
+            fatalError("fetch user data error:\(error)")
+        }
+        
+        
+        
+        
+        
+        
     }
     @IBAction func warmUpButtonPressed(_ sender: UIButton) {
     }
