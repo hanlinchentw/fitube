@@ -20,6 +20,7 @@
 		B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621EDD42446D64600C3C1E0 /* ReportViewController.swift */; };
 		B651C3322445A42300123412 /* CustomSegementedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651C3312445A42300123412 /* CustomSegementedControl.swift */; };
 		B651C3362445CB9E00123412 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651C3352445CB9E00123412 /* MenuBar.swift */; };
+		B65EE3292448022D001823FA /* MovieMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EE3282448022D001823FA /* MovieMaker.swift */; };
 		B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111724434F1600783090 /* RegisterViewController.swift */; };
 		B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6C111192443520900783090 /* UserData.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		B621EDD42446D64600C3C1E0 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		B651C3312445A42300123412 /* CustomSegementedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegementedControl.swift; sourceTree = "<group>"; };
 		B651C3352445CB9E00123412 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		B65EE3282448022D001823FA /* MovieMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMaker.swift; sourceTree = "<group>"; };
 		B6C1111724434F1600783090 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B6C1111A2443520900783090 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.release.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				B651C3312445A42300123412 /* CustomSegementedControl.swift */,
 				B651C3352445CB9E00123412 /* MenuBar.swift */,
+				B65EE3282448022D001823FA /* MovieMaker.swift */,
 			);
 			path = Programmaticlly;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				B61948802442B737005D7675 /* WelcomeViewController.swift in Sources */,
 				B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */,
 				B619487C2442B737005D7675 /* AppDelegate.swift in Sources */,
+				B65EE3292448022D001823FA /* MovieMaker.swift in Sources */,
 				B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */,
 				B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */,
 				B651C3322445A42300123412 /* CustomSegementedControl.swift in Sources */,

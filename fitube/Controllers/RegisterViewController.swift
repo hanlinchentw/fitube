@@ -46,7 +46,7 @@ class RegisterViewController: UIViewController {
         
         save()
         
-        UserDefaults.standard.set(true, forKey: "ALLREADY_REGISTER")
+//        UserDefaults.standard.set(true, forKey: "ALLREADY_REGISTER")
     }
     
     
