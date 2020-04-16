@@ -16,19 +16,24 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var warmButton: UIButton!
     @IBOutlet weak var photoLabel: UIButton!
     @IBOutlet weak var trainButton: UIButton!
+    @IBOutlet weak var completedButton: UIButton!
     var photoArray :[String] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSLayoutConstraint(item: photoLabel , attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.11, constant: 0).isActive = true
-        
-        photoLabel.titleLabel?.font = UIFont(name: "", size: photoLabel.frame.height/3)
-        trainButton.titleLabel?.font = UIFont(name: "", size: photoLabel.frame.height/3)
-        warmButton.titleLabel?.font = UIFont(name: "", size: photoLabel.frame.height/3)
+        NSLayoutConstraint(item: photoLabel , attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.13, constant: 0).isActive = true
+        NSLayoutConstraint(item: photoLabel, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.9, constant: 0).isActive = true
+//        photoLabel.titleLabel?.font = UIFont(name: "", size: photoLabel.frame.height/3)
+//        trainButton.titleLabel?.font = UIFont(name: "", size: photoLabel.frame.height/3)
+//        warmButton.titleLabel?.font = UIFont(name: "", size: photoLabel.frame.height/3)
+//        completedButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//        NSLayoutConstraint(item: completedButton!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier:1, constant: (view.frame.height)/20).isActive = true
         
         photoLabel.layer.cornerRadius = 10
         trainButton.layer.cornerRadius = 10
         warmButton.layer.cornerRadius = 10
-        
+        completedButton.layer.cornerRadius = 5
     }
     @IBAction func warmUpButtonPressed(_ sender: UIButton) {
     }

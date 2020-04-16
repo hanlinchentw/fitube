@@ -22,13 +22,13 @@ class RegisterViewController: UIViewController {
     
     let contexts = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    let user = [User]()
+    let user = [Users]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doneButton.layer.cornerRadius = 5
-        
-//        print (filePath)
+        doneButton.layer.cornerRadius = 10
+
+        print (filePath)
         picker.dataSource = self
         picker.delegate = self
         trainFrequency.inputView = picker
@@ -39,17 +39,19 @@ class RegisterViewController: UIViewController {
     self.view.endEditing(true)
     }
     @IBAction func DoneButtonPressed(_ sender: UIButton) {
-        let newUser = User(context: contexts)
-        newUser.name = nameTextField.text
-        newUser.age = ageTextField.text
-        newUser.height = heightTextField.text
-        newUser.weight = weightTextField.text
-        newUser.frequency = trainFrequency.text
+        let newUser = Users(context: contexts)
+        if let name = nameTextField.text, let age = ageTextField.text, let height = heightTextField.text, let weight = weightTextField.text, let trFrequency = trainFrequency.text{
+            newUser.name = name
+            newUser.age = age
+            newUser.height = height
+            newUser.weight = weight
+            newUser.frequency = trFrequency
+        }else{
+            
+        }
         
         performSegue(withIdentifier: "doneRegister", sender: self)
-        
         save()
-        
 //        UserDefaults.standard.set(true, forKey: "ALLREADY_REGISTER")
     }
     

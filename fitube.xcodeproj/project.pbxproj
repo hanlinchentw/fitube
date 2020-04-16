@@ -19,8 +19,8 @@
 		B619488B2442B738005D7675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948892442B738005D7675 /* LaunchScreen.storyboard */; };
 		B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621EDD42446D64600C3C1E0 /* ReportViewController.swift */; };
 		B65EE3292448022D001823FA /* MovieMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EE3282448022D001823FA /* MovieMaker.swift */; };
+		B65EE32C2448B4BD001823FA /* Users.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B65EE32A2448B4BD001823FA /* Users.xcdatamodeld */; };
 		B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111724434F1600783090 /* RegisterViewController.swift */; };
-		B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6C111192443520900783090 /* UserData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +39,8 @@
 		B619488C2442B738005D7675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B621EDD42446D64600C3C1E0 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		B65EE3282448022D001823FA /* MovieMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMaker.swift; sourceTree = "<group>"; };
+		B65EE32B2448B4BD001823FA /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		B6C1111724434F1600783090 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		B6C1111A2443520900783090 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
 		F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.release.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +118,7 @@
 		B6C111242444AEB100783090 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B6C111192443520900783090 /* UserData.xcdatamodeld */,
+				B65EE32A2448B4BD001823FA /* Users.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,8 +266,8 @@
 				B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */,
 				B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
+				B65EE32C2448B4BD001823FA /* Users.xcdatamodeld in Sources */,
 				B611336A2445866E0000B1B0 /* HomeTabViewController.swift in Sources */,
-				B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */,
 				B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,13 +472,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B6C111192443520900783090 /* UserData.xcdatamodeld */ = {
+		B65EE32A2448B4BD001823FA /* Users.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B6C1111A2443520900783090 /* UserData.xcdatamodel */,
+				B65EE32B2448B4BD001823FA /* User.xcdatamodel */,
 			);
-			currentVersion = B6C1111A2443520900783090 /* UserData.xcdatamodel */;
-			path = UserData.xcdatamodeld;
+			currentVersion = B65EE32B2448B4BD001823FA /* User.xcdatamodel */;
+			path = Users.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

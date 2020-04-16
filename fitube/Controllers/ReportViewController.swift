@@ -27,7 +27,6 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
         generateButton.layer.cornerRadius = 5.0
         
         videoContainer.translatesAutoresizingMaskIntoConstraints = false
-
         videoContainer.heightAnchor.constraint(equalToConstant: view.frame.width/1.2).isActive = true
         videoContainer.widthAnchor.constraint(equalToConstant: videoContainer.frame.height * (16/9) ).isActive = true
         videoContainer.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi/2)
@@ -38,9 +37,6 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
     
     @IBAction func videoGenerated(_ sender: UIButton) {
         loadFile()
-
-    
-        
     }
     private func loadFile(){
         let manager = FileManager()
