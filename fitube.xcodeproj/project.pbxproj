@@ -18,8 +18,6 @@
 		B61948882442B738005D7675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61948872442B738005D7675 /* Assets.xcassets */; };
 		B619488B2442B738005D7675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948892442B738005D7675 /* LaunchScreen.storyboard */; };
 		B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621EDD42446D64600C3C1E0 /* ReportViewController.swift */; };
-		B651C3322445A42300123412 /* CustomSegementedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651C3312445A42300123412 /* CustomSegementedControl.swift */; };
-		B651C3362445CB9E00123412 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651C3352445CB9E00123412 /* MenuBar.swift */; };
 		B65EE3292448022D001823FA /* MovieMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EE3282448022D001823FA /* MovieMaker.swift */; };
 		B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111724434F1600783090 /* RegisterViewController.swift */; };
 		B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6C111192443520900783090 /* UserData.xcdatamodeld */; };
@@ -40,8 +38,6 @@
 		B619488A2442B738005D7675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B619488C2442B738005D7675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B621EDD42446D64600C3C1E0 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
-		B651C3312445A42300123412 /* CustomSegementedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegementedControl.swift; sourceTree = "<group>"; };
-		B651C3352445CB9E00123412 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		B65EE3282448022D001823FA /* MovieMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMaker.swift; sourceTree = "<group>"; };
 		B6C1111724434F1600783090 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B6C1111A2443520900783090 /* UserData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserData.xcdatamodel; sourceTree = "<group>"; };
@@ -114,8 +110,6 @@
 		B651C3372445CBA400123412 /* Programmaticlly */ = {
 			isa = PBXGroup;
 			children = (
-				B651C3312445A42300123412 /* CustomSegementedControl.swift */,
-				B651C3352445CB9E00123412 /* MenuBar.swift */,
 				B65EE3282448022D001823FA /* MovieMaker.swift */,
 			);
 			path = Programmaticlly;
@@ -271,11 +265,9 @@
 				B65EE3292448022D001823FA /* MovieMaker.swift in Sources */,
 				B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */,
 				B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */,
-				B651C3322445A42300123412 /* CustomSegementedControl.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
 				B611336A2445866E0000B1B0 /* HomeTabViewController.swift in Sources */,
 				B6C1111B2443520900783090 /* UserData.xcdatamodeld in Sources */,
-				B651C3362445CB9E00123412 /* MenuBar.swift in Sources */,
 				B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

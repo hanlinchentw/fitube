@@ -16,20 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        let isRegistered = UserDefaults.standard.bool(forKey: "ALLREADY_REGISTER")
-//               if isRegistered == true{
-//                   // implement home view controller
-//                   let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! HomeTabViewController
-//                   self.window?.rootViewController = homeViewController
-//                   self.window?.makeKeyAndVisible()
-//
-//               }else{
-//                   // implement register view controller
-//                   let registerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
-//                   self.window?.rootViewController = registerViewController
-//                   self.window?.makeKeyAndVisible()
-//               }
-//        Thread.sleep(forTimeInterval: 5.0)
+        let isRegistered = UserDefaults.standard.bool(forKey: "ALLREADY_REGISTER")
+               if isRegistered == true{
+                   // implement home view controller
+                   let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! HomeTabViewController
+                   self.window?.rootViewController = homeViewController
+                   self.window?.makeKeyAndVisible()
+
+               }else{
+                   // implement register view controller
+                   let registerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
+                   self.window?.rootViewController = registerViewController
+                   self.window?.makeKeyAndVisible()
+               }
+
         return true
     }
 

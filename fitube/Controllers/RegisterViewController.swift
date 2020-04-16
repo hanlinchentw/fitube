@@ -15,6 +15,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
+    
     let frequencyArray = ["0 /week","1~3 /week","3~5 /week","5~7 /week"]
     var picker = UIPickerView()
     
@@ -24,6 +26,8 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        doneButton.layer.cornerRadius = 5
+        
 //        print (filePath)
         picker.dataSource = self
         picker.delegate = self
