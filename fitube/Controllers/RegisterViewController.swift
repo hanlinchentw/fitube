@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+
 class RegisterViewController: UIViewController {
 
     @IBOutlet weak var trainFrequency: UITextField!
@@ -50,11 +51,13 @@ class RegisterViewController: UIViewController {
                 newUser.weight = weight
                 newUser.frequency = trFrequency
                 
-//                performSegue(withIdentifier: "doneRegister", sender: self)
+                performSegue(withIdentifier: "doneRegister", sender: self)
+            
                 save()
         }else{
             let alert = UIAlertController(title: "Info. incomplete", message: "Your information is incomplete.", preferredStyle: .alert)
-            let action = UIAlertAction()
+            let action = UIAlertAction(title: "Check again",style : .default, handler: nil)
+            
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
             print("nil")
@@ -66,20 +69,24 @@ class RegisterViewController: UIViewController {
     //MARK: - Data manipulation Method
     func save(){
         do{
-//            deleteAllData(entity: "Users")
+            deleteAllData(entity:"Usersinfo")
             try contexts.save()
+            print ("info save.")
         }catch{
             print("Save error:\(error)")
         }
     }
-    func deleteAllData(entity: String)
-    {
+    func deleteAllData(entity: String){
         let ReqVar = NSFetchRequest<NSFetchRequestResult>(entityName: entity )
         let DelAllReqVar = NSBatchDeleteRequest(fetchRequest: ReqVar)
-        do { try contexts.execute(DelAllReqVar) }
-        catch { print(error) }
+        do {
+            try contexts.execute(DelAllReqVar)
+            
+        }catch { print(error) }
+        
     }
 }
+    
 
 extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
