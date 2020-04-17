@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -379,7 +378,7 @@
                                     <constraint firstAttribute="bottom" secondItem="yXJ-LC-4KB" secondAttribute="bottom" id="oaF-aj-Q3C"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hto-6q-rc7">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hto-6q-rc7">
                                 <rect key="frame" x="159" y="500.33333333333337" width="96" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.21914955415546677" blue="0.42813253117465477" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -394,10 +393,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="hto-6q-rc7" firstAttribute="leading" secondItem="XLv-yk-MLr" secondAttribute="leading" constant="159" id="VzQ-9C-oa4"/>
                             <constraint firstItem="hto-6q-rc7" firstAttribute="top" secondItem="3Nw-rn-Bzi" secondAttribute="bottom" constant="50" id="Xxw-2w-m8J"/>
                             <constraint firstItem="3Nw-rn-Bzi" firstAttribute="centerX" secondItem="la9-ag-1ZR" secondAttribute="centerX" id="Yzp-1b-ada"/>
                             <constraint firstItem="3Nw-rn-Bzi" firstAttribute="top" secondItem="4Vt-Hn-C2x" secondAttribute="bottom" constant="10" id="hdP-Ou-WZb"/>
                             <constraint firstItem="4Vt-Hn-C2x" firstAttribute="top" secondItem="XLv-yk-MLr" secondAttribute="top" constant="20" id="kqn-d1-yGF"/>
+                            <constraint firstItem="XLv-yk-MLr" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hto-6q-rc7" secondAttribute="trailing" symbolic="YES" id="s5d-7D-cab"/>
                             <constraint firstItem="4Vt-Hn-C2x" firstAttribute="leading" secondItem="la9-ag-1ZR" secondAttribute="leadingMargin" id="wMf-HV-e2c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XLv-yk-MLr"/>

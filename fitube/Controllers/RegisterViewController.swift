@@ -22,13 +22,11 @@ class RegisterViewController: UIViewController {
     
     let contexts = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    let user = [Users]()
+    let user = [Usersinfo]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         doneButton.layer.cornerRadius = 10
-        
         print (filePath)
         picker.dataSource = self
         picker.delegate = self
@@ -42,22 +40,24 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func DoneButtonPressed(_ sender: UIButton) {
-        let newUser = Users(context: contexts)
-        if let name = nameTextField.text, let age = ageTextField.text,
-            let height = heightTextField.text, let weight = weightTextField.text,
+        let newUser = Usersinfo(context: contexts)
+        if let namee = nameTextField.text, let age = Int32(ageTextField.text!),
+            let height = Double(heightTextField.text!), let weight = Double(weightTextField.text!),
             let trFrequency = trainFrequency.text{
-                newUser.name = name
+                newUser.name = namee
                 newUser.age = age
                 newUser.height = height
                 newUser.weight = weight
                 newUser.frequency = trFrequency
-                performSegue(withIdentifier: "doneRegister", sender: self)
+                
+//                performSegue(withIdentifier: "doneRegister", sender: self)
                 save()
         }else{
             let alert = UIAlertController(title: "Info. incomplete", message: "Your information is incomplete.", preferredStyle: .alert)
             let action = UIAlertAction()
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
+            print("nil")
         }
 //        UserDefaults.standard.set(true, forKey: "ALLREADY_REGISTER")
     }
@@ -66,7 +66,7 @@ class RegisterViewController: UIViewController {
     //MARK: - Data manipulation Method
     func save(){
         do{
-            deleteAllData(entity: "Users")
+//            deleteAllData(entity: "Users")
             try contexts.save()
         }catch{
             print("Save error:\(error)")
