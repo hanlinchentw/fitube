@@ -51,14 +51,16 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         nameLabel.text =  userData[0].name
         dateLabel.text = dateFetch()
         levelLabel.text = "\(userlevel[0].levelDescription!)"
-        
-        dayPassed = defaults.integer(forKey: "passedDay")
+        dayPassed = 0
+//        dayPassed = defaults.integer(forKey: "passedDay")
         var trainingPart = RookieProgram(day: dayPassed).trainingPart()
         part = trainingPart
         trainButton.setTitle(trainingPart[0], for: .normal)
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+    }
 
     //MARK: - Buttons
     
@@ -82,9 +84,10 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! TrainViewController
+        
         if segue.identifier == "startTraining"{
-            destinationVC.trainingSection = part
+            let destinationVC = segue.destination as! PopUpViewController
+            destinationVC.trainingNote = part
         } 
     }
     

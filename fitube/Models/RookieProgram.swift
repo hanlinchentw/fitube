@@ -14,11 +14,11 @@ struct RookieProgram {
     
     func trainingPart() -> [String]{
         switch trainday {
-        case 1:
+        case 0:
             return ["Chest day", "Dumbell press", "Machine chest fly","Dumbell incline press"]
-        case 3:
+        case 2:
             return ["Leg day", "Squat", "Lunge", "leg extension"]
-        case 5:
+        case 4:
             return ["Back day","Lat pull down","Dumbell row","Machine row"]
         default:
             return ["rest day"]

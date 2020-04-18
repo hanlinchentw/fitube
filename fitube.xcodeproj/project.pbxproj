@@ -18,8 +18,14 @@
 		B61948882442B738005D7675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61948872442B738005D7675 /* Assets.xcassets */; };
 		B619488B2442B738005D7675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948892442B738005D7675 /* LaunchScreen.storyboard */; };
 		B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621EDD42446D64600C3C1E0 /* ReportViewController.swift */; };
+		B641C9DC24496E4900BFAC1E /* levelClassifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9DB24496E4900BFAC1E /* levelClassifyViewController.swift */; };
+		B641C9DE2449705A00BFAC1E /* levelDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9DD2449705A00BFAC1E /* levelDetector.swift */; };
+		B641C9E024499AE200BFAC1E /* WarmupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9DF24499AE200BFAC1E /* WarmupViewController.swift */; };
+		B641C9E42449A5A800BFAC1E /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9E32449A5A800BFAC1E /* TrainViewController.swift */; };
+		B641C9EA2449B4FC00BFAC1E /* RookieProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9E92449B4FC00BFAC1E /* RookieProgram.swift */; };
+		B641C9EC244B08EC00BFAC1E /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */; };
 		B65EE3292448022D001823FA /* MovieMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EE3282448022D001823FA /* MovieMaker.swift */; };
-		B65EE32C2448B4BD001823FA /* Users.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B65EE32A2448B4BD001823FA /* Users.xcdatamodeld */; };
+		B65EE32C2448B4BD001823FA /* Users1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B65EE32A2448B4BD001823FA /* Users1.xcdatamodeld */; };
 		B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111724434F1600783090 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +44,12 @@
 		B619488A2442B738005D7675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B619488C2442B738005D7675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B621EDD42446D64600C3C1E0 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		B641C9DB24496E4900BFAC1E /* levelClassifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelClassifyViewController.swift; sourceTree = "<group>"; };
+		B641C9DD2449705A00BFAC1E /* levelDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelDetector.swift; sourceTree = "<group>"; };
+		B641C9DF24499AE200BFAC1E /* WarmupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmupViewController.swift; sourceTree = "<group>"; };
+		B641C9E32449A5A800BFAC1E /* TrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
+		B641C9E92449B4FC00BFAC1E /* RookieProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RookieProgram.swift; sourceTree = "<group>"; };
+		B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		B65EE3282448022D001823FA /* MovieMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMaker.swift; sourceTree = "<group>"; };
 		B65EE32B2448B4BD001823FA /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		B6C1111724434F1600783090 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +119,27 @@
 			path = fitube;
 			sourceTree = "<group>";
 		};
+		B641C9E52449A81900BFAC1E /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				B611336B24458E990000B1B0 /* ProgramViewController.swift */,
+				B641C9E62449A82F00BFAC1E /* Program */,
+				B621EDD42446D64600C3C1E0 /* ReportViewController.swift */,
+				B611336D24458EBE0000B1B0 /* SettingViewController.swift */,
+			);
+			name = Tab;
+			sourceTree = "<group>";
+		};
+		B641C9E62449A82F00BFAC1E /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				B641C9DF24499AE200BFAC1E /* WarmupViewController.swift */,
+				B641C9E32449A5A800BFAC1E /* TrainViewController.swift */,
+				B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
 		B651C3372445CBA400123412 /* Programmaticlly */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +151,9 @@
 		B6C111242444AEB100783090 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B65EE32A2448B4BD001823FA /* Users.xcdatamodeld */,
+				B65EE32A2448B4BD001823FA /* Users1.xcdatamodeld */,
+				B641C9DD2449705A00BFAC1E /* levelDetector.swift */,
+				B641C9E92449B4FC00BFAC1E /* RookieProgram.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -136,10 +171,9 @@
 			children = (
 				B619487F2442B737005D7675 /* WelcomeViewController.swift */,
 				B6C1111724434F1600783090 /* RegisterViewController.swift */,
+				B641C9DB24496E4900BFAC1E /* levelClassifyViewController.swift */,
 				B61133692445866E0000B1B0 /* HomeTabViewController.swift */,
-				B611336B24458E990000B1B0 /* ProgramViewController.swift */,
-				B611336D24458EBE0000B1B0 /* SettingViewController.swift */,
-				B621EDD42446D64600C3C1E0 /* ReportViewController.swift */,
+				B641C9E52449A81900BFAC1E /* Tab */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -263,12 +297,18 @@
 				B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */,
 				B619487C2442B737005D7675 /* AppDelegate.swift in Sources */,
 				B65EE3292448022D001823FA /* MovieMaker.swift in Sources */,
+				B641C9DE2449705A00BFAC1E /* levelDetector.swift in Sources */,
+				B641C9E024499AE200BFAC1E /* WarmupViewController.swift in Sources */,
 				B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */,
+				B641C9EC244B08EC00BFAC1E /* PopUpViewController.swift in Sources */,
 				B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */,
+				B641C9DC24496E4900BFAC1E /* levelClassifyViewController.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
-				B65EE32C2448B4BD001823FA /* Users.xcdatamodeld in Sources */,
+				B65EE32C2448B4BD001823FA /* Users1.xcdatamodeld in Sources */,
 				B611336A2445866E0000B1B0 /* HomeTabViewController.swift in Sources */,
+				B641C9EA2449B4FC00BFAC1E /* RookieProgram.swift in Sources */,
 				B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */,
+				B641C9E42449A5A800BFAC1E /* TrainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,13 +512,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B65EE32A2448B4BD001823FA /* Users.xcdatamodeld */ = {
+		B65EE32A2448B4BD001823FA /* Users1.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				B65EE32B2448B4BD001823FA /* User.xcdatamodel */,
 			);
 			currentVersion = B65EE32B2448B4BD001823FA /* User.xcdatamodel */;
-			path = Users.xcdatamodeld;
+			path = Users1.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Usersinfo" representedClassName=".Users" syncable="YES" codeGenerationType="class">
+    <entity name="Usersinfo" representedClassName=".Usersinfo" syncable="YES" codeGenerationType="class">
         <attribute name="age" attributeType="Integer 32" usesScalarValueType="YES"/>
         <attribute name="frequency" attributeType="String"/>
         <attribute name="height" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="weight" attributeType="Double" usesScalarValueType="YES"/>
     </entity>
+    <entity name="UsersLevel" representedClassName="UsersLevel" syncable="YES" codeGenerationType="class">
+        <attribute name="level" attributeType="Integer 32" usesScalarValueType="YES"/>
+        <attribute name="levelDescription" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Usersinfo" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="UsersLevel" positionX="-63" positionY="18" width="128" height="73"/>
     </elements>
 </model>
