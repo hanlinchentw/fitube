@@ -15,6 +15,7 @@ class TrainViewController: UIViewController {
     var numofSet = 4
     var lastSetRemaining = 4
     
+    
     @IBOutlet weak var exerciseLabel: UILabel!
     @IBOutlet weak var remainingSet: UILabel!
 
@@ -27,6 +28,21 @@ class TrainViewController: UIViewController {
         previousOneButton.isHidden = true
         if let exercise = trainingSection{
             exerciseLabel.text = exercise[1]
+        }
+    }
+    var test = true
+    override func viewDidAppear(_ animated: Bool) {
+        if test {
+            performSegue(withIdentifier:"trainStarted", sender: self)
+            test = false
+        }
+    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "trainStarted"{
+            let destinationVC =  segue.destination as! PopUpViewController
+            destinationVC.trainingNote = trainingSection
         }
     }
 
@@ -48,7 +64,7 @@ class TrainViewController: UIViewController {
         numofExercise += 1
         if let exercise = trainingSection{
             if numofExercise >= exercise.count{
-                navigationController?.popToRootViewController(animated: true)
+                dismiss(animated: true, completion: nil)
             }else{
                 sender.isHidden = false
                 previousOneButton.isHidden = false
@@ -66,7 +82,7 @@ class TrainViewController: UIViewController {
             if let exercise = trainingSection{
                 numofExercise += 1
                 if numofExercise >= exercise.count{
-                    navigationController?.popToRootViewController(animated: true)
+                    dismiss(animated: true, completion: nil)
                 }else{
                     exerciseLabel.text = exercise[numofExercise]
                 }

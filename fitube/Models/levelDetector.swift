@@ -11,35 +11,23 @@ import CoreData
 struct levelDetector {
     private let contexts = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private var userData = [Usersinfo]()
-    private var userTrain = [UsersLevel]()
     
-    mutating func levelUpdate(){
-        var levelDetected = self.levelDetector()
-        var newLevel = UsersLevel(context:contexts)
-        
+    mutating func levelUpdate() -> Int{
+        let levelDetected = self.levelDetectors()
+        deleteAllData(entity: "UsersLevel")
         switch levelDetected {
             case 5...7:
-                newLevel.level = 1
-                newLevel.levelDescription = "Rookie"
+                return 1
             case 8...10:
-                newLevel.level = 2
-                newLevel.levelDescription = "Intermediate"
+                return 2
             case 11:
-                newLevel.level = 3
-                newLevel.levelDescription = "Advanced"
+                return 3
             default:
-                newLevel.level = 4
-                newLevel.levelDescription = "Beast"
+                return 4
             }
-        do{
-            deleteAllData(entity: "UsersLevel")
-            try contexts.save()
-        }catch{
-            fatalError()
-        }
     }
     
-    mutating func levelDetector() -> Double{
+    mutating func levelDetectors() -> Double{
         self.loadUserInfo()
         let trFrequency = userData[0].frequency
         let weight = userData[0].weight

@@ -26,6 +26,9 @@
 		B641C9EC244B08EC00BFAC1E /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */; };
 		B65EE3292448022D001823FA /* MovieMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EE3282448022D001823FA /* MovieMaker.swift */; };
 		B65EE32C2448B4BD001823FA /* Users1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B65EE32A2448B4BD001823FA /* Users1.xcdatamodeld */; };
+		B6B78558244BF4AF008C2518 /* Intermediate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B78557244BF4AF008C2518 /* Intermediate.swift */; };
+		B6B7855A244BF9BC008C2518 /* Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B78559244BF9BC008C2518 /* Advanced.swift */; };
+		B6B7855C244BF9C5008C2518 /* Beast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B7855B244BF9C5008C2518 /* Beast.swift */; };
 		B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C1111724434F1600783090 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,9 @@
 		B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		B65EE3282448022D001823FA /* MovieMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMaker.swift; sourceTree = "<group>"; };
 		B65EE32B2448B4BD001823FA /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
+		B6B78557244BF4AF008C2518 /* Intermediate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intermediate.swift; sourceTree = "<group>"; };
+		B6B78559244BF9BC008C2518 /* Advanced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advanced.swift; sourceTree = "<group>"; };
+		B6B7855B244BF9C5008C2518 /* Beast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beast.swift; sourceTree = "<group>"; };
 		B6C1111724434F1600783090 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.release.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +160,9 @@
 				B65EE32A2448B4BD001823FA /* Users1.xcdatamodeld */,
 				B641C9DD2449705A00BFAC1E /* levelDetector.swift */,
 				B641C9E92449B4FC00BFAC1E /* RookieProgram.swift */,
+				B6B78557244BF4AF008C2518 /* Intermediate.swift */,
+				B6B78559244BF9BC008C2518 /* Advanced.swift */,
+				B6B7855B244BF9C5008C2518 /* Beast.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,15 +303,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61948802442B737005D7675 /* WelcomeViewController.swift in Sources */,
+				B6B78558244BF4AF008C2518 /* Intermediate.swift in Sources */,
 				B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */,
 				B619487C2442B737005D7675 /* AppDelegate.swift in Sources */,
 				B65EE3292448022D001823FA /* MovieMaker.swift in Sources */,
 				B641C9DE2449705A00BFAC1E /* levelDetector.swift in Sources */,
 				B641C9E024499AE200BFAC1E /* WarmupViewController.swift in Sources */,
+				B6B7855C244BF9C5008C2518 /* Beast.swift in Sources */,
 				B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */,
 				B641C9EC244B08EC00BFAC1E /* PopUpViewController.swift in Sources */,
 				B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */,
 				B641C9DC24496E4900BFAC1E /* levelClassifyViewController.swift in Sources */,
+				B6B7855A244BF9BC008C2518 /* Advanced.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
 				B65EE32C2448B4BD001823FA /* Users1.xcdatamodeld in Sources */,
 				B611336A2445866E0000B1B0 /* HomeTabViewController.swift in Sources */,

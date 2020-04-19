@@ -52,14 +52,16 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         dateLabel.text = dateFetch()
         levelLabel.text = "\(userlevel[0].levelDescription!)"
         dayPassed = 0
+
 //        dayPassed = defaults.integer(forKey: "passedDay")
-        var trainingPart = RookieProgram(day: dayPassed).trainingPart()
-        part = trainingPart
-        trainButton.setTitle(trainingPart[0], for: .normal)
+        part = leveldetermine(day: dayPassed)
+
+        trainButton.setTitle(part[0], for: .normal)
         
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = false
     }
 
     //MARK: - Buttons
@@ -86,8 +88,8 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "startTraining"{
-            let destinationVC = segue.destination as! PopUpViewController
-            destinationVC.trainingNote = part
+            let destinationVC = segue.destination as! TrainViewController
+            destinationVC.trainingSection = part
         } 
     }
     
@@ -140,12 +142,21 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
     
-    
-        
-    
-    
-    
-    
+    //MARK: - level determine
+    func leveldetermine(day: Int) -> [String]{
+        switch userlevel[0].levelDescription {
+        case "Rookie":
+            return RookieProgram(day: day).trainingPart()
+        case "Intermediate":
+            return Intermediate(day:day).trainingPart()
+        case "Advanced":
+            return Advanced(day: day).trainingPart()
+        case "Beast":
+            return Beast(day: day).trainingPart()
+        default:
+            fatalError("Can't give you a suitable program. You are beyond human.")
+        }
+    }
     
     
     

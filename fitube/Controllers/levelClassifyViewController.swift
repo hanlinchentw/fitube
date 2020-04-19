@@ -16,6 +16,7 @@ class levelClassifyViewController: UIViewController {
     private let contexts = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var levels = [UsersLevel]()
     
+    var levelDetect = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,13 +26,13 @@ class levelClassifyViewController: UIViewController {
         }
     
         load()
-        let userLevelDetected = Int(levels[0].level)
-        levelButton[userLevelDetected-1].backgroundColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
+//        let userLevelDetected = Int(levels[0].level)
+        levelButton[levelDetect-1].backgroundColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
     }
     @IBAction func levelBurrtonPressed(_ sender: UIButton) {
-        
+        let eagle = UsersLevel(context:contexts)
         if sender.backgroundColor ==  #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1) {
-            let eagle = UsersLevel(context:contexts)
+            print(sender.currentTitle!)
             switch sender.currentTitle! {
             case levelButton[0].currentTitle:
                 eagle.level = 1
@@ -48,8 +49,11 @@ class levelClassifyViewController: UIViewController {
             default:
                 fatalError()
             }
-            save()
+        }else{
+            eagle.level = Int32(levelDetect)
+            eagle.levelDescription = levelButton[levelDetect-1].currentTitle
         }
+        save()
         performSegue(withIdentifier: "levelDetermined", sender: self)
        
     }
@@ -64,7 +68,7 @@ class levelClassifyViewController: UIViewController {
     }
     
     func load(){
-        levelDetectors.levelUpdate()
+        levelDetect = levelDetectors.levelUpdate()
         let request :NSFetchRequest<UsersLevel> = UsersLevel.fetchRequest()
         do {
             self.levels =  try contexts.fetch(request)

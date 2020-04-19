@@ -11,24 +11,29 @@ import UIKit
 class PopUpViewController: UIViewController {
 
     var trainingNote :[String]?
+
+    @IBOutlet weak var exerciseLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
+        exerciseLabel.text = ""
+        if let exercise = trainingNote {
+            for n in 1...(exercise.count-1){
+                exerciseLabel.text?.append("\(n). \(exercise[n])\n")
+            }
+        }
+        
     }
 
     @IBAction func headToBusinessButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier:"trainStarted", sender: self)
+        dismiss(animated: true, completion: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "trainStarted"{
-            let destinationVC =  segue.destination as! TrainViewController
-            destinationVC.trainingSection = trainingNote
-        }
-    }
+    
 
    
 
