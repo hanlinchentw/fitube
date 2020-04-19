@@ -16,11 +16,11 @@ struct levelDetector {
         let levelDetected = self.levelDetectors()
         deleteAllData(entity: "UsersLevel")
         switch levelDetected {
-            case 5...7:
+            case 0...6:
                 return 1
-            case 8...10:
+            case 7...9:
                 return 2
-            case 11:
+            case 10:
                 return 3
             default:
                 return 4
@@ -50,11 +50,11 @@ struct levelDetector {
         
         switch bmi {
             case 0...17:
-                score  += 1
-            case 18...24:
-                score  += 3
-            case 25...30:
                 score  += 2
+            case 18...24:
+                score  += 4
+            case 25...30:
+                score  += 3
             case 30...50:
                 score  += 1
             default:

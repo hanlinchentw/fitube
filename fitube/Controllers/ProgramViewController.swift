@@ -34,8 +34,10 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSLayoutConstraint(item: photoLabel! , attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.13, constant: 0).isActive = true
-        NSLayoutConstraint(item: photoLabel!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.9, constant: 0).isActive = true
+        NSLayoutConstraint(item: photoLabel! , attribute: .height, relatedBy: .equal,
+                           toItem: view, attribute: .height, multiplier: 0.13, constant: 0).isActive = true
+        NSLayoutConstraint(item: photoLabel!, attribute: .width, relatedBy: .equal,
+                           toItem: view, attribute: .width, multiplier: 0.8, constant: 0).isActive = true
         
         photoLabel.layer.cornerRadius = 10
         trainButton.layer.cornerRadius = 10
@@ -50,7 +52,7 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         nameLabel.text =  userData[0].name
         dateLabel.text = dateFetch()
-        levelLabel.text = "\(userlevel[0].levelDescription!)"
+        levelLabel.text = "  Your level : \(userlevel[0].levelDescription!)"
         dayPassed = 0
 
 //        dayPassed = defaults.integer(forKey: "passedDay")

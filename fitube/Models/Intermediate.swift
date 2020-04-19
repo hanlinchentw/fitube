@@ -15,16 +15,16 @@ struct Intermediate {
     func trainingPart() -> [String]{
         switch trainday {
         case 0:
-            return ["Chest day", "Dumbell press", "Machine chest fly","Dumbell incline press","Bench press"]
+            return ["Chest day", "Dumbbell press", "Machine chest fly","Dumbbell incline press","Bench press"]
         case 1:
-            return ["Back day","Lat pull down","Dumbell row","Machine row","Seated-row"]
+            return ["Back day","Lat pull down","Dumbbell row","Machine row","Seated-row"]
         case 2:
             return ["Leg day", "Squat", "Lunge", "Leg extension","Leg press"]
         case 3:
-            return ["Shoulder day", "Dumbell shoulder press", "Dumbell lateral raise",
-                    "Dumbell front raise","Machine rear delt fly"]
+            return ["Shoulder day", "Dumbbell shoulder press", "Dumbbell lateral raise",
+                    "Dumbbell front raise","Machine rear delt fly"]
         case 4:
-            return ["Arm day","Dumbell bicep curl","EZ-bar curl","Overhead tricep extension", "Tricep cable push down"]
+            return ["Arm day","Dumbbell bicep curl","EZ-bar curl","Overhead tricep extension", "Tricep cable push down"]
         default:
             return ["rest day"]
         }
