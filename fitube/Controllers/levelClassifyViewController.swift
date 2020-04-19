@@ -31,8 +31,8 @@ class levelClassifyViewController: UIViewController {
     }
     @IBAction func levelBurrtonPressed(_ sender: UIButton) {
         let eagle = UsersLevel(context:contexts)
-        if sender.backgroundColor ==  #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1) {
-            print(sender.currentTitle!)
+        print(sender.currentTitle!)
+        if sender.backgroundColor == .gray{
             switch sender.currentTitle! {
             case levelButton[0].currentTitle:
                 eagle.level = 1

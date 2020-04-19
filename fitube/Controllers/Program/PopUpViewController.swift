@@ -11,8 +11,11 @@ import UIKit
 class PopUpViewController: UIViewController {
 
     var trainingNote :[String]?
-
+    var noteforUser = NoteforUser()
+    
+    
     @IBOutlet weak var exerciseLabel: UILabel!
+    @IBOutlet weak var noteLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,11 @@ class PopUpViewController: UIViewController {
             for n in 1...(exercise.count-1){
                 exerciseLabel.text?.append("\(n). \(exercise[n])\n")
             }
+        }
+        noteLabel.text = ""
+        let notes = noteforUser.notefromDeveloper()
+        for i in 0...(notes.count-1){
+            noteLabel.text?.append("\(notes[i])\n")
         }
         
     }
