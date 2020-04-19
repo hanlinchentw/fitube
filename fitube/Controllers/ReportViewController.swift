@@ -14,24 +14,20 @@ import Photos
 
 
 
-
 class ReportViewController: UIViewController, UINavigationControllerDelegate{
-    
+
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var videoContainer: UIView!
+    @IBOutlet weak var borderView: UIView!
     
     private var photoArray :[String] = []
     var imageArray : [UIImage] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        generateButton.layer.cornerRadius = 5.0
-        
-        videoContainer.translatesAutoresizingMaskIntoConstraints = false
-        videoContainer.heightAnchor.constraint(equalToConstant: view.frame.width/1.2).isActive = true
-        videoContainer.widthAnchor.constraint(equalToConstant: videoContainer.frame.height * (16/9) ).isActive = true
-        videoContainer.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi/2)
-        videoContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        videoContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        generateButton.layer.cornerRadius = 10
+        borderView.layer.cornerRadius = 20
+        borderView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        borderView.layer.borderWidth = 2
     }
     
     
@@ -53,7 +49,6 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
         let docUrl = manager.urls(for: .documentDirectory, in: .userDomainMask).first
         for n in 0...(photoArray.count-1) {
             if let url = docUrl?.appendingPathComponent(photoArray[n]){
-                
                 if let image = UIImage(contentsOfFile: url.path){
                     imageArray.append(image)
                 }
@@ -68,6 +63,7 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
         let movieMaker = CXEImagesToVideo(videoSettings: settings)
         movieMaker.createMovieFrom(images: imageArray){ (fileURL:URL) in
             let video = AVAsset(url: fileURL)
+            
             let playerItem = AVPlayerItem(asset: video)
             let avPlayer = AVPlayer(playerItem: playerItem)
             let playerLayer = AVPlayerLayer(player: avPlayer)
@@ -75,6 +71,7 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
             playerLayer.videoGravity = .resizeAspectFill
             self.videoContainer.layer.addSublayer(playerLayer)
             
+            UISaveVideoAtPathToSavedPhotosAlbum(fileURL.absoluteString, nil, nil, nil)
             avPlayer.play()
         }
     }
