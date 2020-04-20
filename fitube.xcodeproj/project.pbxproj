@@ -26,6 +26,7 @@
 		B641C9EC244B08EC00BFAC1E /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */; };
 		B65EE3292448022D001823FA /* MovieMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EE3282448022D001823FA /* MovieMaker.swift */; };
 		B65EE32C2448B4BD001823FA /* Users1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B65EE32A2448B4BD001823FA /* Users1.xcdatamodeld */; };
+		B69BF792244D609500C25260 /* ImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BF791244D609500C25260 /* ImagePreviewController.swift */; };
 		B6A967CC244C87EE00948E31 /* Border generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A967CB244C87EE00948E31 /* Border generator.swift */; };
 		B6B78558244BF4AF008C2518 /* Intermediate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B78557244BF4AF008C2518 /* Intermediate.swift */; };
 		B6B7855A244BF9BC008C2518 /* Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B78559244BF9BC008C2518 /* Advanced.swift */; };
@@ -57,6 +58,7 @@
 		B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		B65EE3282448022D001823FA /* MovieMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMaker.swift; sourceTree = "<group>"; };
 		B65EE32B2448B4BD001823FA /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
+		B69BF791244D609500C25260 /* ImagePreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewController.swift; sourceTree = "<group>"; };
 		B6A967CB244C87EE00948E31 /* Border generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Border generator.swift"; sourceTree = "<group>"; };
 		B6B78557244BF4AF008C2518 /* Intermediate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intermediate.swift; sourceTree = "<group>"; };
 		B6B78559244BF9BC008C2518 /* Advanced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advanced.swift; sourceTree = "<group>"; };
@@ -134,7 +136,7 @@
 			children = (
 				B611336B24458E990000B1B0 /* ProgramViewController.swift */,
 				B641C9E62449A82F00BFAC1E /* Program */,
-				B621EDD42446D64600C3C1E0 /* ReportViewController.swift */,
+				B69BF793244D609900C25260 /* Report */,
 				B611336D24458EBE0000B1B0 /* SettingViewController.swift */,
 			);
 			name = Tab;
@@ -146,6 +148,7 @@
 				B641C9DF24499AE200BFAC1E /* WarmupViewController.swift */,
 				B641C9E32449A5A800BFAC1E /* TrainViewController.swift */,
 				B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */,
+				B621EDD42446D64600C3C1E0 /* ReportViewController.swift */,
 			);
 			path = Program;
 			sourceTree = "<group>";
@@ -157,6 +160,14 @@
 				B6A967CB244C87EE00948E31 /* Border generator.swift */,
 			);
 			path = Programmaticlly;
+			sourceTree = "<group>";
+		};
+		B69BF793244D609900C25260 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				B69BF791244D609500C25260 /* ImagePreviewController.swift */,
+			);
+			name = Report;
 			sourceTree = "<group>";
 		};
 		B6C111242444AEB100783090 /* Models */ = {
@@ -324,6 +335,7 @@
 				B641C9DC24496E4900BFAC1E /* levelClassifyViewController.swift in Sources */,
 				B6B7855A244BF9BC008C2518 /* Advanced.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
+				B69BF792244D609500C25260 /* ImagePreviewController.swift in Sources */,
 				B65EE32C2448B4BD001823FA /* Users1.xcdatamodeld in Sources */,
 				B611336A2445866E0000B1B0 /* HomeTabViewController.swift in Sources */,
 				B641C9EA2449B4FC00BFAC1E /* RookieProgram.swift in Sources */,

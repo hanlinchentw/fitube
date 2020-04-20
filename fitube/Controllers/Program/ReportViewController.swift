@@ -17,20 +17,51 @@ import Photos
 class ReportViewController: UIViewController, UINavigationControllerDelegate{
 
     @IBOutlet weak var generateButton: UIButton!
-    @IBOutlet weak var videoContainer: UIView!
+ 
+    @IBOutlet weak var finishedDay: UILabel!
+    @IBOutlet var dayButtonCollection: [UIButton]!
     @IBOutlet weak var borderView: UIView!
+    
+    let defaults = UserDefaults.standard
     
     private var photoArray :[String] = []
     var imageArray : [UIImage] = []
+    
+    var imageChoose = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        finishedDay.text = String(defaults.integer(forKey: "passedDay"))
+        
         generateButton.layer.cornerRadius = 10
         borderView.layer.cornerRadius = 20
         borderView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         borderView.layer.borderWidth = 2
+        if let day = Int(finishedDay.text!){
+            if day == 0{
+                
+            }else{
+                for n in 0...day-1{
+                    dayButtonCollection[n].isUserInteractionEnabled = true
+                }
+            }
+            
+        }
+
     }
     
-    
+    @IBAction func dayButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "showImage", sender: self)
+        imageChoose = sender.
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showImage"{
+            let destinationVC = segue.destination as! ImagePreviewController
+            destinationVC.image = imageArray[0]
+            
+        }
+    }
     @IBAction func videoGenerated(_ sender: UIButton) {
         loadFile()
     }
@@ -67,9 +98,9 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
             let playerItem = AVPlayerItem(asset: video)
             let avPlayer = AVPlayer(playerItem: playerItem)
             let playerLayer = AVPlayerLayer(player: avPlayer)
-            playerLayer.frame = self.videoContainer.bounds
-            playerLayer.videoGravity = .resizeAspectFill
-            self.videoContainer.layer.addSublayer(playerLayer)
+//            playerLayer.frame = self.videoContainer.bounds
+//            playerLayer.videoGravity = .resizeAspectFill
+//            self.videoContainer.layer.addSublayer(playerLayer)
             
             UISaveVideoAtPathToSavedPhotosAlbum(fileURL.absoluteString, nil, nil, nil)
             avPlayer.play()
