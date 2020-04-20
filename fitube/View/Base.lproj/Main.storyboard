@@ -412,7 +412,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="h9Z-b3-r74" userLabel="week1">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7C-qt-8Da" userLabel="1">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7C-qt-8Da" userLabel="1">
                                                         <rect key="frame" x="0.0" y="1" width="50" height="47.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="d7C-qt-8Da" secondAttribute="height" multiplier="1:1" id="Rpd-fR-osz"/>
@@ -423,42 +423,42 @@
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="Bqc-VF-3KD"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7D9-RN-qLH" userLabel="2">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7D9-RN-qLH" userLabel="2">
                                                         <rect key="frame" x="58" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="2.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="B62-6M-oz2"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbT-50-fNg" userLabel="3">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbT-50-fNg" userLabel="3">
                                                         <rect key="frame" x="116" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="3.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="t98-aT-yr3"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzl-hJ-AhO" userLabel="4">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzl-hJ-AhO" userLabel="4">
                                                         <rect key="frame" x="174" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="4.alt.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="w5I-Hc-EXJ"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sI-t3-wm4" userLabel="5">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sI-t3-wm4" userLabel="5">
                                                         <rect key="frame" x="232" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="5.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="NNv-Zr-B3e"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKX-bE-JmI" userLabel="6">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKX-bE-JmI" userLabel="6">
                                                         <rect key="frame" x="290" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="6.alt.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="tYJ-Eq-Jp6"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAv-V2-wdW" userLabel="7">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAv-V2-wdW" userLabel="7">
                                                         <rect key="frame" x="348" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="7.square" catalog="system"/>
                                                         <connections>
@@ -485,7 +485,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AsG-DQ-va2" userLabel="week2">
                                                 <rect key="frame" x="0.0" y="75" width="398" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSY-8E-hwd" userLabel="8">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSY-8E-hwd" userLabel="8">
                                                         <rect key="frame" x="0.0" y="1" width="50" height="47.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="YSY-8E-hwd" secondAttribute="height" multiplier="1:1" id="eAJ-3r-YWV"/>
@@ -496,42 +496,42 @@
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="C9N-84-iSa"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x66-37-df2" userLabel="9">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x66-37-df2" userLabel="9">
                                                         <rect key="frame" x="58" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="9.alt.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="vsq-mn-w8G"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ZC-zL-Uef" userLabel="10">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ZC-zL-Uef" userLabel="10">
                                                         <rect key="frame" x="116" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="10.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="scy-U6-ZCv"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLu-AF-eCl" userLabel="11">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLu-AF-eCl" userLabel="11">
                                                         <rect key="frame" x="174" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="11.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="Z4l-tu-ojZ"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALa-iO-p16" userLabel="12">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALa-iO-p16" userLabel="12">
                                                         <rect key="frame" x="232" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="12.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="hHo-XU-5oe"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3HS-qQ-GwJ" userLabel="13">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3HS-qQ-GwJ" userLabel="13">
                                                         <rect key="frame" x="290" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="13.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="aa7-Bg-a7d"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVQ-wm-eVj" userLabel="14">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVQ-wm-eVj" userLabel="14">
                                                         <rect key="frame" x="348" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="14.square" catalog="system"/>
                                                         <connections>
@@ -557,7 +557,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xc6-fK-SeM" userLabel="week3">
                                                 <rect key="frame" x="0.0" y="150" width="398" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXf-GZ-dhe" userLabel="15">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXf-GZ-dhe" userLabel="15">
                                                         <rect key="frame" x="0.0" y="1" width="50" height="47.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="uXf-GZ-dhe" secondAttribute="height" multiplier="1:1" id="0lJ-DW-Wfx"/>
@@ -568,42 +568,42 @@
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="zgW-JS-oAD"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpo-aZ-rv6" userLabel="16">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpo-aZ-rv6" userLabel="16">
                                                         <rect key="frame" x="58" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="16.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="DGo-kS-f01"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpd-GK-Z1Q" userLabel="17">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tpd-GK-Z1Q" userLabel="17">
                                                         <rect key="frame" x="116" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="17.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="9vp-Ak-nMj"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd8-hs-P51" userLabel="18">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd8-hs-P51" userLabel="18">
                                                         <rect key="frame" x="174" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="18.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="3B7-iZ-fKY"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EK3-bT-oB9" userLabel="19">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EK3-bT-oB9" userLabel="19">
                                                         <rect key="frame" x="232" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="19.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="z2H-nV-7jQ"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="co4-SS-rYw" userLabel="20">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="co4-SS-rYw" userLabel="20">
                                                         <rect key="frame" x="290" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="20.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="2Nj-1Q-ZIJ"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U72-6S-dIH" userLabel="21">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U72-6S-dIH" userLabel="21">
                                                         <rect key="frame" x="348" y="1" width="50" height="47.5"/>
                                                         <state key="normal" backgroundImage="21.square" catalog="system"/>
                                                         <connections>
@@ -629,7 +629,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JbN-kv-GtB" userLabel="week4">
                                                 <rect key="frame" x="0.0" y="225" width="398" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zem-7m-dCj" userLabel="22">
+                                                    <button opaque="NO" userInteractionEnabled="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zem-7m-dCj" userLabel="22">
                                                         <rect key="frame" x="0.0" y="1" width="50" height="47.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="Mfn-C3-bf4"/>
@@ -1317,6 +1317,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="OS0-2t-2w2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.003987420373" green="0.0" blue="0.16681868650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1362,7 +1363,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ib6-98-gQD">
-                                <rect key="frame" x="126" y="430" width="162.5" height="49"/>
+                                <rect key="frame" x="126" y="430" width="162.5" height="77.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWy-Hf-ffV">
                                         <rect key="frame" x="60.5" y="0.0" width="41.5" height="20.5"/>
@@ -1374,6 +1375,18 @@
                                         <rect key="frame" x="0.0" y="28.5" width="162.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7a-wr-OfG">
+                                        <rect key="frame" x="60" y="57" width="42" height="20.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Label">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1390,6 +1403,10 @@
                         <viewLayoutGuide key="safeArea" id="Jp2-ya-zHg"/>
                     </view>
                     <navigationItem key="navigationItem" id="dqU-eT-LO4"/>
+                    <connections>
+                        <outlet property="exercisesLabel" destination="i7a-wr-OfG" id="lvK-7r-FpA"/>
+                        <outlet property="imageShownView" destination="sm9-44-3mF" id="Zgg-DC-XRh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jrh-sQ-0nY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -43,6 +43,7 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
                 
             }else{
                 for n in 0...day-1{
+                    dayButtonCollection[n].tag = n
                     dayButtonCollection[n].isUserInteractionEnabled = true
                 }
             }
@@ -53,12 +54,12 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
     
     @IBAction func dayButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "showImage", sender: self)
-        imageChoose = sender.
+        imageChoose = sender.tag
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showImage"{
             let destinationVC = segue.destination as! ImagePreviewController
-            destinationVC.image = imageArray[0]
+            destinationVC.image = imageArray[imageChoose]
             
         }
     }

@@ -7,17 +7,37 @@
 //
 
 import UIKit
+import  CoreData
 
-class ImagePreviewController: UIViewController {
+protocol whatUserTrain {
+    func fetchTrainingProgram() -> [String]
+}
 
+class ImagePreviewController: UIViewController{
+    
+
+
+    @IBOutlet weak var exercisesLabel: UILabel!
+    @IBOutlet weak var imageShownView: UIImageView!
     
     var image : UIImage?
+
+    var delegate : whatUserTrain?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let trainingpart = delegate?.fetchTrainingProgram()
+        imageShownView.image = self.image
+        exercisesLabel.text = ""
+        if let part = trainingpart{
+            for n in 1 ... (part.count-1){
+                exercisesLabel.text?.append("\(part[n])\n")
+            }
+        }
+        
     }
-    
+
 
    
 

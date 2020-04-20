@@ -9,7 +9,11 @@
 import UIKit
 import CoreData
 
-class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, whatUserTrain{
+    func fetchTrainingProgram() ->[String] {
+        return part
+    }
+    
 //MARK: - IBOutlet
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -31,6 +35,9 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     let contexts = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
 //MARK: - view delegate method
+    var imagePreview = ImagePreviewController()
+    let t = RepeatingTimer(timeInterval: 3)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,9 +64,15 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
 
 //        dayPassed = defaults.integer(forKey: "passedDay")
         part = leveldetermine(day: dayPassed)
-
+        imagePreview.delegate = self
+            
         trainButton.setTitle(part[0], for: .normal)
         
+        
+        t.eventHandler = {
+            print("Timer Fired")
+        }
+        t.resume()
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
@@ -123,13 +136,16 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //MARK: -  Fetch date method
     func dateFetch()->String{
-        let currentData = Date()
+        let currentDate = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier:"zh_TW")
         dateFormatter.dateFormat = "MM/dd"
-        let stringDate = dateFormatter.string(from: currentData)
+        let stringDate = dateFormatter.string(from: currentDate)
         return stringDate
     }
+    
+    
+    
     //MARK: - training day counting
 
         
@@ -159,9 +175,8 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
             fatalError("Can't give you a suitable program. You are beyond human.")
         }
     }
-    
-    
-    
+
+
     //MARK: - Photo method
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let newImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
