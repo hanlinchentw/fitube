@@ -7,15 +7,17 @@ class RepeatingTimer {
     init(timeInterval: TimeInterval) {
         self.timeInterval = timeInterval
     }
-    let formatters = DateFormatter()
-    let selectTime = "2020/4/21 03:00"
+    
+    
     
     
     
     
     private lazy var timer: DispatchSourceTimer = {
+       
+                
         let t = DispatchSource.makeTimerSource()
-        t.schedule(deadline: .now() + self.timeInterval, repeating: self.timeInterval)
+        t.schedule(deadline: .now() + self.timeInterval, repeating: TimeInterval(86400))
         t.setEventHandler(handler: { [weak self] in
             self?.eventHandler?()
         })
@@ -34,10 +36,7 @@ class RepeatingTimer {
     deinit {
         timer.setEventHandler {}
         timer.cancel()
-        /*
-         If the timer is suspended, calling cancel without resuming
-         triggers a crash. This is documented here https://forums.developer.apple.com/thread/15902
-         */
+        
         resume()
         eventHandler = nil
     }

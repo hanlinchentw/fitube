@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		95A09BBE36B3F1EADEE58B07 /* Pods_fitube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375662A76D6CD3B561F15486 /* Pods_fitube.framework */; };
-		B611336A2445866E0000B1B0 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61133692445866E0000B1B0 /* HomeTabViewController.swift */; };
 		B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B611336B24458E990000B1B0 /* ProgramViewController.swift */; };
 		B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B611336D24458EBE0000B1B0 /* SettingViewController.swift */; };
 		B6186EA7244D7671000DB561 /* TimerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6186EA6244D7671000DB561 /* TimerBackground.swift */; };
@@ -38,7 +37,6 @@
 /* Begin PBXFileReference section */
 		1F8DFEB34F460EC53A0355A2 /* Pods-fitube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.debug.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.debug.xcconfig"; sourceTree = "<group>"; };
 		375662A76D6CD3B561F15486 /* Pods_fitube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B61133692445866E0000B1B0 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		B611336B24458E990000B1B0 /* ProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		B611336D24458EBE0000B1B0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B6186EA6244D7671000DB561 /* TimerBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBackground.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 				B619487F2442B737005D7675 /* WelcomeViewController.swift */,
 				B6C1111724434F1600783090 /* RegisterViewController.swift */,
 				B641C9DB24496E4900BFAC1E /* levelClassifyViewController.swift */,
-				B61133692445866E0000B1B0 /* HomeTabViewController.swift */,
 				B641C9E52449A81900BFAC1E /* Tab */,
 			);
 			path = Controllers;
@@ -337,7 +334,6 @@
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
 				B69BF792244D609500C25260 /* ImagePreviewController.swift in Sources */,
 				B65EE32C2448B4BD001823FA /* Users1.xcdatamodeld in Sources */,
-				B611336A2445866E0000B1B0 /* HomeTabViewController.swift in Sources */,
 				B641C9EA2449B4FC00BFAC1E /* RookieProgram.swift in Sources */,
 				B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */,
 				B641C9E42449A5A800BFAC1E /* TrainViewController.swift in Sources */,
@@ -488,7 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83AH7T8DV5;
 				INFOPLIST_FILE = fitube/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,7 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83AH7T8DV5;
 				INFOPLIST_FILE = fitube/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -36,10 +36,12 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     
 //MARK: - view delegate method
     var imagePreview = ImagePreviewController()
-    let t = RepeatingTimer(timeInterval: 3)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        blurIfDone(if: userDoneTheChanllenge)
         
         NSLayoutConstraint(item: photoLabel! , attribute: .height, relatedBy: .equal,
                            toItem: view, attribute: .height, multiplier: 0.13, constant: 0).isActive = true
@@ -60,28 +62,25 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         nameLabel.text =  userData[0].name
         dateLabel.text = dateFetch()
         levelLabel.text = "  Your level : \(userlevel[0].levelDescription!)"
-        dayPassed = 0
+        dayPassed = 0 // test
 
 //        dayPassed = defaults.integer(forKey: "passedDay")
         part = leveldetermine(day: dayPassed)
         imagePreview.delegate = self
             
         trainButton.setTitle(part[0], for: .normal)
-        
-        
-        t.eventHandler = {
-            print("Timer Fired")
-        }
-        t.resume()
+        userDoneTheChanllenge = false // test
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
         tabBarController?.tabBar.isHidden = false
+        
     }
 
     //MARK: - Buttons
     
     @IBAction func warmUpButtonPressed(_ sender: UIButton) {
+        userDoneTheChanllenge = false
         sender.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
         trainButton.backgroundColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
         sender.isUserInteractionEnabled = false
@@ -108,10 +107,8 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         } 
     }
     
-    
-    
-    
     @IBAction func takePhoto(_ sender: UIButton) {
+        
         let imagepicker = UIImagePickerController()
         imagepicker.sourceType = .camera
         imagepicker.delegate = self
@@ -120,7 +117,11 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func completedButtonPressed(_ sender: UIButton) {
+        
+        sender.isUserInteractionEnabled = false
         dayPassed += 1
+        userDoneTheChanllenge = true
+        resetChallenge()
     }
     
     //MARK: - load up user information
@@ -145,21 +146,60 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     
-    
-    //MARK: - training day counting
-
-        
-        var dayPassed :Int{
-            get{
-                defaults.integer(forKey: "passedDay")
+    func resetChallenge(){
+  
+        let formatters = DateFormatter()
+        formatters.dateFormat = "yyyy/MM/dd hh:mm"
+        let selectTime = "2020/4/21 03:00"
+        let nextTime = formatters.date(from: selectTime)
+        if let interval = nextTime?.timeIntervalSince(Date()){
+            let t = RepeatingTimer(timeInterval: interval)
+            t.eventHandler = {
+                self.userDoneTheChanllenge = false
             }
-            set{
-                
-                passedDayLabel.text = "Passed day: \(newValue)"
-                defaults.set(newValue, forKey: "passedDay")
-            }
+            t.resume()
         }
+        
+        
+    }
     
+    
+    //MARK: - defaults method
+
+    var dayPassed :Int{
+        get{
+            defaults.integer(forKey: "passedDay")
+        }
+        set{
+            passedDayLabel.text = "Passed day: \(newValue)"
+            defaults.set(newValue, forKey: "passedDay")
+        }
+    }
+    var userDoneTheChanllenge :Bool{
+        get{
+            defaults.bool(forKey: "doneToday")
+        }
+        set{
+            blurIfDone(if: newValue)
+            defaults.set(newValue, forKey: "doneToday")
+        }
+    }
+    //MARK: - blur user view method
+    func blurIfDone(if done : Bool){
+        let blurView = UIView()
+        let doneLabel = UILabel()
+        blurView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        blurView.backgroundColor = #colorLiteral(red: 0.004888398107, green: 0, blue: 0.1756066084, alpha: 1)
+        doneLabel.text = "You have already finished the Chanllenge today."
+        doneLabel.textColor = .white
+        blurView.addSubview(doneLabel)
+        if done == true{
+            view.addSubview(blurView)
+        }else{
+            blurView.isHidden = true
+        }
+    }
+
     //MARK: - level determine
     func leveldetermine(day: Int) -> [String]{
         switch userlevel[0].levelDescription {

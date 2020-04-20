@@ -416,8 +416,9 @@
                                                         <rect key="frame" x="0.0" y="1" width="50" height="47.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="d7C-qt-8Da" secondAttribute="height" multiplier="1:1" id="Rpd-fR-osz"/>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="jHr-s7-2qI"/>
+                                                            <constraint firstAttribute="height" constant="50" id="jHr-s7-2qI"/>
                                                         </constraints>
+                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" backgroundImage="1.square" catalog="system"/>
                                                         <connections>
                                                             <action selector="dayButtonPressed:" destination="UyW-tx-6gC" eventType="touchUpInside" id="Bqc-VF-3KD"/>
@@ -731,7 +732,7 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.021100607290218728" green="0.0" blue="0.471628743077665" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="bp6-9I-xxL" firstAttribute="centerX" secondItem="Oyj-xW-lqW" secondAttribute="centerX" id="AWg-VM-pvt"/>
                                     <constraint firstItem="bp6-9I-xxL" firstAttribute="top" secondItem="Oyj-xW-lqW" secondAttribute="top" constant="10" id="VK5-7H-7dX"/>
@@ -847,7 +848,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="aPg-pi-Rpw">
                                         <rect key="frame" x="0.0" y="0.0" width="162" height="60"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.2469747135" green="0.54980964470000004" blue="0.36191651250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
                                         <state key="normal">
                                             <string key="title">        Warm up
@@ -976,6 +977,10 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="uAG-Fs-SSr" secondAttribute="trailing" id="AYI-iJ-ZH9"/>
+                                            <constraint firstItem="uAG-Fs-SSr" firstAttribute="top" secondItem="OgR-va-rV6" secondAttribute="top" constant="5" id="BwF-2x-nOp"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TxZ-TK-bfH" userLabel="exercise">
                                         <rect key="frame" x="0.0" y="63.5" width="394" height="330"/>

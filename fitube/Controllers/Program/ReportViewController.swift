@@ -14,6 +14,7 @@ import Photos
 
 
 
+@available(iOS 13.0, *)
 class ReportViewController: UIViewController, UINavigationControllerDelegate{
 
     @IBOutlet weak var generateButton: UIButton!
@@ -34,6 +35,7 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
         
         finishedDay.text = String(defaults.integer(forKey: "passedDay"))
         
+        NSLayoutConstraint(item: dayButtonCollection[0], attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1/8, constant: 0)
         generateButton.layer.cornerRadius = 10
         borderView.layer.cornerRadius = 20
         borderView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
@@ -43,24 +45,27 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
                 
             }else{
                 for n in 0...day-1{
+                    dayButtonCollection[n].setBackgroundImage(UIImage(systemName: "checkmark.shield.fill"), for: .normal)
+                    dayButtonCollection[n].tintColor = #colorLiteral(red: 0, green: 0.5704279542, blue: 0.3237726688, alpha: 1)
                     dayButtonCollection[n].tag = n
                     dayButtonCollection[n].isUserInteractionEnabled = true
                 }
             }
-            
         }
 
     }
     
     @IBAction func dayButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "showImage", sender: self)
+        if imageArray.count >= 1 {
+            performSegue(withIdentifier: "showImage", sender: self)
+        }
+        
         imageChoose = sender.tag
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showImage"{
             let destinationVC = segue.destination as! ImagePreviewController
-            destinationVC.image = imageArray[imageChoose]
-            
+                destinationVC.image = imageArray[imageChoose]
         }
     }
     @IBAction func videoGenerated(_ sender: UIButton) {

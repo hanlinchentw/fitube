@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
 //        let isRegistered = UserDefaults.standard.bool(forKey: "ALLREADY_REGISTER")
 //               if isRegistered == true{
 //                   // implement home view controller
