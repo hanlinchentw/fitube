@@ -12,30 +12,41 @@ class SecondPageViewController: UIViewController {
 
     @IBOutlet weak var textView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet var textLable: [UILabel]!
     
     @IBOutlet weak var textStack: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textStack.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         textStack.distribution = .fillEqually
-        textStack.spacing = 20
+        textStack.spacing = view.frame.height / 40
         textView.layer.cornerRadius = 20
         
         NSLayoutConstraint(item: titleLabel!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: titleLabel!, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: view.frame.height/8).isActive = true
+        NSLayoutConstraint(item: titleLabel!, attribute: .bottom, relatedBy: .equal, toItem: textStack, attribute: .top, multiplier: 1, constant: -view.frame.height/10).isActive = true
+        NSLayoutConstraint(item: titleLabel!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 20).isActive = true
+        NSLayoutConstraint(item: titleLabel!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -20).isActive = true
         
         NSLayoutConstraint(item: textStack!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: textStack!, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: textStack!, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.1, constant: 0).isActive = true
         NSLayoutConstraint(item: textStack!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 20).isActive = true
         NSLayoutConstraint(item: textStack!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 20).isActive = true
         
-        NSLayoutConstraint(item: textView!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10).isActive = true
-        NSLayoutConstraint(item: textView!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 10).isActive = true
-        NSLayoutConstraint(item: textView!, attribute: .centerX, relatedBy: .equal, toItem: textStack, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: textView!, attribute: .centerY, relatedBy: .equal, toItem: textStack, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
         
+        textView.frame = view.frame
+        imageView.frame = view.frame
+//        NSLayoutConstraint(item: textView!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10).isActive = true
+//        NSLayoutConstraint(item: textView!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -10).isActive = true
+//        NSLayoutConstraint(item: textView!, attribute: .centerX, relatedBy: .equal, toItem: textStack, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+//        NSLayoutConstraint(item: textView!, attribute: .centerY, relatedBy: .equal, toItem: textStack, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+//        NSLayoutConstraint(item: textView!, attribute: .height, relatedBy: .equal, toItem: textStack, attribute: .height, multiplier: 1, constant: 0).isActive = true
         for n in 0...(textLable.count-1){
+            textLable[n].translatesAutoresizingMaskIntoConstraints = false
             textLable[n].textColor = .white
             NSLayoutConstraint(item: textLable[n], attribute: .leading, relatedBy: .equal, toItem: textStack, attribute: .leading, multiplier: 1, constant: 3).isActive = true
             NSLayoutConstraint(item: textLable[n], attribute: .trailing, relatedBy: .equal, toItem: textStack, attribute: .trailing, multiplier: 1, constant: 3).isActive = true
