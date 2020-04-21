@@ -1,5 +1,5 @@
 //
-//  IntroViewController.swift
+//  FourPageViewController.swift
 //  fitube
 //
 //  Created by 陳翰霖 on 2020/4/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntroViewController: UIPageViewController {
+class FourPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

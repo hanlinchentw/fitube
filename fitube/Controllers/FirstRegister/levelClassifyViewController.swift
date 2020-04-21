@@ -15,14 +15,11 @@ class levelClassifyViewController: UIViewController {
     
     var levelDetectors = levelDetector()
     private let contexts = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var levels = [UsersLevel]()
     
     var levelDetect = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-       
         for button in levelButton{
             button.backgroundColor = .gray
             button.layer.cornerRadius = 10
@@ -31,8 +28,10 @@ class levelClassifyViewController: UIViewController {
             NSLayoutConstraint(item: button, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         }
     
-        load()
-        assessmentLabel.text = " After assessment,\nyou are at \(levelButton[levelDetect-1].currentTitle!) level"
+        levelDetect = levelDetectors.levelUpdate()
+        assessmentLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        assessmentLabel.layer.borderWidth = 5
+        assessmentLabel.text = "Recommended choice: \(levelButton[levelDetect-1].currentTitle!)"
         
         levelButton[levelDetect-1].backgroundColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
     }
@@ -43,23 +42,27 @@ class levelClassifyViewController: UIViewController {
          present(alert, animated: true, completion: nil)
          
     }
+    var temp  = 0
     @IBAction func levelBurrtonPressed(_ sender: UIButton) {
         let eagle = UsersLevel(context:contexts)
-        print(sender.currentTitle!)
         if sender.backgroundColor == .gray{
             let alert = UIAlertController(title: "Not the recommendation!", message: "Step by step is key of success.", preferredStyle: .alert)
             let action1 = UIAlertAction(title: "I don't mind", style: .default) { (showOff) in
                 switch sender.currentTitle! {
                 case self.levelButton[0].currentTitle:
+                    self.temp = 0
                     eagle.level = 1
                     eagle.levelDescription = self.levelButton[0].currentTitle
                 case self.levelButton[1].currentTitle:
+                    self.temp = 1
                     eagle.level = 2
                     eagle.levelDescription = self.levelButton[1].currentTitle
                 case self.levelButton[2].currentTitle:
+                    self.temp = 2
                     eagle.level = 3
                     eagle.levelDescription = self.levelButton[2].currentTitle
                 case self.levelButton[3].currentTitle:
+                    self.temp = 3
                     eagle.level = 4
                     eagle.levelDescription = self.levelButton[3].currentTitle
                 default:
@@ -74,10 +77,17 @@ class levelClassifyViewController: UIViewController {
             present(alert, animated: true, completion: nil)
             
         }else{
+            self.temp = levelDetect - 1
             eagle.level = Int32(levelDetect)
             eagle.levelDescription = levelButton[levelDetect-1].currentTitle
             save()
             performSegue(withIdentifier: "levelDetermined", sender: self)
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "levelDetermined"{
+            let destination = segue.destination as? ListViewController
+            destination!.levelSend = levelButton[temp].currentTitle
         }
     }
     
@@ -89,17 +99,7 @@ class levelClassifyViewController: UIViewController {
             fatalError()
         }
     }
-    
-    func load(){
-        levelDetect = levelDetectors.levelUpdate()
-        let request :NSFetchRequest<UsersLevel> = UsersLevel.fetchRequest()
-        do {
-            self.levels =  try contexts.fetch(request)
-        }catch{
-            fatalError("fetch user data error:\(error)")
-        }
-    }
-    
+  
     func deleteAllData(entity: String)
     {
         let ReqVar = NSFetchRequest<NSFetchRequestResult>(entityName: entity )

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct RookieProgram {
+struct Beginner {
     let day : Int
     
     var trainday  :Int {day%7}

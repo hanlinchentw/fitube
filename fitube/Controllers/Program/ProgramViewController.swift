@@ -203,8 +203,8 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     //MARK: - level determine
     func leveldetermine(day: Int) -> [String]{
         switch userlevel[0].levelDescription {
-        case "Rookie":
-            return RookieProgram(day: day).trainingPart()
+        case "Beginner":
+            return Beginner(day: day).trainingPart()
         case "Intermediate":
             return Intermediate(day:day).trainingPart()
         case "Advanced":

@@ -34,11 +34,12 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
         super.viewDidLoad()
         for n in 1...30{
             dayButtonCollection[n-1].setBackgroundImage(UIImage(systemName:"\(n).square"), for: .normal)
+            NSLayoutConstraint(item: dayButtonCollection[n-1], attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1/8, constant: 0).isActive = true
+            NSLayoutConstraint(item: dayButtonCollection[n-1], attribute: .width, relatedBy: .equal, toItem:dayButtonCollection[n-1] , attribute: .height, multiplier: 1, constant: 0).isActive = true
         }
         
         finishedDay.text = String(defaults.integer(forKey: "passedDay"))
         
-        NSLayoutConstraint(item: dayButtonCollection[0], attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1/8, constant: 0).isActive = true
         
         generateButton.layer.cornerRadius = 10
         borderView.layer.cornerRadius = 20

@@ -29,6 +29,7 @@ class ContainerViewController: UIPageViewController {
         self.viewControllerList.append(self.getViewController(withStoryboardID: "FirstPageViewController"))
         self.viewControllerList.append(self.getViewController(withStoryboardID: "SecondPageViewController"))
         self.viewControllerList.append(self.getViewController(withStoryboardID: "ThirdPageViewController"))
+        self.viewControllerList.append(self.getViewController(withStoryboardID: "FourPageViewController"))
         
         self.delegate = self
         self.dataSource = self
@@ -44,6 +45,7 @@ class ContainerViewController: UIPageViewController {
 }
 
 extension ContainerViewController : UIPageViewControllerDelegate{
+    
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let currentViewController: UIViewController = (self.viewControllers?.first)!
         

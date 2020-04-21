@@ -21,11 +21,10 @@
 		B641C9DE2449705A00BFAC1E /* levelDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9DD2449705A00BFAC1E /* levelDetector.swift */; };
 		B641C9E024499AE200BFAC1E /* WarmupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9DF24499AE200BFAC1E /* WarmupViewController.swift */; };
 		B641C9E42449A5A800BFAC1E /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9E32449A5A800BFAC1E /* TrainViewController.swift */; };
-		B641C9EA2449B4FC00BFAC1E /* RookieProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9E92449B4FC00BFAC1E /* RookieProgram.swift */; };
+		B641C9EA2449B4FC00BFAC1E /* Beginner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9E92449B4FC00BFAC1E /* Beginner.swift */; };
 		B641C9EC244B08EC00BFAC1E /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */; };
 		B65EE3292448022D001823FA /* MovieMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65EE3282448022D001823FA /* MovieMaker.swift */; };
 		B65EE32C2448B4BD001823FA /* Users1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B65EE32A2448B4BD001823FA /* Users1.xcdatamodeld */; };
-		B66FC83A244EB0B4001A2B8B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66FC839244EB0B4001A2B8B /* IntroViewController.swift */; };
 		B69BF792244D609500C25260 /* ImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69BF791244D609500C25260 /* ImagePreviewController.swift */; };
 		B6B78558244BF4AF008C2518 /* Intermediate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B78557244BF4AF008C2518 /* Intermediate.swift */; };
 		B6B7855A244BF9BC008C2518 /* Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B78559244BF9BC008C2518 /* Advanced.swift */; };
@@ -37,6 +36,8 @@
 		B6C5C73D244DA15D0017D3AC /* ThirdPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5C73C244DA15D0017D3AC /* ThirdPageViewController.swift */; };
 		B6C5C73F244DA22F0017D3AC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5C73E244DA22F0017D3AC /* PageViewController.swift */; };
 		B6C5C741244DA7FD0017D3AC /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5C740244DA7FD0017D3AC /* ContainerViewController.swift */; };
+		B6DF3642244ECBDA008B8B32 /* FourPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF3641244ECBDA008B8B32 /* FourPageViewController.swift */; };
+		B6DF3644244EE733008B8B32 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF3643244EE733008B8B32 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,11 +58,10 @@
 		B641C9DD2449705A00BFAC1E /* levelDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelDetector.swift; sourceTree = "<group>"; };
 		B641C9DF24499AE200BFAC1E /* WarmupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmupViewController.swift; sourceTree = "<group>"; };
 		B641C9E32449A5A800BFAC1E /* TrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
-		B641C9E92449B4FC00BFAC1E /* RookieProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RookieProgram.swift; sourceTree = "<group>"; };
+		B641C9E92449B4FC00BFAC1E /* Beginner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beginner.swift; sourceTree = "<group>"; };
 		B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		B65EE3282448022D001823FA /* MovieMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMaker.swift; sourceTree = "<group>"; };
 		B65EE32B2448B4BD001823FA /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
-		B66FC839244EB0B4001A2B8B /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		B69BF791244D609500C25260 /* ImagePreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewController.swift; sourceTree = "<group>"; };
 		B6B78557244BF4AF008C2518 /* Intermediate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intermediate.swift; sourceTree = "<group>"; };
 		B6B78559244BF9BC008C2518 /* Advanced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advanced.swift; sourceTree = "<group>"; };
@@ -73,6 +73,8 @@
 		B6C5C73C244DA15D0017D3AC /* ThirdPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPageViewController.swift; sourceTree = "<group>"; };
 		B6C5C73E244DA22F0017D3AC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B6C5C740244DA7FD0017D3AC /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		B6DF3641244ECBDA008B8B32 /* FourPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourPageViewController.swift; sourceTree = "<group>"; };
+		B6DF3643244EE733008B8B32 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.release.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,6 +149,7 @@
 				B6C5C738244DA1430017D3AC /* FirstPageViewController.swift */,
 				B6C5C73A244DA1510017D3AC /* SecondPageViewController.swift */,
 				B6C5C73C244DA15D0017D3AC /* ThirdPageViewController.swift */,
+				B6DF3641244ECBDA008B8B32 /* FourPageViewController.swift */,
 			);
 			name = PreviewPage;
 			sourceTree = "<group>";
@@ -196,7 +199,7 @@
 				B65EE32A2448B4BD001823FA /* Users1.xcdatamodeld */,
 				B641C9DD2449705A00BFAC1E /* levelDetector.swift */,
 				B6B7855D244C319D008C2518 /* NoteforUser.swift */,
-				B641C9E92449B4FC00BFAC1E /* RookieProgram.swift */,
+				B641C9E92449B4FC00BFAC1E /* Beginner.swift */,
 				B6B78557244BF4AF008C2518 /* Intermediate.swift */,
 				B6B78559244BF9BC008C2518 /* Advanced.swift */,
 				B6B7855B244BF9C5008C2518 /* Beast.swift */,
@@ -210,7 +213,7 @@
 				B61B5A87244E9C210078F7C1 /* PreviewPage */,
 				B6C1111724434F1600783090 /* RegisterViewController.swift */,
 				B641C9DB24496E4900BFAC1E /* levelClassifyViewController.swift */,
-				B66FC839244EB0B4001A2B8B /* IntroViewController.swift */,
+				B6DF3643244EE733008B8B32 /* ListViewController.swift */,
 			);
 			path = FirstRegister;
 			sourceTree = "<group>";
@@ -348,12 +351,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6B7855E244C319D008C2518 /* NoteforUser.swift in Sources */,
-				B66FC83A244EB0B4001A2B8B /* IntroViewController.swift in Sources */,
 				B6C5C741244DA7FD0017D3AC /* ContainerViewController.swift in Sources */,
 				B6C5C739244DA1430017D3AC /* FirstPageViewController.swift in Sources */,
 				B6B78558244BF4AF008C2518 /* Intermediate.swift in Sources */,
 				B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */,
+				B6DF3644244EE733008B8B32 /* ListViewController.swift in Sources */,
 				B619487C2442B737005D7675 /* AppDelegate.swift in Sources */,
+				B6DF3642244ECBDA008B8B32 /* FourPageViewController.swift in Sources */,
 				B65EE3292448022D001823FA /* MovieMaker.swift in Sources */,
 				B641C9DE2449705A00BFAC1E /* levelDetector.swift in Sources */,
 				B641C9E024499AE200BFAC1E /* WarmupViewController.swift in Sources */,
@@ -370,7 +374,7 @@
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
 				B69BF792244D609500C25260 /* ImagePreviewController.swift in Sources */,
 				B65EE32C2448B4BD001823FA /* Users1.xcdatamodeld in Sources */,
-				B641C9EA2449B4FC00BFAC1E /* RookieProgram.swift in Sources */,
+				B641C9EA2449B4FC00BFAC1E /* Beginner.swift in Sources */,
 				B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */,
 				B641C9E42449A5A800BFAC1E /* TrainViewController.swift in Sources */,
 			);
