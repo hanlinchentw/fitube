@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HjK-zl-CCE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,28 +17,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="Kup-3u-ba1">
-                                <rect key="frame" x="103" y="416.5" width="208" height="63.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cgS-KN-F1o">
+                                <rect key="frame" x="103" y="398.5" width="208" height="99"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apN-VD-bDj">
-                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="63.5"/>
-                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ube" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDG-26-YFW">
-                                        <rect key="frame" x="101.5" y="0.0" width="106.5" height="63.5"/>
-                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="Kup-3u-ba1">
+                                        <rect key="frame" x="0.0" y="0.0" width="208" height="63.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apN-VD-bDj">
+                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="63.5"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
+                                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ube" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDG-26-YFW">
+                                                <rect key="frame" x="101.5" y="0.0" width="106.5" height="63.5"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="50"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be the Inspiration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kp8-kN-nig">
+                                        <rect key="frame" x="0.0" y="71.5" width="208" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Kp8-kN-nig" firstAttribute="centerX" secondItem="cgS-KN-F1o" secondAttribute="centerX" id="9Lg-9l-JMH"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" name="Main"/>
                         <constraints>
-                            <constraint firstItem="Kup-3u-ba1" firstAttribute="centerX" secondItem="RiM-iJ-LPF" secondAttribute="centerX" id="VbY-AK-1tl"/>
-                            <constraint firstItem="Kup-3u-ba1" firstAttribute="centerY" secondItem="RiM-iJ-LPF" secondAttribute="centerY" id="wUc-Oe-7u0"/>
+                            <constraint firstItem="cgS-KN-F1o" firstAttribute="centerY" secondItem="RiM-iJ-LPF" secondAttribute="centerY" id="4J5-kf-ogZ"/>
+                            <constraint firstItem="cgS-KN-F1o" firstAttribute="centerX" secondItem="RiM-iJ-LPF" secondAttribute="centerX" id="VIW-oy-Jt2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Suq-gm-Bdj"/>
                     </view>

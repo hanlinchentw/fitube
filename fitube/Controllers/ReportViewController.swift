@@ -32,11 +32,14 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dayButtonCollection.map{ $0.setBackgroundImage(UIImage(systemName: "checkmark.shield.fill"), for: .normal)}
+        for n in 1...30{
+            dayButtonCollection[n-1].setBackgroundImage(UIImage(systemName:"\(n).square"), for: .normal)
+        }
         
         finishedDay.text = String(defaults.integer(forKey: "passedDay"))
         
-        NSLayoutConstraint(item: dayButtonCollection[0], attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1/8, constant: 0)
+        NSLayoutConstraint(item: dayButtonCollection[0], attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1/8, constant: 0).isActive = true
+        
         generateButton.layer.cornerRadius = 10
         borderView.layer.cornerRadius = 20
         borderView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)

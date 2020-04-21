@@ -11,10 +11,11 @@ import UIKit
 class PageViewController: UIViewController {
 
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var imageView: UIImageView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       imageView.image = UIImage(named: "fitness1")
+
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         // Do any additional setup after loading the view.
     }
