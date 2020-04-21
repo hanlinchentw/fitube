@@ -20,14 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let isRegistered = UserDefaults.standard.bool(forKey: "ALLREADY_REGISTER")
 //               if isRegistered == true{
 //                   // implement home view controller
-//                   let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! HomeTabViewController
-//                   self.window?.rootViewController = homeViewController
+//                   let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProgramView") as! HomeTabViewController
+//                   self.window?.rootViewController = ProgramViewController
 //                   self.window?.makeKeyAndVisible()
 //
 //               }else{
 //                   // implement register view controller
-//                   let registerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RegisterVC") as! RegisterViewController
-//                   self.window?.rootViewController = registerViewController
+//                   let registerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PreviewVC") as! RegisterViewController
+//                   self.window?.rootViewController = PageViewController
 //                   self.window?.makeKeyAndVisible()
 //               }
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent

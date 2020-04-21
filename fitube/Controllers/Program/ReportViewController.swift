@@ -32,6 +32,7 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dayButtonCollection.map{ $0.setBackgroundImage(UIImage(systemName: "checkmark.shield.fill"), for: .normal)}
         
         finishedDay.text = String(defaults.integer(forKey: "passedDay"))
         

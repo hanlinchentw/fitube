@@ -13,10 +13,13 @@
 		B6186EA7244D7671000DB561 /* TimerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6186EA6244D7671000DB561 /* TimerBackground.swift */; };
 		B619487C2442B737005D7675 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619487B2442B737005D7675 /* AppDelegate.swift */; };
 		B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619487D2442B737005D7675 /* SceneDelegate.swift */; };
-		B61948802442B737005D7675 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B619487F2442B737005D7675 /* WelcomeViewController.swift */; };
 		B61948832442B737005D7675 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948812442B737005D7675 /* Main.storyboard */; };
 		B61948882442B738005D7675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61948872442B738005D7675 /* Assets.xcassets */; };
 		B619488B2442B738005D7675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61948892442B738005D7675 /* LaunchScreen.storyboard */; };
+		B61B5A93244EABDF0078F7C1 /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A92244EABDF0078F7C1 /* Page2ViewController.swift */; };
+		B61B5A95244EAC020078F7C1 /* Container2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A94244EAC020078F7C1 /* Container2ViewController.swift */; };
+		B61B5A97244EAC2A0078F7C1 /* PageoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A96244EAC2A0078F7C1 /* PageoneViewController.swift */; };
+		B61B5A99244EAC360078F7C1 /* PagetwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B5A98244EAC360078F7C1 /* PagetwoViewController.swift */; };
 		B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B621EDD42446D64600C3C1E0 /* ReportViewController.swift */; };
 		B641C9DC24496E4900BFAC1E /* levelClassifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9DB24496E4900BFAC1E /* levelClassifyViewController.swift */; };
 		B641C9DE2449705A00BFAC1E /* levelDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B641C9DD2449705A00BFAC1E /* levelDetector.swift */; };
@@ -48,11 +51,14 @@
 		B61948782442B737005D7675 /* fitube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B619487B2442B737005D7675 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B619487D2442B737005D7675 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B619487F2442B737005D7675 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B61948822442B737005D7675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B61948872442B738005D7675 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B619488A2442B738005D7675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B619488C2442B738005D7675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B61B5A92244EABDF0078F7C1 /* Page2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
+		B61B5A94244EAC020078F7C1 /* Container2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container2ViewController.swift; sourceTree = "<group>"; };
+		B61B5A96244EAC2A0078F7C1 /* PageoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageoneViewController.swift; sourceTree = "<group>"; };
+		B61B5A98244EAC360078F7C1 /* PagetwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagetwoViewController.swift; sourceTree = "<group>"; };
 		B621EDD42446D64600C3C1E0 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		B641C9DB24496E4900BFAC1E /* levelClassifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelClassifyViewController.swift; sourceTree = "<group>"; };
 		B641C9DD2449705A00BFAC1E /* levelDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelDetector.swift; sourceTree = "<group>"; };
@@ -139,6 +145,29 @@
 			path = fitube;
 			sourceTree = "<group>";
 		};
+		B61B5A87244E9C210078F7C1 /* PreviewPage */ = {
+			isa = PBXGroup;
+			children = (
+				B6C5C73E244DA22F0017D3AC /* PageViewController.swift */,
+				B6C5C740244DA7FD0017D3AC /* ContainerViewController.swift */,
+				B6C5C738244DA1430017D3AC /* FirstPageViewController.swift */,
+				B6C5C73A244DA1510017D3AC /* SecondPageViewController.swift */,
+				B6C5C73C244DA15D0017D3AC /* ThirdPageViewController.swift */,
+			);
+			name = PreviewPage;
+			sourceTree = "<group>";
+		};
+		B61B5A88244E9C620078F7C1 /* BeforeStarting */ = {
+			isa = PBXGroup;
+			children = (
+				B61B5A92244EABDF0078F7C1 /* Page2ViewController.swift */,
+				B61B5A94244EAC020078F7C1 /* Container2ViewController.swift */,
+				B61B5A96244EAC2A0078F7C1 /* PageoneViewController.swift */,
+				B61B5A98244EAC360078F7C1 /* PagetwoViewController.swift */,
+			);
+			path = BeforeStarting;
+			sourceTree = "<group>";
+		};
 		B641C9E52449A81900BFAC1E /* Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,14 +224,10 @@
 		B6C5C737244DA1190017D3AC /* FirstRegister */ = {
 			isa = PBXGroup;
 			children = (
-				B619487F2442B737005D7675 /* WelcomeViewController.swift */,
+				B61B5A87244E9C210078F7C1 /* PreviewPage */,
 				B6C1111724434F1600783090 /* RegisterViewController.swift */,
 				B641C9DB24496E4900BFAC1E /* levelClassifyViewController.swift */,
-				B6C5C73E244DA22F0017D3AC /* PageViewController.swift */,
-				B6C5C740244DA7FD0017D3AC /* ContainerViewController.swift */,
-				B6C5C738244DA1430017D3AC /* FirstPageViewController.swift */,
-				B6C5C73A244DA1510017D3AC /* SecondPageViewController.swift */,
-				B6C5C73C244DA15D0017D3AC /* ThirdPageViewController.swift */,
+				B61B5A88244E9C620078F7C1 /* BeforeStarting */,
 			);
 			path = FirstRegister;
 			sourceTree = "<group>";
@@ -340,8 +365,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6B7855E244C319D008C2518 /* NoteforUser.swift in Sources */,
-				B61948802442B737005D7675 /* WelcomeViewController.swift in Sources */,
 				B6C5C741244DA7FD0017D3AC /* ContainerViewController.swift in Sources */,
+				B61B5A93244EABDF0078F7C1 /* Page2ViewController.swift in Sources */,
 				B6C5C739244DA1430017D3AC /* FirstPageViewController.swift in Sources */,
 				B6B78558244BF4AF008C2518 /* Intermediate.swift in Sources */,
 				B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */,
@@ -356,8 +381,11 @@
 				B641C9EC244B08EC00BFAC1E /* PopUpViewController.swift in Sources */,
 				B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */,
 				B641C9DC24496E4900BFAC1E /* levelClassifyViewController.swift in Sources */,
+				B61B5A99244EAC360078F7C1 /* PagetwoViewController.swift in Sources */,
+				B61B5A95244EAC020078F7C1 /* Container2ViewController.swift in Sources */,
 				B6C5C73D244DA15D0017D3AC /* ThirdPageViewController.swift in Sources */,
 				B6C5C73B244DA1510017D3AC /* SecondPageViewController.swift in Sources */,
+				B61B5A97244EAC2A0078F7C1 /* PageoneViewController.swift in Sources */,
 				B6B7855A244BF9BC008C2518 /* Advanced.swift in Sources */,
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
 				B69BF792244D609500C25260 /* ImagePreviewController.swift in Sources */,

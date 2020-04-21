@@ -19,7 +19,7 @@ protocol PageViewControllerDelegate: class {
 
 class ContainerViewController: UIPageViewController {
 
-    var viewControllerList: [UIViewController] = [UIViewController]()
+    private var viewControllerList: [UIViewController] = [UIViewController]()
     weak var pageViewControllerDelegate: PageViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -55,11 +55,6 @@ extension ContainerViewController : UIPageViewControllerDelegate{
         self.pageViewControllerDelegate?.pageViewController(self, didUpdatePageIndex: currentIndex)
     }
 }
-
-
-
-
-
 
 extension ContainerViewController :UIPageViewControllerDataSource{
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
