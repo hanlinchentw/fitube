@@ -38,6 +38,7 @@
 		B6C5C741244DA7FD0017D3AC /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5C740244DA7FD0017D3AC /* ContainerViewController.swift */; };
 		B6DF3642244ECBDA008B8B32 /* FourPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF3641244ECBDA008B8B32 /* FourPageViewController.swift */; };
 		B6DF3644244EE733008B8B32 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF3643244EE733008B8B32 /* ListViewController.swift */; };
+		B6FE8A67244FF5B7004B3AFC /* AdviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE8A66244FF5B7004B3AFC /* AdviceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		B6C5C740244DA7FD0017D3AC /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		B6DF3641244ECBDA008B8B32 /* FourPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourPageViewController.swift; sourceTree = "<group>"; };
 		B6DF3643244EE733008B8B32 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		B6FE8A66244FF5B7004B3AFC /* AdviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceViewController.swift; sourceTree = "<group>"; };
 		F501F92D6BD4EE2B9E3927E2 /* Pods-fitube.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.release.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +216,7 @@
 				B6C1111724434F1600783090 /* RegisterViewController.swift */,
 				B641C9DB24496E4900BFAC1E /* levelClassifyViewController.swift */,
 				B6DF3643244EE733008B8B32 /* ListViewController.swift */,
+				B6FE8A66244FF5B7004B3AFC /* AdviceViewController.swift */,
 			);
 			path = FirstRegister;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				B619487E2442B737005D7675 /* SceneDelegate.swift in Sources */,
 				B69BF792244D609500C25260 /* ImagePreviewController.swift in Sources */,
 				B65EE32C2448B4BD001823FA /* Users1.xcdatamodeld in Sources */,
+				B6FE8A67244FF5B7004B3AFC /* AdviceViewController.swift in Sources */,
 				B641C9EA2449B4FC00BFAC1E /* Beginner.swift in Sources */,
 				B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */,
 				B641C9E42449A5A800BFAC1E /* TrainViewController.swift in Sources */,

@@ -25,7 +25,6 @@ class SecondPageViewController: UIViewController {
         
         textStack.distribution = .fillEqually
         textStack.spacing = view.frame.height / 40
-        textView.layer.cornerRadius = 20
         
         NSLayoutConstraint(item: titleLabel!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: titleLabel!, attribute: .bottom, relatedBy: .equal, toItem: textStack, attribute: .top, multiplier: 1, constant: -view.frame.height/10).isActive = true
@@ -40,11 +39,6 @@ class SecondPageViewController: UIViewController {
         
         textView.frame = view.frame
         imageView.frame = view.frame
-//        NSLayoutConstraint(item: textView!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10).isActive = true
-//        NSLayoutConstraint(item: textView!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -10).isActive = true
-//        NSLayoutConstraint(item: textView!, attribute: .centerX, relatedBy: .equal, toItem: textStack, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-//        NSLayoutConstraint(item: textView!, attribute: .centerY, relatedBy: .equal, toItem: textStack, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
-//        NSLayoutConstraint(item: textView!, attribute: .height, relatedBy: .equal, toItem: textStack, attribute: .height, multiplier: 1, constant: 0).isActive = true
         for n in 0...(textLable.count-1){
             textLable[n].translatesAutoresizingMaskIntoConstraints = false
             textLable[n].textColor = .white

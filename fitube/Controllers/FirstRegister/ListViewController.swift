@@ -15,7 +15,7 @@ class ListViewController: UIViewController {
     var levelSend : String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         guard let safelevel = levelSend else {
             fatalError()
         }
@@ -23,5 +23,7 @@ class ListViewController: UIViewController {
             ImageView.image = safeImage
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.tintColor = .black
+    }
 }

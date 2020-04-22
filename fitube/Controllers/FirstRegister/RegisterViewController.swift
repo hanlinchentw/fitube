@@ -18,6 +18,12 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
     
+    @IBOutlet weak var titleStack: UIStackView!
+    @IBOutlet weak var textFieldStack: UIStackView!
+    
+    
+    
+    
     let frequencyArray = ["0 /week","1~3 /week","3~5 /week","5~7 /week"]
     var picker = UIPickerView()
     
@@ -27,6 +33,8 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textFieldStack.translatesAutoresizingMaskIntoConstraints = false
+        titleStack.translatesAutoresizingMaskIntoConstraints = false
         doneButton.layer.cornerRadius = 10
         print (filePath)
         picker.dataSource = self
@@ -34,6 +42,19 @@ class RegisterViewController: UIViewController {
         trainFrequency.inputView = picker
         let tap = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(tap)
+        
+        NSLayoutConstraint(item: titleStack!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: titleStack!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: view.frame.height/20).isActive = true
+        NSLayoutConstraint(item: titleStack!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: view.frame.width/20).isActive = true
+        NSLayoutConstraint(item: titleStack!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -view.frame.width/20).isActive = true
+        
+        textFieldStack.spacing = view.frame.height/20
+        NSLayoutConstraint(item: textFieldStack!, attribute: .top, relatedBy: .equal, toItem: titleStack, attribute: .bottom, multiplier: 1, constant: view.frame.height/20).isActive = true
+        NSLayoutConstraint(item: textFieldStack!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: textFieldStack!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.5, constant: 0).isActive = true
+        
+        
+        
     }
     
     @objc func closeKeyboard(){
