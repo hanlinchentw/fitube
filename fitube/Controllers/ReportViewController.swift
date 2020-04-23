@@ -37,26 +37,26 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
             NSLayoutConstraint(item: dayButtonCollection[n-1], attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1/8, constant: 0).isActive = true
             NSLayoutConstraint(item: dayButtonCollection[n-1], attribute: .width, relatedBy: .equal, toItem:dayButtonCollection[n-1] , attribute: .height, multiplier: 1, constant: 0).isActive = true
         }
-        
-        finishedDay.text = String(defaults.integer(forKey: "passedDay"))
+        let dayPassed = defaults.integer(forKey: "passedDay")
+        finishedDay.text = String(dayPassed)
         
         
         generateButton.layer.cornerRadius = 10
         borderView.layer.cornerRadius = 20
-        borderView.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        borderView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         borderView.layer.borderWidth = 2
-        if let day = Int(finishedDay.text!){
-            if day == 0{
+       
+            if dayPassed == 0{
                 
             }else{
-                for n in 0...day-1{
+                for n in 0...dayPassed-1{
                     dayButtonCollection[n].setBackgroundImage(UIImage(systemName: "checkmark.shield.fill"), for: .normal)
                     dayButtonCollection[n].tintColor = #colorLiteral(red: 0, green: 0.5704279542, blue: 0.3237726688, alpha: 1)
                     dayButtonCollection[n].tag = n
                     dayButtonCollection[n].isUserInteractionEnabled = true
                 }
             }
-        }
+        
 
     }
     

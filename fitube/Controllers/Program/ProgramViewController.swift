@@ -23,12 +23,15 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBOutlet weak var workView: UIView!
-    @IBOutlet weak var buttonStack: UIStackView!
     @IBOutlet weak var warmButton: UIButton!
     @IBOutlet weak var photoLabel: UIButton!
     @IBOutlet weak var trainButton: UIButton!
     @IBOutlet weak var completedButton: UIButton!
-//MARK: - Data container
+    @IBOutlet weak var warmupBlur: UIView!
+    @IBOutlet weak var trainingBlur: UIView!
+    @IBOutlet weak var selfieBlur: UIView!
+    @IBOutlet var imageArray: [UIImageView]!
+    //MARK: - Data container
     var photoArray :[String] = []
     
     let defaults = UserDefaults.standard
@@ -43,6 +46,22 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let infoRequest :NSFetchRequest<Usersinfo> = Usersinfo.fetchRequest()
+        let levelRequset :NSFetchRequest<UsersLevel> = UsersLevel.fetchRequest()
+        userData =  loadUserInfo(request: infoRequest as! NSFetchRequest<NSFetchRequestResult>) as! [Usersinfo]
+        userlevel =  loadUserInfo(request: levelRequset as! NSFetchRequest<NSFetchRequestResult>) as! [UsersLevel]
+                
+                
+        nameLabel.text =  userData[0].name
+        dateLabel.text = dateFetch()
+        levelLabel.text = "  Current level : \(userlevel[0].levelDescription!)"
+        dayPassed = 0 // test
+        //        dayPassed = defaults.integer(forKey: "passedDay")
+        part = leveldetermine(day: dayPassed)
+        imagePreview.delegate = self
+                    
+        trainButton.setTitle(part[0], for: .normal)
+        userDoneTheChanllenge = false // test
         
         blurIfDone(if: userDoneTheChanllenge)
        //MARK: - Auto layout manager
@@ -55,9 +74,11 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         warmButton.translatesAutoresizingMaskIntoConstraints = false
         trainButton.translatesAutoresizingMaskIntoConstraints = false
         photoLabel.translatesAutoresizingMaskIntoConstraints = false
-        buttonStack.translatesAutoresizingMaskIntoConstraints = false
+        warmupBlur.translatesAutoresizingMaskIntoConstraints = false
+        trainingBlur.translatesAutoresizingMaskIntoConstraints = false
+        selfieBlur.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint(item: nameLabel!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: (view.frame.height)/40).isActive = true
+        NSLayoutConstraint(item: nameLabel!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: (view.frame.height)/50).isActive = true
         NSLayoutConstraint(item: nameLabel!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         
         
@@ -65,7 +86,7 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         NSLayoutConstraint(item: dividerImage!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: dividerImage!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: dividerImage!, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.1, constant: 0).isActive = true
-        NSLayoutConstraint(item: dividerImage!, attribute: .top, relatedBy: .equal, toItem: nameLabel, attribute: .bottom, multiplier: 1, constant: -view.frame.height/40).isActive = true
+        NSLayoutConstraint(item: dividerImage!, attribute: .top, relatedBy: .equal, toItem: nameLabel, attribute: .bottom, multiplier: 1, constant: -view.frame.height/20).isActive = true
         NSLayoutConstraint(item: dividerImage!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant:0).isActive = true
 
         NSLayoutConstraint(item: dateLabel!, attribute: .top, relatedBy: .equal, toItem: dividerImage, attribute: .bottom, multiplier: 1, constant: -15).isActive = true
@@ -77,108 +98,64 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         NSLayoutConstraint(item: dummyLabel!, attribute: .top, relatedBy: .equal, toItem: dateLabel, attribute: .bottom, multiplier: 1, constant: (view.frame.height)/99).isActive = true
         NSLayoutConstraint(item: dummyLabel!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: view.frame.width/20).isActive = true
         
-        workView.layer.cornerRadius = 20
-        workView.backgroundColor = #colorLiteral(red: 0.2303010523, green: 0.4739870429, blue: 0.7338336706, alpha: 1)
+        workView.layer.cornerRadius = 10
+        workView.layer.borderWidth = 5
+        workView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        workView.backgroundColor = #colorLiteral(red: 0.2851659656, green: 0.4760053754, blue: 0.7123829722, alpha: 1)
         NSLayoutConstraint(item: workView!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: workView!, attribute: .top, relatedBy: .equal, toItem: dummyLabel, attribute: .bottom, multiplier: 1, constant: (view.frame.height)/100).isActive = true
+        NSLayoutConstraint(item: workView!, attribute: .top, relatedBy: .equal, toItem: dummyLabel, attribute: .bottom, multiplier: 1, constant: (view.frame.height)/50).isActive = true
+        NSLayoutConstraint(item: workView!, attribute: .bottom, relatedBy: .equal, toItem: imageArray[2], attribute: .bottom, multiplier: 1, constant: view.frame.height/50).isActive = true
+        NSLayoutConstraint(item: workView!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: view.frame.width/30).isActive = true
+        NSLayoutConstraint(item: workView!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -view.frame.width/30).isActive = true
+        
+        NSLayoutConstraint(item: imageArray[0], attribute: .top, relatedBy: .equal, toItem: workView, attribute: .top, multiplier: 1, constant: view.frame.height/50).isActive = true
+        
+        for n in 0...2{
+            imageArray[n].translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint(item: imageArray[n], attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.2, constant: 0).isActive = true
+            NSLayoutConstraint(item: imageArray[n], attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.8, constant: 0).isActive = true
+            NSLayoutConstraint(item: imageArray[n], attribute: .centerX, relatedBy: .equal, toItem: workView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+            if n >= 1 {
+                NSLayoutConstraint(item: imageArray[n], attribute: .top, relatedBy: .equal, toItem: imageArray[n-1], attribute: .bottom, multiplier: 1, constant: view.frame.height/60).isActive = true
+            }
 
-        NSLayoutConstraint(item: workView!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: view.frame.width/20).isActive = true
-        NSLayoutConstraint(item: workView!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -view.frame.width/20).isActive = true
+        }
         
-        buttonStack.distribution = .fillEqually
-        buttonStack.spacing = view.frame.height/35
-        NSLayoutConstraint(item: buttonStack!, attribute: .centerX, relatedBy: .equal, toItem: workView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: buttonStack!, attribute: .trailing, relatedBy: .equal, toItem: workView, attribute: .trailing, multiplier: 1, constant: -view.frame.width/20).isActive = true
-        NSLayoutConstraint(item: buttonStack!, attribute: .top, relatedBy: .equal, toItem: workView, attribute: .top, multiplier: 1, constant: (view.frame.height)/50).isActive = true
-        NSLayoutConstraint(item: buttonStack!, attribute: .leading, relatedBy: .equal, toItem: workView, attribute: .leading, multiplier: 1, constant: view.frame.width/20).isActive = true
-        NSLayoutConstraint(item: buttonStack!, attribute: .bottom, relatedBy: .equal, toItem: workView, attribute: .bottom, multiplier: 1, constant: -(view.frame.height)/50).isActive = true
-        NSLayoutConstraint(item: warmButton!, attribute: .height, relatedBy: .equal,
-                           toItem: view, attribute: .height, multiplier: 0.2, constant: 0).isActive = true
-        NSLayoutConstraint(item: warmButton!, attribute: .width, relatedBy: .equal,
-                           toItem: view, attribute: .width, multiplier: 0.6, constant: 0).isActive = true
-        NSLayoutConstraint(item: trainButton! , attribute: .height, relatedBy: .equal,
-                           toItem: view, attribute: .height, multiplier: 0.2, constant: 0).isActive = true
-        NSLayoutConstraint(item: trainButton!, attribute: .width, relatedBy: .equal,
-                           toItem: view, attribute: .width, multiplier: 0.6, constant: 0).isActive = true
-        NSLayoutConstraint(item: photoLabel! , attribute: .height, relatedBy: .equal,
-                           toItem: view, attribute: .height, multiplier: 0.2, constant: 0).isActive = true
-        NSLayoutConstraint(item: photoLabel!, attribute: .width, relatedBy: .equal,
-                           toItem: view, attribute: .width, multiplier: 0.6, constant: 0).isActive = true
-        
-        
-        completedButton.layer.cornerRadius = 5
-        
-        let infoRequest :NSFetchRequest<Usersinfo> = Usersinfo.fetchRequest()
-        let levelRequset :NSFetchRequest<UsersLevel> = UsersLevel.fetchRequest()
-        userData =  loadUserInfo(request: infoRequest as! NSFetchRequest<NSFetchRequestResult>) as! [Usersinfo]
-        userlevel =  loadUserInfo(request: levelRequset as! NSFetchRequest<NSFetchRequestResult>) as! [UsersLevel]
-        
-        
-        nameLabel.text =  userData[0].name
-        dateLabel.text = "Date: "+dateFetch()
-        levelLabel.text = "level : \(userlevel[0].levelDescription!)"
-        dayPassed = 1 // test
 
-//        dayPassed = defaults.integer(forKey: "passedDay")
-        part = leveldetermine(day: dayPassed)
-        imagePreview.delegate = self
-
-        userDoneTheChanllenge = false //test
-
-        
-        let warmupBlur = UIView()
-        let warmButtonLabel = UILabel()
-        blurConstraints(addView: warmupBlur, label: warmButtonLabel,button: warmButton)
-        warmButtonLabel.text = "Ten minutes Cardio"
-    
-        let trainingBlur = UIView()
-        let trainingLabel = UILabel()
-        blurConstraints(addView: trainingBlur, label: trainingLabel, button: trainButton)
-        trainingLabel.text = part[0]
-        
-        let selfieBlur = UIView()
-        let selfieButtonLabel = UILabel()
-        blurConstraints(addView: selfieBlur, label: selfieButtonLabel, button: photoLabel)
-        selfieButtonLabel.text = "Take a sefie"
-        
-        
+        fit(addView: warmButton, underView: imageArray[0])
+        fit(addView: trainButton, underView: imageArray[1])
+        fit(addView: photoLabel, underView: imageArray[2])
+        fit(addView: warmupBlur, underView: imageArray[0])
+        fit(addView: trainingBlur, underView: imageArray[1])
+        fit(addView: selfieBlur, underView: imageArray[2])
+        let transitionSize = 25*view.frame.height/725
+        warmButton.titleLabel?.font.withSize(transitionSize)
+        trainButton.titleLabel?.font.withSize(transitionSize)
+        photoLabel.titleLabel?.font.withSize(transitionSize)
+        nameLabel.font.withSize(transitionSize)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
         tabBarController?.tabBar.isHidden = false
-        
+                
     }
-    //MARK: - Constraints
-    func blurConstraints(addView : UIView, label:UILabel,button:UIButton){
-        view.addSubview(addView)
-        view.addSubview(label)
         
-        addView.backgroundColor = .black
-        addView.alpha = 0.6
-        addView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: addView, attribute: .centerX, relatedBy: .equal, toItem: button, attribute: .centerX, multiplier: 1, constant: 0).isActive  = true
-        NSLayoutConstraint(item: addView, attribute: .top, relatedBy: .equal, toItem: button, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: addView, attribute: .bottom, relatedBy: .equal, toItem: button, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: addView, attribute: .leading, relatedBy: .equal, toItem: button, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: addView, attribute: .trailing, relatedBy: .equal, toItem: button, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
     
-        label.textColor = .white
-        label.font.withSize(17)
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: button, attribute: .centerX, multiplier: 1, constant: 0).isActive  = true
-        NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: button, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: button, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+    //MARK: - Make blue fit
+    func fit(addView : UIView,underView:UIView){
+        
+        NSLayoutConstraint(item: addView, attribute: .centerX, relatedBy: .equal, toItem: underView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: addView, attribute: .centerY, relatedBy: .equal, toItem: underView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: addView, attribute: .height, relatedBy: .equal, toItem: underView, attribute: .height, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: addView, attribute: .width, relatedBy: .equal, toItem: underView, attribute: .width, multiplier: 1, constant: 0).isActive = true
     }
-    
-    
     
     //MARK: - Buttons
     
     @IBAction func warmUpButtonPressed(_ sender: UIButton) {
         userDoneTheChanllenge = false
-        sender.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
-        trainButton.backgroundColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
+ 
         sender.isUserInteractionEnabled = false
         trainButton.isUserInteractionEnabled  = true
     }
@@ -186,8 +163,7 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var part :[String] = []
     @IBAction func trainingSection(_ sender: UIButton) {
-        sender.backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1)
-        photoLabel.backgroundColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
+
         
         sender.isUserInteractionEnabled = false
         photoLabel.isUserInteractionEnabled = true
@@ -222,7 +198,6 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //MARK: - load up user information
     func loadUserInfo( request : NSFetchRequest<NSFetchRequestResult>) ->[NSManagedObject] {
-        
                do {
                 return try contexts.fetch(request) as! [NSManagedObject]
                }catch{
