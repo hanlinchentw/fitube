@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		95A09BBE36B3F1EADEE58B07 /* Pods_fitube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375662A76D6CD3B561F15486 /* Pods_fitube.framework */; };
+		B60DC67E2451AC3A0085F1E8 /* RestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60DC67D2451AC3A0085F1E8 /* RestViewController.swift */; };
 		B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B611336B24458E990000B1B0 /* ProgramViewController.swift */; };
 		B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B611336D24458EBE0000B1B0 /* SettingViewController.swift */; };
 		B6186EA7244D7671000DB561 /* TimerBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6186EA6244D7671000DB561 /* TimerBackground.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		1F8DFEB34F460EC53A0355A2 /* Pods-fitube.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitube.debug.xcconfig"; path = "Target Support Files/Pods-fitube/Pods-fitube.debug.xcconfig"; sourceTree = "<group>"; };
 		375662A76D6CD3B561F15486 /* Pods_fitube.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitube.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60DC67D2451AC3A0085F1E8 /* RestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestViewController.swift; sourceTree = "<group>"; };
 		B611336B24458E990000B1B0 /* ProgramViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		B611336D24458EBE0000B1B0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B6186EA6244D7671000DB561 /* TimerBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerBackground.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				B611336B24458E990000B1B0 /* ProgramViewController.swift */,
 				B641C9DF24499AE200BFAC1E /* WarmupViewController.swift */,
 				B641C9E32449A5A800BFAC1E /* TrainViewController.swift */,
+				B60DC67D2451AC3A0085F1E8 /* RestViewController.swift */,
 				B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */,
 			);
 			path = Program;
@@ -361,6 +364,7 @@
 				B6DF3644244EE733008B8B32 /* ListViewController.swift in Sources */,
 				B619487C2442B737005D7675 /* AppDelegate.swift in Sources */,
 				B6DF3642244ECBDA008B8B32 /* FourPageViewController.swift in Sources */,
+				B60DC67E2451AC3A0085F1E8 /* RestViewController.swift in Sources */,
 				B65EE3292448022D001823FA /* MovieMaker.swift in Sources */,
 				B641C9DE2449705A00BFAC1E /* levelDetector.swift in Sources */,
 				B641C9E024499AE200BFAC1E /* WarmupViewController.swift in Sources */,

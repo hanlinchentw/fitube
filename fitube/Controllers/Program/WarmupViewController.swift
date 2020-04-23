@@ -16,27 +16,43 @@ class WarmupViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     
     @IBOutlet weak var playButton: UIButton!
-    var tenmins = 600
-    var timeEnd = Date(timeIntervalSinceNow:10*60)
+    var tenmins = 5.0
+    var timeEnd = Date(timeIntervalSinceNow:5)
     var formatter = DateFormatter()
     var timer =  Timer()
     var isPaused = true
+    var saveTime = "10 : 00"
+    
+    let defaults = UserDefaults.standard
+    
+    
+    var delegate : sentBackData?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
+        navigationController?.navigationBar.isHidden = true
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "mm:ss"
+        timeCounterLabel.text = formatter.string(from: Date(timeIntervalSinceReferenceDate: TimeInterval(defaults.double(forKey: "timeRemaining"))))
+        tenmins = defaults.double(forKey: "timeRemaining")
+        timeEnd = Date(timeIntervalSinceNow: defaults.double(forKey: "timeRemaining"))
+        
         runningPic.translatesAutoresizingMaskIntoConstraints = false
+        runningPic.layer.borderWidth = 3
+        runningPic.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         NSLayoutConstraint(item: runningPic!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: runningPic!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: runningPic!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: runningPic!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: view.frame.height/10).isActive = true
        
         playButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        
         NSLayoutConstraint(item: playButton!, attribute: .top, relatedBy: .equal, toItem: runningPic, attribute: .bottom, multiplier: 1, constant: view.frame.height/20).isActive = true
         NSLayoutConstraint(item: playButton!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        
         timeCounterLabel.translatesAutoresizingMaskIntoConstraints = false
         timeCounterLabel.layer.borderWidth = 3
         timeCounterLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -56,7 +72,7 @@ class WarmupViewController: UIViewController {
         
     }
     func setView(view: UIView, hidden: Bool) {
-        UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: view, duration: 1.0, options: .transitionCrossDissolve, animations: {
             view.isHidden = hidden
         })
     }
@@ -69,13 +85,13 @@ class WarmupViewController: UIViewController {
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(setTimeLeft), userInfo: nil, repeats: true)
             isPaused = false
             sender.setTitle("  Pause", for: .normal)
-            sender.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            sender.setImage(UIImage(systemName: "pause.circle.fill"), for: .normal)
             sender.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.03486464173, alpha: 1)
         }else{
             timer.invalidate()
             isPaused = true
             sender.setTitle("  Continue", for: .normal)
-            sender.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            sender.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
             sender.tintColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1)
         }
         
@@ -85,17 +101,22 @@ class WarmupViewController: UIViewController {
         timer.invalidate()
         isPaused = true
         playButton.setTitle("  Continue", for: .normal)
-        playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        playButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
         playButton.tintColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1)
         let alert = UIAlertController(title: "Skip", message: "Sure you want to skip?", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Sure", style: .default) { (sureAction) in
+            self.saveTime = self.timeCounterLabel.text!
+            self.defaults.set(self.saveTime.convertToTimeInterval(), forKey: "timeRemaining")
+            self.delegate?.dismissBack(sendData: "Remaining: \(self.timeCounterLabel.text!)\n\nClick to continue")
             self.dismiss(animated: true, completion: nil)
         }
+    
+        
         let action2 = UIAlertAction(title: "Continue", style: .default) { (continueAction) in
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.setTimeLeft), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.setTimeLeft), userInfo: nil, repeats: true)
             self.isPaused = false
             self.playButton.setTitle("  Pause", for: .normal)
-            self.playButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            self.playButton.setImage(UIImage(systemName: "pause.circle.fill"), for: .normal)
             self.playButton.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.03486464173, alpha: 1)
         }
         alert.addAction(action1)
@@ -114,15 +135,57 @@ class WarmupViewController: UIViewController {
             let calendar = NSCalendar.current
             let components = calendar.dateComponents([.month,.day,.hour,.minute, .second], from: timeNow, to: timeEnd)
             if components.second! < 10{
-                timeCounterLabel.text = String(components.minute!) + " : 0" + String(components.second!)
+                UIView.transition(with: timeCounterLabel, duration: 0.1, options: .transitionCrossDissolve, animations: {
+                    self.timeCounterLabel.text = "0"+String(components.minute!) + ":0" + String(components.second!)
+                }, completion: nil)
+                
             }else{
-                timeCounterLabel.text = String(components.minute!) + " : " + String(components.second!)
+                UIView.transition(with: timeCounterLabel, duration: 0.1, options: .transitionCrossDissolve, animations: {
+                    self.timeCounterLabel.text = "0"+String(components.minute!) + ":" + String(components.second!)
+                }, completion: nil)
             }
             
 
         } else {
-            timeCounterLabel.text = "Ended"
+            defaults.set(600.0, forKey: "timeRemaining")
+            setView(view: playButton, hidden: true)
+            
+            UIView.transition(with: timeCounterLabel,
+                              duration: 0.2, options: .transitionCrossDissolve,
+                              animations: {
+                self.timeCounterLabel.text = "Good job!"
+            })
+            UIView.transition(with: skipButton,
+                              duration: 0.2, options: .transitionCrossDissolve,
+                              animations: {
+                self.skipButton.setTitle("Continue", for: .normal)
+            })
+            skipButton.removeTarget(self, action: #selector(self.nextOneButtonPressed(_:)), for: .touchUpInside)
+            skipButton.addTarget(self, action: #selector(self.continueClick(sender:)), for: .touchUpInside)
+            
+            
         }
 
+    }
+    @objc func continueClick(sender:UIButton){
+        
+        delegate?.dismissBack(sendData: "Finish!")
+        dismiss(animated: true, completion: nil)
+    }
+}
+extension String {
+    func convertToTimeInterval() -> TimeInterval {
+        guard self != "" else {
+            return 0
+        }
+
+        var interval:Double = 0
+
+        let parts = self.components(separatedBy: " : ")
+        for (index, part) in parts.reversed().enumerated() {
+            interval += (Double(part) ?? 0) * pow(Double(60), Double(index))
+        }
+
+        return interval
     }
 }

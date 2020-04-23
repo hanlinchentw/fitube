@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 
+protocol sentBackData {
+    func dismissBack(sendData:String)
+}
+
+@available(iOS 13.0, *)
 class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, whatUserTrain{
     func fetchTrainingProgram() ->[String] {
         return part
@@ -42,7 +47,7 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     
 //MARK: - view delegate method
     var imagePreview = ImagePreviewController()
-    
+    var timeRemaining = "10 mins cardio"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,7 +143,8 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
         tabBarController?.tabBar.isHidden = false
-                
+        navigationController?.navigationBar.isTranslucent = false
+        
     }
         
     
@@ -158,6 +164,7 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
  
         sender.isUserInteractionEnabled = false
         trainButton.isUserInteractionEnabled  = true
+        
     }
     
     
@@ -176,7 +183,10 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         if segue.identifier == "startTraining"{
             let destinationVC = segue.destination as! TrainViewController
             destinationVC.trainingSection = part
-        } 
+        } else if segue.identifier == "warmup"{
+            let destinationVC = segue.destination as! WarmupViewController
+            destinationVC.delegate = self
+        }
     }
     
     @IBAction func takePhoto(_ sender: UIButton) {
@@ -319,4 +329,20 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
     }
+}
+@available(iOS 13.0, *)
+extension ProgramViewController : sentBackData{
+    func dismissBack(sendData: String) {
+        warmButton.titleLabel?.numberOfLines = 0
+ 
+        warmButton.setTitle(sendData, for: .normal)
+        if warmButton.currentTitle! == "Finish, Good job!"{
+            warmButton.isUserInteractionEnabled = false
+        }else{
+            warmButton.setImage(UIImage(), for: .normal)
+            warmButton.isUserInteractionEnabled = true
+            
+        }
+    }
+    
 }
