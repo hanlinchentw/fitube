@@ -35,7 +35,6 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         textFieldStack.translatesAutoresizingMaskIntoConstraints = false
         titleStack.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.layer.cornerRadius = 10
         print (filePath)
         picker.dataSource = self
         picker.delegate = self
@@ -51,10 +50,14 @@ class RegisterViewController: UIViewController {
         textFieldStack.spacing = view.frame.height/20
         NSLayoutConstraint(item: textFieldStack!, attribute: .top, relatedBy: .equal, toItem: titleStack, attribute: .bottom, multiplier: 1, constant: view.frame.height/20).isActive = true
         NSLayoutConstraint(item: textFieldStack!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: textFieldStack!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.5, constant: 0).isActive = true
+        NSLayoutConstraint(item: textFieldStack!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.6, constant: 0).isActive = true
         
-        
-        
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.layer.cornerRadius = 20
+        NSLayoutConstraint(item: doneButton!, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.07, constant: 0).isActive = true
+        NSLayoutConstraint(item: doneButton!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.5, constant: 0).isActive = true
+        NSLayoutConstraint(item: doneButton!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: doneButton!, attribute: .top, relatedBy: .equal, toItem: trainFrequency, attribute: .bottom, multiplier: 1, constant: view.frame.height/20).isActive = true
     }
     
     @objc func closeKeyboard(){

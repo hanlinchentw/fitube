@@ -36,7 +36,7 @@ public class CXEImagesToVideo: NSObject{
         super.init()
         
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let tempPath = paths[0] + "/exprotvideo.mp4"
+        let tempPath = paths[0] + "/exportvideo.mov"
         if(FileManager.default.fileExists(atPath: tempPath)){
             guard (try? FileManager.default.removeItem(atPath: tempPath)) != nil else {
                 print("remove path failed")
@@ -45,7 +45,7 @@ public class CXEImagesToVideo: NSObject{
         }
         
         self.fileURL = URL(fileURLWithPath: tempPath)
-        self.assetWriter = try! AVAssetWriter(url: self.fileURL, fileType: AVFileType.mov)
+        self.assetWriter = try! AVAssetWriter(url: self.fileURL, fileType: AVFileType.mp4)
         
         self.videoSettings = videoSettings
         self.writeInput = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: videoSettings)

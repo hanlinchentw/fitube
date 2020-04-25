@@ -37,6 +37,8 @@
 		B6C5C73D244DA15D0017D3AC /* ThirdPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5C73C244DA15D0017D3AC /* ThirdPageViewController.swift */; };
 		B6C5C73F244DA22F0017D3AC /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5C73E244DA22F0017D3AC /* PageViewController.swift */; };
 		B6C5C741244DA7FD0017D3AC /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5C740244DA7FD0017D3AC /* ContainerViewController.swift */; };
+		B6D5866E2452F162002F4E84 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5866D2452F162002F4E84 /* HomeTabViewController.swift */; };
+		B6D58670245468B3002F4E84 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5866F245468B3002F4E84 /* VideoViewController.swift */; };
 		B6DF3642244ECBDA008B8B32 /* FourPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF3641244ECBDA008B8B32 /* FourPageViewController.swift */; };
 		B6DF3644244EE733008B8B32 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF3643244EE733008B8B32 /* ListViewController.swift */; };
 		B6FE8A67244FF5B7004B3AFC /* AdviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE8A66244FF5B7004B3AFC /* AdviceViewController.swift */; };
@@ -76,6 +78,8 @@
 		B6C5C73C244DA15D0017D3AC /* ThirdPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPageViewController.swift; sourceTree = "<group>"; };
 		B6C5C73E244DA22F0017D3AC /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B6C5C740244DA7FD0017D3AC /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		B6D5866D2452F162002F4E84 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		B6D5866F245468B3002F4E84 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		B6DF3641244ECBDA008B8B32 /* FourPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourPageViewController.swift; sourceTree = "<group>"; };
 		B6DF3643244EE733008B8B32 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B6FE8A66244FF5B7004B3AFC /* AdviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 		B641C9E52449A81900BFAC1E /* Tab */ = {
 			isa = PBXGroup;
 			children = (
+				B6D5866D2452F162002F4E84 /* HomeTabViewController.swift */,
 				B641C9E62449A82F00BFAC1E /* Program */,
 				B69BF793244D609900C25260 /* Report */,
 				B611336D24458EBE0000B1B0 /* SettingViewController.swift */,
@@ -193,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				B621EDD42446D64600C3C1E0 /* ReportViewController.swift */,
+				B6D5866F245468B3002F4E84 /* VideoViewController.swift */,
 				B69BF791244D609500C25260 /* ImagePreviewController.swift */,
 			);
 			name = Report;
@@ -363,6 +369,7 @@
 				B611336C24458E990000B1B0 /* ProgramViewController.swift in Sources */,
 				B6DF3644244EE733008B8B32 /* ListViewController.swift in Sources */,
 				B619487C2442B737005D7675 /* AppDelegate.swift in Sources */,
+				B6D58670245468B3002F4E84 /* VideoViewController.swift in Sources */,
 				B6DF3642244ECBDA008B8B32 /* FourPageViewController.swift in Sources */,
 				B60DC67E2451AC3A0085F1E8 /* RestViewController.swift in Sources */,
 				B65EE3292448022D001823FA /* MovieMaker.swift in Sources */,
@@ -385,6 +392,7 @@
 				B641C9EA2449B4FC00BFAC1E /* Beginner.swift in Sources */,
 				B6C1111824434F1600783090 /* RegisterViewController.swift in Sources */,
 				B641C9E42449A5A800BFAC1E /* TrainViewController.swift in Sources */,
+				B6D5866E2452F162002F4E84 /* HomeTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

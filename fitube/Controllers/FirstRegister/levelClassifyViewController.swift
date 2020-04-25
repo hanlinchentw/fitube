@@ -29,18 +29,16 @@ class levelClassifyViewController: UIViewController {
         }
     
         levelDetect = levelDetectors.levelUpdate()
-        assessmentLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        assessmentLabel.layer.borderWidth = 5
-        assessmentLabel.text = "Recommended choice: \(levelButton[levelDetect-1].currentTitle!)"
+
+        assessmentLabel.text = "Recommended program: \(levelButton[levelDetect-1].currentTitle!)"
         
         levelButton[levelDetect-1].backgroundColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
     }
     override func viewWillAppear(_ animated: Bool) {
-         let alert = UIAlertController(title: "Assessment completed", message: "Recommendation: \(levelButton[levelDetect-1].currentTitle!) program", preferredStyle: .alert)
-         let action = UIAlertAction(title: "I see", style: .default, handler: nil)
+         let alert = UIAlertController(title: "Assessment", message: "Level: \(levelButton[levelDetect-1].currentTitle!)", preferredStyle: .alert)
+         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
          alert.addAction(action)
          present(alert, animated: true, completion: nil)
-         
     }
     var temp  = 0
     @IBAction func levelBurrtonPressed(_ sender: UIButton) {

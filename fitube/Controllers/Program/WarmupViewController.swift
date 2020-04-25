@@ -16,8 +16,8 @@ class WarmupViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     
     @IBOutlet weak var playButton: UIButton!
-    var tenmins = 5.0
-    var timeEnd = Date(timeIntervalSinceNow:5)
+    var tenmins = 600.0
+    var timeEnd = Date(timeIntervalSinceNow:600)
     var formatter = DateFormatter()
     var timer =  Timer()
     var isPaused = true
@@ -27,7 +27,7 @@ class WarmupViewController: UIViewController {
     
     
     var delegate : sentBackData?
-    
+
     
     
     override func viewDidLoad() {
@@ -35,9 +35,6 @@ class WarmupViewController: UIViewController {
         
         navigationController?.navigationBar.isHidden = true
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "mm:ss"
-        timeCounterLabel.text = formatter.string(from: Date(timeIntervalSinceReferenceDate: TimeInterval(defaults.double(forKey: "timeRemaining"))))
         tenmins = defaults.double(forKey: "timeRemaining")
         timeEnd = Date(timeIntervalSinceNow: defaults.double(forKey: "timeRemaining"))
         
@@ -103,16 +100,17 @@ class WarmupViewController: UIViewController {
         playButton.setTitle("  Continue", for: .normal)
         playButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
         playButton.tintColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1)
+        
         let alert = UIAlertController(title: "Skip", message: "Sure you want to skip?", preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Sure", style: .default) { (sureAction) in
-            self.saveTime = self.timeCounterLabel.text!
-            self.defaults.set(self.saveTime.convertToTimeInterval(), forKey: "timeRemaining")
-            self.delegate?.dismissBack(sendData: "Remaining: \(self.timeCounterLabel.text!)\n\nClick to continue")
+        let action1 = UIAlertAction(title: "Yes", style: .default) { (sureAction) in
+            self.defaults.set(self.tenmins, forKey: "timeRemaining")
+            
+            self.delegate?.dismissBack(sendData: "Remaining:  \(self.timeCounterLabel.text!)\n\nClick to continue")
             self.dismiss(animated: true, completion: nil)
         }
     
         
-        let action2 = UIAlertAction(title: "Continue", style: .default) { (continueAction) in
+        let action2 = UIAlertAction(title: "No", style: .default) { (continueAction) in
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.setTimeLeft), userInfo: nil, repeats: true)
             self.isPaused = false
             self.playButton.setTitle("  Pause", for: .normal)
@@ -162,30 +160,26 @@ class WarmupViewController: UIViewController {
             })
             skipButton.removeTarget(self, action: #selector(self.nextOneButtonPressed(_:)), for: .touchUpInside)
             skipButton.addTarget(self, action: #selector(self.continueClick(sender:)), for: .touchUpInside)
-            
-            
         }
 
     }
     @objc func continueClick(sender:UIButton){
-        
-        delegate?.dismissBack(sendData: "Finish!")
+        delegate?.dismissBack(sendData: "   Finished!")
         dismiss(animated: true, completion: nil)
     }
 }
+
 extension String {
     func convertToTimeInterval() -> TimeInterval {
         guard self != "" else {
             return 0
         }
-
         var interval:Double = 0
 
         let parts = self.components(separatedBy: " : ")
         for (index, part) in parts.reversed().enumerated() {
             interval += (Double(part) ?? 0) * pow(Double(60), Double(index))
         }
-
         return interval
     }
 }

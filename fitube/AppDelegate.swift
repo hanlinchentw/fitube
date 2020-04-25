@@ -13,25 +13,29 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let dic = ["timeRemaining":3.0]
+        let dic = ["timeRemaining":600.0]
         UserDefaults.standard.register(defaults: dic)
+        let dic2 = ["currentExercise":1]
+        UserDefaults.standard.register(defaults: dic2)
+        
 //        let isRegistered = UserDefaults.standard.bool(forKey: "ALLREADY_REGISTER")
 //               if isRegistered == true{
 //                   // implement home view controller
-//                   let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProgramView") as! HomeTabViewController
-//                   self.window?.rootViewController = ProgramViewController
+//                   let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ADviceVC") as! AdviceViewController
+//                if #available(iOS 13.0, *) {
+//                    self.window?.rootViewController = homeViewController
+//                } else {
+//                    // Fallback on earlier versions
+//                }
 //                   self.window?.makeKeyAndVisible()
-//
 //               }else{
 //                   // implement register view controller
-//                   let registerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PreviewVC") as! RegisterViewController
-//                   self.window?.rootViewController = PageViewController
+//                   let registerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PreviewVC") as! PageViewController
+//                   self.window?.rootViewController = registerViewController
 //                   self.window?.makeKeyAndVisible()
 //               }
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
         return true
     }
 

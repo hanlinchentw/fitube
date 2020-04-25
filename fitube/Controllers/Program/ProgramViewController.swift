@@ -12,7 +12,9 @@ import CoreData
 protocol sentBackData {
     func dismissBack(sendData:String)
 }
-
+protocol lastExercise {
+    func trainingStaus(status :Float)
+}
 @available(iOS 13.0, *)
 class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, whatUserTrain{
     func fetchTrainingProgram() ->[String] {
@@ -28,13 +30,19 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBOutlet weak var workView: UIView!
+    
     @IBOutlet weak var warmButton: UIButton!
     @IBOutlet weak var photoLabel: UIButton!
     @IBOutlet weak var trainButton: UIButton!
     @IBOutlet weak var completedButton: UIButton!
+    
+    var trainProgressBar = UIProgressView(progressViewStyle: .bar)
+    var progressLabel = UILabel()
     @IBOutlet weak var warmupBlur: UIView!
     @IBOutlet weak var trainingBlur: UIView!
     @IBOutlet weak var selfieBlur: UIView!
+    
+    
     @IBOutlet var imageArray: [UIImageView]!
     //MARK: - Data container
     var photoArray :[String] = []
@@ -68,7 +76,6 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         trainButton.setTitle(part[0], for: .normal)
         userDoneTheChanllenge = false // test
         
-        blurIfDone(if: userDoneTheChanllenge)
        //MARK: - Auto layout manager
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         dividerImage.translatesAutoresizingMaskIntoConstraints = false
@@ -125,7 +132,22 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
 
         }
+        view.addSubview(trainProgressBar)
+        trainProgressBar.translatesAutoresizingMaskIntoConstraints = false
+        trainProgressBar.progress = 0
+        trainProgressBar.progressTintColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
+        trainProgressBar.trackTintColor = #colorLiteral(red: 0.9999018312, green: 1, blue: 0.9998798966, alpha: 1)
+        NSLayoutConstraint(item: trainProgressBar, attribute: .bottom, relatedBy: .equal, toItem: trainButton, attribute: .bottom, multiplier: 1, constant: -trainButton.frame.height).isActive = true
+        NSLayoutConstraint(item: trainProgressBar, attribute: .leading, relatedBy: .equal, toItem: trainButton, attribute: .leading, multiplier: 1, constant: trainButton.frame.width/5).isActive = true
+        NSLayoutConstraint(item: trainProgressBar, attribute: .trailing, relatedBy: .equal, toItem: trainButton, attribute: .trailing, multiplier: 1, constant: -trainButton.frame.width/5).isActive = true
+        NSLayoutConstraint(item: trainProgressBar, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         
+        view.addSubview(progressLabel)
+        progressLabel.translatesAutoresizingMaskIntoConstraints = false
+        progressLabel.text = String(format: "%0m", trainProgressBar.progress*100) + " %"
+        progressLabel.textColor = .white
+        NSLayoutConstraint(item: progressLabel, attribute: .trailing, relatedBy: .equal, toItem: trainProgressBar, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: progressLabel, attribute: .bottom, relatedBy: .equal, toItem: trainProgressBar, attribute: .top, multiplier: 1, constant: 0).isActive = true
 
         fit(addView: warmButton, underView: imageArray[0])
         fit(addView: trainButton, underView: imageArray[1])
@@ -161,19 +183,11 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func warmUpButtonPressed(_ sender: UIButton) {
         userDoneTheChanllenge = false
- 
-        sender.isUserInteractionEnabled = false
-        trainButton.isUserInteractionEnabled  = true
-        
     }
     
     
     var part :[String] = []
     @IBAction func trainingSection(_ sender: UIButton) {
-
-        
-        sender.isUserInteractionEnabled = false
-        photoLabel.isUserInteractionEnabled = true
         
         performSegue(withIdentifier: "startTraining", sender: self)
         
@@ -183,6 +197,7 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         if segue.identifier == "startTraining"{
             let destinationVC = segue.destination as! TrainViewController
             destinationVC.trainingSection = part
+            destinationVC.delegate = self
         } else if segue.identifier == "warmup"{
             let destinationVC = segue.destination as! WarmupViewController
             destinationVC.delegate = self
@@ -199,12 +214,14 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func completedButtonPressed(_ sender: UIButton) {
-        
+        sender.tintColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
         sender.isUserInteractionEnabled = false
         dayPassed += 1
         userDoneTheChanllenge = true
         resetChallenge()
     }
+    
+    
     
     //MARK: - load up user information
     func loadUserInfo( request : NSFetchRequest<NSFetchRequestResult>) ->[NSManagedObject] {
@@ -231,7 +248,7 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
   
         let formatters = DateFormatter()
         formatters.dateFormat = "yyyy/MM/dd hh:mm"
-        let selectTime = "2020/4/21 03:00"
+        let selectTime = "2020/4/25 03:00"
         let nextTime = formatters.date(from: selectTime)
         if let interval = nextTime?.timeIntervalSince(Date()){
             let t = RepeatingTimer(timeInterval: interval)
@@ -240,11 +257,7 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
             t.resume()
         }
-        
-        
     }
-    
-    
     //MARK: - defaults method
 
     var dayPassed :Int{
@@ -260,25 +273,10 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
             defaults.bool(forKey: "doneToday")
         }
         set{
-            blurIfDone(if: newValue)
             defaults.set(newValue, forKey: "doneToday")
         }
     }
-    //MARK: - blur user view method
-    func blurIfDone(if done : Bool){
-        let blurView = UIView()
-        let doneLabel = UILabel()
-        blurView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        blurView.backgroundColor = #colorLiteral(red: 0.004888398107, green: 0, blue: 0.1756066084, alpha: 1)
-        doneLabel.text = "You have already finished the Chanllenge today."
-        doneLabel.textColor = .white
-        blurView.addSubview(doneLabel)
-        if done == true{
-            view.addSubview(blurView)
-        }else{
-            blurView.isHidden = true
-        }
-    }
+    
 
     //MARK: - level determine
     func leveldetermine(day: Int) -> [String]{
@@ -322,6 +320,7 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
         let url = imageUrls?.appendingPathComponent("photoArray.txt")
         let array = photoArray
         (array as NSArray).write(to: url!, atomically: true)
+        showAlbum()
     }
     func showAlbum(){
         let imagePicker = UIImagePickerController()
@@ -334,15 +333,33 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
 extension ProgramViewController : sentBackData{
     func dismissBack(sendData: String) {
         warmButton.titleLabel?.numberOfLines = 0
- 
+
         warmButton.setTitle(sendData, for: .normal)
-        if warmButton.currentTitle! == "Finish, Good job!"{
+        if warmButton.currentTitle! == "   Finished!"{
             warmButton.isUserInteractionEnabled = false
+            warmButton.tintColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
         }else{
-            warmButton.setImage(UIImage(), for: .normal)
             warmButton.isUserInteractionEnabled = true
             
         }
     }
     
+}
+@available(iOS 13.0, *)
+extension ProgramViewController : lastExercise{
+    func trainingStaus(status: Float) {
+        trainProgressBar.progress = status
+        progressLabel.text = String(Int(status*100)) + " %"
+        if status == 1 {
+            trainButton.setTitle("   Finished!", for: .normal)
+            trainButton.isUserInteractionEnabled = false
+            trainButton.tintColor = #colorLiteral(red: 0.02102893405, green: 0.5583514571, blue: 0.3434379995, alpha: 1)
+        }else if status == 0 {
+            trainButton.setTitle(part[0], for: .normal)
+            trainButton.isUserInteractionEnabled = true
+        }else{
+            trainButton.setTitle("Click to continue", for: .normal)
+            trainButton.isUserInteractionEnabled = true
+        }
+    }
 }
