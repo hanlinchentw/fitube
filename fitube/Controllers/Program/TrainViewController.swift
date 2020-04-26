@@ -83,7 +83,14 @@ class TrainViewController: UIViewController {
         NSLayoutConstraint(item: nextOneButton!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         
     }
-
+    var test = true
+    override func viewDidAppear(_ animated: Bool) {
+        if test {
+            performSegue(withIdentifier:"trainStarted", sender: self)
+            test = false
+        }
+        
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "trainStarted"{

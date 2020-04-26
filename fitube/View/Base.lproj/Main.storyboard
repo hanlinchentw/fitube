@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ywj-3D-eZx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XWM-Vp-hko">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -1125,7 +1125,7 @@
                         <outletCollection property="imageArray" destination="Lgr-gF-wzJ" collectionClass="NSMutableArray" id="gb7-fi-8ZU"/>
                         <outletCollection property="imageArray" destination="hi9-xd-9ya" collectionClass="NSMutableArray" id="C8D-Uh-whG"/>
                         <outletCollection property="imageArray" destination="uqZ-mK-kpj" collectionClass="NSMutableArray" id="sed-sR-gQG"/>
-                        <segue destination="X9V-gc-0yF" kind="show" identifier="startTraining" id="yHI-I7-VOW"/>
+                        <segue destination="ISL-h2-9To" kind="show" identifier="startTraining" id="EZO-zh-zEv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2b-48-sWl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1137,7 +1137,7 @@
             <objects>
                 <viewController id="X9V-gc-0yF" customClass="PopUpViewController" customModule="fitube" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CUM-g1-1AQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ce-rW-4wW">
@@ -1154,40 +1154,23 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dmZ-zZ-gwY">
-                                <rect key="frame" x="0.0" y="173" width="414" height="305"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zIc-5R-9Zh">
+                                <rect key="frame" x="-1244" y="434" width="2901.3333333333335" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="exerciseCell" rowHeight="100" id="1jd-HY-OgT" customClass="ExerciseTableViewCell" customModule="fitube" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1jd-HY-OgT" id="Q6g-W5-l2z">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dumbbell press" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhg-Hh-jWK" userLabel="exerciseLabel">
-                                                    <rect key="frame" x="186" y="40" width="120" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Dumbbell press" translatesAutoresizingMaskIntoConstraints="NO" id="y4g-vP-mHg" userLabel="exerciseImage">
-                                                    <rect key="frame" x="20" y="0.0" width="123" height="100"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="exerciseImage" destination="y4g-vP-mHg" id="7Jv-ZP-Cyk"/>
-                                            <outlet property="exerciseLabel" destination="rhg-Hh-jWK" id="Yrs-BC-L6P"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">nmjhb89ijhuijhuijbhjnbjnmkiujmkijnmkoijmkijmkijmkijmkijnmkijmkloijm,kloijm,nmkjhgbv nmjhgvbnhgvbnjhgbvnjhgbnjiuyhgbnmjkiuyhnjkiuyhnmjkiuhbnjkiuhnjkiuyhnmkiuyhbnmkiuhbnmkiuhbnmkiuhbnmjkjhnmjkiuhbnmkjhnmkjhnmjkjuhnjkiujhnmkiujhmkoiujhnmkiuhjkiujm,njhbnm</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="24" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5p-Mc-IQw">
-                                <rect key="frame" x="172" y="589" width="71" height="22"/>
+                                <rect key="frame" x="172" y="687" width="71" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.1037167344" blue="0.2383016704" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="  Kill It!" image="flame.fill" catalog="system">
@@ -1209,15 +1192,14 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="exerciseTabelView" destination="dmZ-zZ-gwY" id="DEz-dx-zRj"/>
+                        <outlet property="exerciseLabel" destination="zIc-5R-9Zh" id="lsL-ZS-div"/>
                         <outlet property="startButton" destination="x5p-Mc-IQw" id="CB0-rf-CET"/>
                         <outlet property="titleLabel" destination="8Ce-rW-4wW" id="296-nO-oNO"/>
-                        <segue destination="ISL-h2-9To" kind="show" identifier="trainStarted" id="wiy-5q-UFB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2wy-9C-8kY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4919" y="-561"/>
+            <point key="canvasLocation" x="6469.5652173913049" y="-524.33035714285711"/>
         </scene>
         <!--Train View Controller-->
         <scene sceneID="udZ-vv-gWj">
@@ -1307,12 +1289,13 @@
                         <outlet property="progressLabel" destination="G1y-pM-8ul" id="1xn-hh-ZTt"/>
                         <outlet property="remainingSet" destination="iFy-2K-Hji" id="PS5-Ih-9bz"/>
                         <outlet property="setProgress" destination="anc-RC-oDT" id="QSW-ta-9UO"/>
+                        <segue destination="X9V-gc-0yF" kind="presentation" identifier="trainStarted" id="U8c-VO-tru"/>
                         <segue destination="wes-9A-Tt7" kind="presentation" identifier="rest" modalPresentationStyle="fullScreen" id="HqD-Dc-0mv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lG7-OA-eSX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5736" y="-910"/>
+            <point key="canvasLocation" x="4918.840579710145" y="-561.16071428571422"/>
         </scene>
         <!--Warmup View Controller-->
         <scene sceneID="yUV-n4-ZtJ">
@@ -1675,7 +1658,6 @@
         <image name="9.alt.square" catalog="system" width="64" height="56"/>
         <image name="Beginner" width="1052" height="1860"/>
         <image name="Dumbbell incline press" width="1200" height="846"/>
-        <image name="Dumbbell press" width="1200" height="848"/>
         <image name="Wulong" width="816" height="1224"/>
         <image name="cardio" width="992" height="656"/>
         <image name="checkmark" catalog="system" width="64" height="56"/>

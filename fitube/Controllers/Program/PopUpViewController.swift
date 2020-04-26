@@ -1,21 +1,13 @@
-//
-//  PopUpViewController.swift
-//  fitube
-//
-//  Created by 陳翰霖 on 2020/4/18.
-//  Copyright © 2020 陳翰霖. All rights reserved.
-//
-
 import UIKit
 
-class PopUpViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+class PopUpViewController: UIViewController {
 
     var trainingNote :[String]?
   
     
     
-    @IBOutlet weak var exerciseTabelView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var exerciseLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
     override var prefersStatusBarHidden: Bool {
@@ -24,23 +16,30 @@ class PopUpViewController: UIViewController, UITableViewDataSource,UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        exerciseTabelView.dataSource = self
-        exerciseTabelView.delegate = self
-        exerciseTabelView.rowHeight = view.frame.height/10
-        
-        
-        
-        
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = true
-        
+        exerciseLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         startButton.translatesAutoresizingMaskIntoConstraints = false
         
-        
-       
+        exerciseLabel.text = "   Exercise:\n"
+        if let exercise = trainingNote {
+            titleLabel.text = exercise[0]
+            for n in 1...(exercise.count-1){
+                exerciseLabel.text?.append("   \(n). \(exercise[n])\n")
+            }
+            exerciseLabel.text?.append("\n  Total sets : 4\n  Reps: 8 ~ 12")
+        }
+        exerciseLabel.layer.cornerRadius = 10
+        exerciseLabel.layer.borderWidth = 5
+        exerciseLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        exerciseLabel.layer.backgroundColor = #colorLiteral(red: 0.2303010523, green: 0.4739870429, blue: 0.7338336706, alpha: 1)
+        NSLayoutConstraint(item: exerciseLabel!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: exerciseLabel!, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: exerciseLabel!, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.45, constant: 0).isActive = true
+        NSLayoutConstraint(item: exerciseLabel!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.9, constant: 0).isActive = true
   
 
         NSLayoutConstraint(item: titleLabel!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
@@ -63,26 +62,6 @@ class PopUpViewController: UIViewController, UITableViewDataSource,UITableViewDe
         dismiss(animated: true, completion: nil)
     }
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trainingNote!.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseCell", for: indexPath) as? ExerciseTableViewCell else {
-            return UITableViewCell()
-        }
-        if indexPath.row >= trainingNote!.count-1{
-            cell.exerciseImage.image = UIImage(named: trainingNote![indexPath.row])
-            cell.exerciseLabel.text = trainingNote![indexPath.row]
-        }else{
-            cell.exerciseImage.image = UIImage(named: trainingNote![indexPath.row+1])
-            cell.exerciseLabel.text = trainingNote![indexPath.row+1]
-        }
-        
-        return cell
-    }
     
 
    

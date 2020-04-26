@@ -101,7 +101,7 @@ class WarmupViewController: UIViewController {
         playButton.setImage(UIImage(systemName: "play.circle.fill"), for: .normal)
         playButton.tintColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1)
         
-        let alert = UIAlertController(title: "Skip", message: "Sure you want to skip?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Skip", message: "Are you sure to skip?", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Yes", style: .default) { (sureAction) in
             self.defaults.set(self.tenmins, forKey: "timeRemaining")
             
