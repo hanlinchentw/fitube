@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,7 @@
 		B6C5C741244DA7FD0017D3AC /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5C740244DA7FD0017D3AC /* ContainerViewController.swift */; };
 		B6D5866E2452F162002F4E84 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5866D2452F162002F4E84 /* HomeTabViewController.swift */; };
 		B6D58670245468B3002F4E84 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D5866F245468B3002F4E84 /* VideoViewController.swift */; };
+		B6DBEBED24556644007121A5 /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DBEBEC24556644007121A5 /* ExerciseTableViewCell.swift */; };
 		B6DF3642244ECBDA008B8B32 /* FourPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF3641244ECBDA008B8B32 /* FourPageViewController.swift */; };
 		B6DF3644244EE733008B8B32 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF3643244EE733008B8B32 /* ListViewController.swift */; };
 		B6FE8A67244FF5B7004B3AFC /* AdviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE8A66244FF5B7004B3AFC /* AdviceViewController.swift */; };
@@ -80,6 +81,7 @@
 		B6C5C740244DA7FD0017D3AC /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		B6D5866D2452F162002F4E84 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		B6D5866F245468B3002F4E84 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		B6DBEBEC24556644007121A5 /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
 		B6DF3641244ECBDA008B8B32 /* FourPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourPageViewController.swift; sourceTree = "<group>"; };
 		B6DF3643244EE733008B8B32 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B6FE8A66244FF5B7004B3AFC /* AdviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				B641C9E32449A5A800BFAC1E /* TrainViewController.swift */,
 				B60DC67D2451AC3A0085F1E8 /* RestViewController.swift */,
 				B641C9EB244B08EC00BFAC1E /* PopUpViewController.swift */,
+				B6DBEBEC24556644007121A5 /* ExerciseTableViewCell.swift */,
 			);
 			path = Program;
 			sourceTree = "<group>";
@@ -258,7 +261,6 @@
 				B61948742442B737005D7675 /* Sources */,
 				B61948752442B737005D7675 /* Frameworks */,
 				B61948762442B737005D7675 /* Resources */,
-				07DF32BE16FBBB62CB2F6257 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,23 +318,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07DF32BE16FBBB62CB2F6257 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fitube/Pods-fitube-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-fitube/Pods-fitube-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fitube/Pods-fitube-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4A732BE416EBE50428B0DADA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,6 +364,7 @@
 				B6186EA7244D7671000DB561 /* TimerBackground.swift in Sources */,
 				B6C5C73F244DA22F0017D3AC /* PageViewController.swift in Sources */,
 				B611336E24458EBE0000B1B0 /* SettingViewController.swift in Sources */,
+				B6DBEBED24556644007121A5 /* ExerciseTableViewCell.swift in Sources */,
 				B641C9EC244B08EC00BFAC1E /* PopUpViewController.swift in Sources */,
 				B621EDD52446D64600C3C1E0 /* ReportViewController.swift in Sources */,
 				B641C9DC24496E4900BFAC1E /* levelClassifyViewController.swift in Sources */,

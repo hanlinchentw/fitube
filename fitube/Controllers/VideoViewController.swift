@@ -14,6 +14,7 @@ class VideoViewController: UITabBarController {
     private var videoView = UIView()
     private var downloadButton = UIButton()
     var videosource  : [UIImage]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -46,7 +47,7 @@ class VideoViewController: UITabBarController {
     var url : URL?
     private func createVideo() {
         guard let source = videosource else {
-            fatalError("Wrong sorce, check if it's nil.")
+            fatalError("Wrong source, check if it's nil.")
         }
         let settings = CXEImagesToVideo.videoSettings(codec: AVVideoCodecType.h264.rawValue, width: (source[0].cgImage?.width)!, height: (source[0].cgImage?.height)!)
         let movieMaker = CXEImagesToVideo(videoSettings: settings)
@@ -62,9 +63,7 @@ class VideoViewController: UITabBarController {
                 playerLayer.frame = self.videoView.bounds
                 avPlayer.play()
                 self.url = fileURL
-//                DispatchQueue.main.async {
-//                    UISaveVideoAtPathToSavedPhotosAlbum(fileURL.path, nil, nil, nil)
-//                }
+     
             }
         }
     }

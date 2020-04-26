@@ -36,8 +36,6 @@ class RestViewController: UIViewController {
         NSLayoutConstraint(item: timeCounterLabel!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: view.frame.height/30).isActive = true
         NSLayoutConstraint(item: timeCounterLabel!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -view.frame.height/30).isActive = true
         
-        
-        addTimeButton.isHidden = true
         addTimeButton.translatesAutoresizingMaskIntoConstraints = false
         addTimeButton.backgroundColor = #colorLiteral(red: 1, green: 0.9195527434, blue: 0, alpha: 1)
         addTimeButton.layer.cornerRadius = 15
@@ -45,11 +43,9 @@ class RestViewController: UIViewController {
         NSLayoutConstraint(item: addTimeButton!, attribute: .top, relatedBy: .equal, toItem: timeCounterLabel, attribute: .bottom, multiplier: 1, constant: view.frame.height/100).isActive = true
         NSLayoutConstraint(item: addTimeButton!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: view.frame.width/10).isActive = true
       
-        skipButton.isHidden = true
         skipButton.translatesAutoresizingMaskIntoConstraints = false
         skipButton.backgroundColor = #colorLiteral(red: 0.5012164116, green: 0.9243927598, blue: 0.2496780753, alpha: 1)
         skipButton.layer.cornerRadius = 15
-
         NSLayoutConstraint(item: skipButton!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: view.frame.height/20).isActive = true
         NSLayoutConstraint(item: skipButton!, attribute: .top, relatedBy: .equal, toItem: timeCounterLabel, attribute: .bottom, multiplier: 1, constant: view.frame.height/100).isActive = true
         NSLayoutConstraint(item: skipButton!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -view.frame.width/10).isActive = true

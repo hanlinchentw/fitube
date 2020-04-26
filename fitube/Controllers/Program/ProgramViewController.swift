@@ -195,8 +195,8 @@ class ProgramViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "startTraining"{
-            let destinationVC = segue.destination as! TrainViewController
-            destinationVC.trainingSection = part
+            let destinationVC = segue.destination as! PopUpViewController
+            destinationVC.trainingNote = part
             destinationVC.delegate = self
         } else if segue.identifier == "warmup"{
             let destinationVC = segue.destination as! WarmupViewController

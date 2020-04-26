@@ -52,6 +52,8 @@ class TrainViewController: UIViewController {
         exerciseLabel.font.withSize(40*view.frame.height/725)
         NSLayoutConstraint(item: exerciseLabel!, attribute: .top, relatedBy: .equal, toItem: exampleImage, attribute: .bottom, multiplier: 1, constant: view.frame.height/20).isActive = true
         NSLayoutConstraint(item: exerciseLabel!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: exerciseLabel!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: exerciseLabel!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
         
         setProgress.translatesAutoresizingMaskIntoConstraints = false
         setProgress.progress = 0
@@ -81,14 +83,7 @@ class TrainViewController: UIViewController {
         NSLayoutConstraint(item: nextOneButton!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         
     }
-    var test = true
-    override func viewDidAppear(_ animated: Bool) {
-        if test {
-            performSegue(withIdentifier:"trainStarted", sender: self)
-            test = false
-        }
-        
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "trainStarted"{

@@ -60,12 +60,12 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
         NSLayoutConstraint(item: videoGeneratorButton!, attribute: .top, relatedBy: .equal, toItem: borderView, attribute: .bottom, multiplier: 1, constant: view.frame.height/10).isActive = true
         NSLayoutConstraint(item: videoGeneratorButton!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         
-//        for n in 0...29{
-//            dayButtonCollection[n].setBackgroundImage(UIImage(systemName:"\(n+1).square"), for: .normal)
-//            dayButtonCollection[n].isUserInteractionEnabled = false
-//            NSLayoutConstraint(item: dayButtonCollection[n], attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1/8, constant: 0).isActive = true
-//            NSLayoutConstraint(item: dayButtonCollection[n], attribute: .width, relatedBy: .equal, toItem:dayButtonCollection[n] , attribute: .height, multiplier: 1, constant: 0).isActive = true
-//        }
+        for n in 0...29{
+            dayButtonCollection[n].setBackgroundImage(UIImage(systemName:"\(n+1).square"), for: .normal)
+            dayButtonCollection[n].isUserInteractionEnabled = false
+            NSLayoutConstraint(item: dayButtonCollection[n], attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1/8, constant: 0).isActive = true
+            NSLayoutConstraint(item: dayButtonCollection[n], attribute: .width, relatedBy: .equal, toItem:dayButtonCollection[n] , attribute: .height, multiplier: 1, constant: 0).isActive = true
+        }
         let dayPassed = defaults.integer(forKey: "passedDay")
         finishedDay.text = String(dayPassed)
         
@@ -86,7 +86,7 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
                 }
             }
         
-
+        loadFile()
     }
     
     
@@ -113,7 +113,6 @@ class ReportViewController: UIViewController, UINavigationControllerDelegate{
     
     
     @IBAction func videoGenerated(_ sender: UIButton) {
-        loadFile()
         performSegue(withIdentifier: "playVideo", sender: self)
     }
     private func loadFile(){
