@@ -24,7 +24,7 @@ class RestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(setTimeLeft), userInfo: nil, repeats: true)
-        view.backgroundColor = UIColor(gradientStyle:.radial, withFrame:view.frame, andColors:[#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1),#colorLiteral(red: 0.1785352826, green: 0.2611154318, blue: 0.3822084665, alpha: 1)])
+        
         
         //MARK: - Constraints
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

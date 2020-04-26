@@ -7,8 +7,7 @@ target 'fitube' do
 
   # Pods for fitube
 
-
 pod 'IQKeyboardManagerSwift'
-pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'
+#pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'
 
 end

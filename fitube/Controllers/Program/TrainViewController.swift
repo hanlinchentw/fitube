@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ChameleonFramework
+
 class TrainViewController: UIViewController {
     
     var trainingSection : [String]?
