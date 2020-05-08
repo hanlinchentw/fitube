@@ -20,13 +20,7 @@ class levelClassifyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for button in levelButton{
-            button.backgroundColor = .gray
-            button.layer.cornerRadius = 10
-            NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal,
-                               toItem: view, attribute: .width, multiplier: 0.8, constant: 0).isActive = true
-            NSLayoutConstraint(item: button, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        }
+        setupView()
     
         levelDetect = levelDetectors.levelUpdate()
 
@@ -43,31 +37,32 @@ class levelClassifyViewController: UIViewController {
     var temp  = 0
     @IBAction func levelBurrtonPressed(_ sender: UIButton) {
         let eagle = UsersLevel(context:contexts)
+        
         if sender.backgroundColor == .gray{
             let alert = UIAlertController(title: "Not the recommendation!", message: "Step by step is key of success.", preferredStyle: .alert)
-            let action1 = UIAlertAction(title: "I don't mind", style: .default) { (showOff) in
-                switch sender.currentTitle! {
-                case self.levelButton[0].currentTitle:
+            let action1 = UIAlertAction(title: "I don't mind", style: .default) { _ in
+                switch sender {
+                case self.levelButton[0]:
                     self.temp = 0
                     eagle.level = 1
                     eagle.levelDescription = self.levelButton[0].currentTitle
-                case self.levelButton[1].currentTitle:
+                case self.levelButton[1]:
                     self.temp = 1
                     eagle.level = 2
                     eagle.levelDescription = self.levelButton[1].currentTitle
-                case self.levelButton[2].currentTitle:
+                case self.levelButton[2]:
                     self.temp = 2
                     eagle.level = 3
                     eagle.levelDescription = self.levelButton[2].currentTitle
-                case self.levelButton[3].currentTitle:
+                case self.levelButton[3]:
                     self.temp = 3
                     eagle.level = 4
                     eagle.levelDescription = self.levelButton[3].currentTitle
                 default:
                     fatalError()
                 }
-                self.save()
                 self.performSegue(withIdentifier: "levelDetermined", sender: self)
+                self.save()
             }
             let action2 = UIAlertAction(title: "Wrong click", style: .default, handler: nil)
             alert.addAction(action1)
@@ -88,6 +83,7 @@ class levelClassifyViewController: UIViewController {
             destination!.levelSend = levelButton[temp].currentTitle
         }
     }
+//MARK: - Core data management
     
     func save(){
         do{
@@ -106,4 +102,19 @@ class levelClassifyViewController: UIViewController {
         catch { print(error) }
     }
 
+}
+
+//MARK: - constraints
+extension levelClassifyViewController{
+    
+    func setupView(){
+        for button in levelButton{
+            button.backgroundColor = .gray
+            button.layer.cornerRadius = 10
+            button.snp.makeConstraints { (make) in
+                make.width.equalTo(view.snp.width).multipliedBy(0.8)
+                make.centerX.equalTo(view.snp.centerX)
+            }
+        }
+    }
 }

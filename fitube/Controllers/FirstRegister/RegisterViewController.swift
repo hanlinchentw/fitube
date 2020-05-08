@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SnapKit
 
 class RegisterViewController: UIViewController {
 
@@ -17,67 +18,52 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
-    
     @IBOutlet weak var titleStack: UIStackView!
     @IBOutlet weak var textFieldStack: UIStackView!
     
     
-    
-    
-    let frequencyArray = ["0 /week","1~3 /week","3~5 /week","5~7 /week"]
-    var picker = UIPickerView()
-    
-    let contexts = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-    let user = [Usersinfo]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        textFieldStack.translatesAutoresizingMaskIntoConstraints = false
-        titleStack.translatesAutoresizingMaskIntoConstraints = false
-        print (filePath)
         picker.dataSource = self
         picker.delegate = self
         trainFrequency.inputView = picker
         let tap = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
         view.addGestureRecognizer(tap)
+        setupView()
+        print (filePath)
         
-        NSLayoutConstraint(item: titleStack!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: titleStack!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: view.frame.height/20).isActive = true
-        NSLayoutConstraint(item: titleStack!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: view.frame.width/20).isActive = true
-        NSLayoutConstraint(item: titleStack!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -view.frame.width/20).isActive = true
-        
-        textFieldStack.spacing = view.frame.height/20
-        NSLayoutConstraint(item: textFieldStack!, attribute: .top, relatedBy: .equal, toItem: titleStack, attribute: .bottom, multiplier: 1, constant: view.frame.height/20).isActive = true
-        NSLayoutConstraint(item: textFieldStack!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: textFieldStack!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.6, constant: 0).isActive = true
-        
-        doneButton.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.layer.cornerRadius = 20
-        NSLayoutConstraint(item: doneButton!, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.07, constant: 0).isActive = true
-        NSLayoutConstraint(item: doneButton!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.5, constant: 0).isActive = true
-        NSLayoutConstraint(item: doneButton!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: doneButton!, attribute: .top, relatedBy: .equal, toItem: trainFrequency, attribute: .bottom, multiplier: 1, constant: view.frame.height/20).isActive = true
     }
     
+    
     @objc func closeKeyboard(){
-    self.view.endEditing(true)
+        self.view.endEditing(true)
     }
+    
     
     @IBAction func DoneButtonPressed(_ sender: UIButton) {
         let newUser = Usersinfo(context: contexts)
+        
         if let namee = nameTextField.text, let age = Int32(ageTextField.text!),
             let height = Double(heightTextField.text!), let weight = Double(weightTextField.text!),
             let trFrequency = trainFrequency.text{
+            
                 newUser.name = namee
                 newUser.age = age
                 newUser.height = height
                 newUser.weight = weight
                 newUser.frequency = trFrequency
                 
-                performSegue(withIdentifier: "doneRegister", sender: self)
+                
+            let alert = UIAlertController(title: "Save", message: "Please check your Info again, make sure you type the right one.", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "OK", style: .default) { (action) in
+                self.performSegue(withIdentifier: "doneRegister", sender: self)
+                self.save()
+            }
+            let action2 = UIAlertAction(title: "Check again",style : .default, handler: nil)
+            alert.addAction(action1)
+            alert.addAction(action2)
+            present(alert, animated: true, completion: nil)
             
-                save()
         }else{
             let alert = UIAlertController(title: "Info. incomplete", message: "Your information is incomplete.", preferredStyle: .alert)
             let action = UIAlertAction(title: "Check again",style : .default, handler: nil)
@@ -91,6 +77,10 @@ class RegisterViewController: UIViewController {
     
     
     //MARK: - Data manipulation Method
+    private let contexts = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    private let user = [Usersinfo]()
+    
     func save(){
         do{
             deleteAllData(entity:"Usersinfo")
@@ -111,8 +101,11 @@ class RegisterViewController: UIViewController {
     }
 }
     
-
+//MARK: -  pickerView
+private var picker = UIPickerView()
+private let frequencyArray = ["0 /week","1~3 /week","3~5 /week","5~7 /week"]
 extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -125,4 +118,32 @@ extension RegisterViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         trainFrequency.text = frequencyArray[row]
     }
+}
+//MARK: - constraints
+extension RegisterViewController {
+    func setupView(){
+        titleStack.snp.makeConstraints { (make) in
+            titleStack.translatesAutoresizingMaskIntoConstraints = false
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.snp.top).offset(view.frame.height/20)
+            make.left.equalTo(self.view.snp.left).offset(view.frame.height/20)
+            make.right.equalTo(self.view.snp.right).offset(-view.frame.height/20)
+        }
+        textFieldStack.snp.makeConstraints { (make) in
+            textFieldStack.translatesAutoresizingMaskIntoConstraints = false
+            textFieldStack.spacing = view.frame.height/20
+            make.top.equalTo(titleStack.snp.bottom).offset(view.frame.height/20)
+            make.centerX.equalTo(view.snp.centerX)
+            make.width.equalTo(view.snp.width).multipliedBy(0.6)
+        }
+        doneButton.snp.makeConstraints { (make) in
+            doneButton.translatesAutoresizingMaskIntoConstraints = false
+            doneButton.layer.cornerRadius = 20
+            make.height.equalTo(view.snp.height).multipliedBy(0.07)
+            make.width.equalTo(view.snp.width).multipliedBy(0.5)
+            make.centerX.equalTo(view.snp.centerX)
+            make.top.equalTo(trainFrequency.snp.bottom).offset(view.frame.height/20)
+        }
+    }
+    
 }

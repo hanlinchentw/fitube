@@ -16,6 +16,8 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
         guard let safelevel = levelSend else {
             fatalError()
         }
@@ -25,5 +27,6 @@ class ListViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.tintColor = .black
+        navigationItem.setHidesBackButton(true, animated: false)
     }
 }

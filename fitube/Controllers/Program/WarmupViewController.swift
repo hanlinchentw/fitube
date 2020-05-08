@@ -16,57 +16,24 @@ class WarmupViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     
     @IBOutlet weak var playButton: UIButton!
-    var tenmins = 600.0
-    var timeEnd = Date(timeIntervalSinceNow:600)
-    var formatter = DateFormatter()
-    var timer =  Timer()
-    var isPaused = true
-    var saveTime = "10 : 00"
+    private var tenmins = 600.0
+    private var timeEnd = Date(timeIntervalSinceNow:600)
+    private var formatter = DateFormatter()
+    private var timer =  Timer()
+    private var isPaused = true
+    private var saveTime = "10 : 00"
     
     let defaults = UserDefaults.standard
     
     
     var delegate : sentBackData?
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.isHidden = true
-        
+    
         tenmins = defaults.double(forKey: "timeRemaining")
         timeEnd = Date(timeIntervalSinceNow: defaults.double(forKey: "timeRemaining"))
         
-        runningPic.translatesAutoresizingMaskIntoConstraints = false
-        runningPic.layer.borderWidth = 3
-        runningPic.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        NSLayoutConstraint(item: runningPic!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: runningPic!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: runningPic!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: runningPic!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: view.frame.height/10).isActive = true
-       
-        playButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: playButton!, attribute: .top, relatedBy: .equal, toItem: runningPic, attribute: .bottom, multiplier: 1, constant: view.frame.height/20).isActive = true
-        NSLayoutConstraint(item: playButton!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        
-        timeCounterLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeCounterLabel.layer.borderWidth = 3
-        timeCounterLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        timeCounterLabel.layer.backgroundColor = #colorLiteral(red: 0.2851659656, green: 0.4760053754, blue: 0.7123829722, alpha: 1)
-        timeCounterLabel.layer.cornerRadius = 10
-        NSLayoutConstraint(item: timeCounterLabel!, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.1, constant: 0).isActive = true
-        NSLayoutConstraint(item: timeCounterLabel!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.6, constant: 0).isActive  = true
-        NSLayoutConstraint(item: timeCounterLabel!, attribute: .top, relatedBy: .equal, toItem: playButton, attribute: .bottom, multiplier: 1, constant: view.frame.height/20).isActive = true
-        NSLayoutConstraint(item: timeCounterLabel!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-
-        skipButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint(item: skipButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: -view.frame.height/10).isActive = true
-
-        NSLayoutConstraint(item: skipButton!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        
-        
+        setupView()
     }
     func setView(view: UIView, hidden: Bool) {
         UIView.transition(with: view, duration: 1.0, options: .transitionCrossDissolve, animations: {
@@ -181,5 +148,41 @@ extension String {
             interval += (Double(part) ?? 0) * pow(Double(60), Double(index))
         }
         return interval
+    }
+}
+
+
+extension WarmupViewController{
+    fileprivate func setupView(){
+        navigationController?.navigationBar.isHidden = true
+        
+        runningPic.snp.makeConstraints { (make) in
+            runningPic.translatesAutoresizingMaskIntoConstraints = false
+            runningPic.layer.borderWidth = 3
+            runningPic.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            make.top.left.right.equalTo(self.view)
+            make.bottom.equalTo(view.snp.centerY).offset(view.frame.height/10)
+        }
+        playButton.snp.makeConstraints { (make) in
+            playButton.translatesAutoresizingMaskIntoConstraints = false
+            make.top.equalTo(runningPic.snp.bottom).offset(view.frame.height/20)
+            make.centerX.equalTo(view)
+        }
+        timeCounterLabel.snp.makeConstraints { (make) in
+            timeCounterLabel.translatesAutoresizingMaskIntoConstraints = false
+            timeCounterLabel.layer.borderWidth = 3
+            timeCounterLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            timeCounterLabel.layer.backgroundColor = #colorLiteral(red: 0.2851659656, green: 0.4760053754, blue: 0.7123829722, alpha: 1)
+            timeCounterLabel.layer.cornerRadius = 10
+            make.height.equalTo(view).multipliedBy(0.1)
+            make.width.equalTo(view).multipliedBy(0.6)
+            make.top.equalTo(playButton.snp.bottom).offset(view.frame.height/20)
+            make.centerX.equalTo(view)
+        }
+        skipButton.snp.makeConstraints { (make) in
+            skipButton.translatesAutoresizingMaskIntoConstraints = false
+            make.bottom.equalTo(view).offset(-view.frame.height/10)
+            make.centerX.equalTo(view)
+        }
     }
 }

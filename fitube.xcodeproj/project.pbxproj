@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -188,6 +188,17 @@
 			path = Program;
 			sourceTree = "<group>";
 		};
+		B64F551A2464495200B7C1AE /* level */ = {
+			isa = PBXGroup;
+			children = (
+				B641C9E92449B4FC00BFAC1E /* Beginner.swift */,
+				B6B78557244BF4AF008C2518 /* Intermediate.swift */,
+				B6B78559244BF9BC008C2518 /* Advanced.swift */,
+				B6B7855B244BF9C5008C2518 /* Beast.swift */,
+			);
+			name = level;
+			sourceTree = "<group>";
+		};
 		B651C3372445CBA400123412 /* Programmaticlly */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,10 +224,7 @@
 				B65EE32A2448B4BD001823FA /* Users1.xcdatamodeld */,
 				B641C9DD2449705A00BFAC1E /* levelDetector.swift */,
 				B6B7855D244C319D008C2518 /* NoteforUser.swift */,
-				B641C9E92449B4FC00BFAC1E /* Beginner.swift */,
-				B6B78557244BF4AF008C2518 /* Intermediate.swift */,
-				B6B78559244BF9BC008C2518 /* Advanced.swift */,
-				B6B7855B244BF9C5008C2518 /* Beast.swift */,
+				B64F551A2464495200B7C1AE /* level */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,6 +269,7 @@
 				B61948742442B737005D7675 /* Sources */,
 				B61948752442B737005D7675 /* Frameworks */,
 				B61948762442B737005D7675 /* Resources */,
+				4A3F61DDC6AFBD39CD0CBC7A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -318,6 +327,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A3F61DDC6AFBD39CD0CBC7A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fitube/Pods-fitube-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fitube/Pods-fitube-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fitube/Pods-fitube-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4A732BE416EBE50428B0DADA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

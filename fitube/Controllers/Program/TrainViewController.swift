@@ -29,62 +29,12 @@ class TrainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        
-        numofExercise = defaluts.integer(forKey:"currentExercise")
-        print(numofExercise)
-        if let exercise = trainingSection{
-            exerciseLabel.text = exercise[numofExercise]
-            exampleImage.image = UIImage(named: exercise[numofExercise])
+        DispatchQueue.main.async {
+            self.setupView()
         }
         
-        //MARK: -  Constraints
-        exampleImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: exampleImage!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: exampleImage!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: exampleImage!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: exampleImage!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
-        
-        
-        exerciseLabel.translatesAutoresizingMaskIntoConstraints = false
-        exerciseLabel.font.withSize(40*view.frame.height/725)
-        NSLayoutConstraint(item: exerciseLabel!, attribute: .top, relatedBy: .equal, toItem: exampleImage, attribute: .bottom, multiplier: 1, constant: view.frame.height/20).isActive = true
-        NSLayoutConstraint(item: exerciseLabel!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: exerciseLabel!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: exerciseLabel!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        
-        setProgress.translatesAutoresizingMaskIntoConstraints = false
-        setProgress.progress = 0
-        NSLayoutConstraint(item: setProgress!, attribute: .top, relatedBy: .equal, toItem: exerciseLabel, attribute: .bottom, multiplier: 1, constant: view.frame.height/40).isActive = true
-        NSLayoutConstraint(item: setProgress!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: setProgress!, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: view.frame.width/10).isActive = true
-        NSLayoutConstraint(item: setProgress!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: -view.frame.width/10).isActive = true
-        
-        progressLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: progressLabel!, attribute: .top, relatedBy: .equal, toItem: setProgress, attribute: .bottom, multiplier: 1, constant: view.frame.height/70).isActive = true
-        NSLayoutConstraint(item: progressLabel!, attribute: .trailing, relatedBy: .equal, toItem: setProgress, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        
-        remainingSet.translatesAutoresizingMaskIntoConstraints = false
-        remainingSet.font.withSize(30*view.frame.height/725)
-        NSLayoutConstraint(item: remainingSet!, attribute: .top, relatedBy: .equal, toItem: exerciseLabel, attribute: .bottom, multiplier: 1, constant: view.frame.height/10).isActive = true
-        NSLayoutConstraint(item: remainingSet!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-    
-        finishButton.translatesAutoresizingMaskIntoConstraints = false
-        finishButton.layer.cornerRadius = 20
-        NSLayoutConstraint(item: finishButton!, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.07, constant: 0).isActive = true
-        NSLayoutConstraint(item: finishButton!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.5, constant: 0).isActive = true
-        NSLayoutConstraint(item: finishButton!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: finishButton!, attribute: .top, relatedBy: .equal, toItem: remainingSet, attribute: .bottom, multiplier: 1, constant: view.frame.height/100).isActive = true
-        
-        nextOneButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint(item: nextOneButton!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: -view.frame.height/20).isActive = true
-        NSLayoutConstraint(item: nextOneButton!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         
     }
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "trainStarted"{
             let destinationVC =  segue.destination as! PopUpViewController
@@ -171,5 +121,63 @@ class TrainViewController: UIViewController {
         remainingSet.text = "Set \(numofSet)"
     }
 }
-
+extension TrainViewController{
+    
+    fileprivate func setupView(){
+        
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        
+        numofExercise = defaluts.integer(forKey:"currentExercise")
+        print(numofExercise)
+        if let exercise = trainingSection{
+            exerciseLabel.text = exercise[numofExercise]
+            exampleImage.image = UIImage(named: exercise[numofExercise])
+        }
+        
+        exampleImage.snp.makeConstraints { (make) in
+            exampleImage.translatesAutoresizingMaskIntoConstraints = false
+            make.top.left.right.centerX.equalToSuperview()
+        }
+        exerciseLabel.snp.makeConstraints { (make) in
+            exerciseLabel.translatesAutoresizingMaskIntoConstraints = false
+            exerciseLabel.font.withSize(40*view.frame.height/725)
+            make.top.equalTo(exampleImage.snp.bottom).offset(view.frame.height/20)
+            make.centerX.left.right.equalTo(view)
+        }
+        setProgress.snp.makeConstraints { (make) in
+            setProgress.translatesAutoresizingMaskIntoConstraints = false
+            setProgress.progress = 0
+            make.top.equalTo(exerciseLabel.snp.bottom).offset(view.frame.height/40)
+            make.centerX.equalTo(view)
+            make.left.right.equalTo(view).offset(view.frame.width/10)
+        }
+        progressLabel.snp.makeConstraints { (make) in
+            progressLabel.translatesAutoresizingMaskIntoConstraints = false
+            make.top.equalTo(setProgress.snp.bottom).offset(view.frame.height/70)
+            make.right.equalTo(setProgress)
+        }
+        remainingSet.snp.makeConstraints { (make) in
+            remainingSet.translatesAutoresizingMaskIntoConstraints = false
+            remainingSet.font.withSize(30*view.frame.height/725)
+            make.top.equalTo(exerciseLabel.snp.bottom).offset(view.frame.height/10)
+            make.centerX.equalToSuperview()
+        }
+        finishButton.snp.makeConstraints { (make) in
+            finishButton.translatesAutoresizingMaskIntoConstraints = false
+            finishButton.layer.cornerRadius = 20
+            make.height.equalTo(view).multipliedBy(0.07)
+            make.width.equalTo(view).multipliedBy(0.5)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(remainingSet.snp.bottom).offset(view.frame.height/100)
+        }
+        nextOneButton.snp.makeConstraints { (make) in
+            nextOneButton.translatesAutoresizingMaskIntoConstraints = false
+            make.bottom.equalTo(view).offset(-view.frame.height/20)
+            make.centerX.equalToSuperview()
+        }
+    }
+}
 
